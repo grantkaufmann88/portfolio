@@ -1,0 +1,857 @@
+[
+  {
+    "slug": "budget-ebike",
+    "title": "Budget e-bike conversion kit",
+    "category": "Electronics",
+    "summary": "Custom motor control, a printed hub motor, and a simple goal: make electric transportation more accessible.",
+    "year": "2023–2024",
+    "tools": [
+      "PCB design",
+      "Motor control",
+      "FDM printing",
+      "Embedded C++"
+    ],
+    "sections": [
+      {
+        "title": "The starting point",
+        "text": "I wanted to make electric transportation more affordable by converting a bicycle someone already owns. I set a materials-cost target below $150, with a stretch goal below $100, and split the kit into rider controls, a removable battery and electronics enclosure, and a motor."
+      },
+      {
+        "title": "Designing across disciplines",
+        "text": "I designed the control board, battery housing, mounting system, and experimental brushless motor. The electronics brought together a custom brushless speed controller, an Arduino-based prototype, Bluetooth communication, and a thumb throttle. PETG housings and TPU seals were part of the enclosure design; these were prototype design choices, not a certified ingress-protection rating."
+      },
+      {
+        "title": "Fifty boards, and a better process",
+        "text": "I initially manufactured the PCBs on my homemade CNC mill. Without solder mask, dense boards were difficult to assemble reliably. After more than 50 attempts, I stepped back and changed the process: outsourcing board fabrication and using integrated gate drivers. The lesson was to recognize when my tools had become the constraint."
+      },
+      {
+        "title": "What the prototype demonstrated",
+        "text": "Bench tests demonstrated motor control with a small brushless motor, back-EMF sensing, throttle input, and Bluetooth data exchange with an iPhone. I also built and tested an iron-filled PLA motor with a Halbach magnet arrangement. The printed motor turned, but heat softened the plastic under load. That thermal limitation kept it from being a finished, road-ready kit."
+      },
+      {
+        "title": "Where I would take it next",
+        "text": "The next step was to replace the printed stator with a conventional laminated metal core while keeping the custom electronics and enclosure. My 2024 component tally was $82.74 excluding the motor; that was a historical prototype estimate, not a retail price or a complete production bill of materials."
+      }
+    ],
+    "featured": true,
+    "brief": false,
+    "related": [
+      "desktop-cnc",
+      "custom-drives"
+    ],
+    "gallery": [
+      [
+        "controller-cad",
+        "CAD assembly of the custom control board."
+      ],
+      [
+        "cnc-milling",
+        "Manufacturing an early PCB on my homemade CNC mill."
+      ],
+      [
+        "ebike-electronics",
+        "An assembled prototype board and its wiring."
+      ],
+      [
+        "housing-cad",
+        "The removable battery and electronics housing in CAD."
+      ],
+      [
+        "motor-prototype",
+        "An early hand-wound printed motor prototype."
+      ],
+      [
+        "motor-stator",
+        "The iron-filled printed stator and copper windings."
+      ],
+      [
+        "wheel-motor",
+        "The experimental motor mounted to a bicycle wheel."
+      ]
+    ],
+    "links": [
+      [
+        "Watch the e-bike tests",
+        "https://youtu.be/4PtWCcJrGRE"
+      ]
+    ],
+    "role": "Independent project",
+    "image": "assets/images/wheel-motor.webp",
+    "imageAlt": "Grant’s hand-wound experimental hub motor mounted inside a bicycle wheel",
+    "imageType": "Prototype photograph",
+    "position": "50% 47%",
+    "metrics": [
+      [
+        "<$150",
+        "Materials-cost target"
+      ],
+      [
+        "50+",
+        "PCB iterations"
+      ],
+      [
+        "2023–24",
+        "Development period"
+      ]
+    ]
+  },
+  {
+    "slug": "desktop-cnc",
+    "title": "Desktop CNC / PCB mill",
+    "category": "Fabrication",
+    "summary": "Building the tool behind the projects: a compact, 3D-printed machine for milling custom circuit boards.",
+    "year": "2021–2023",
+    "tools": [
+      "CAD",
+      "3D printing",
+      "CNC machining",
+      "FlatCAM"
+    ],
+    "sections": [
+      {
+        "title": "A tool I could build myself",
+        "text": "I wanted a low-cost way to make circuit boards for my own projects. Building the mill became a project in its own right: mechanical design, fabrication, and learning what small-scale manufacturing could realistically do."
+      },
+      {
+        "title": "The first version taught me about rigidity",
+        "text": "My first design used inexpensive plated rods and resin-printed linear bearings. Friction, poor stability, and limited rigidity made it unsuitable for accurate PCB work. Subsequent versions improved the machine enough to produce boards for my electronics projects."
+      },
+      {
+        "title": "Useful capability, real limits",
+        "text": "The mill produced double-sided copper boards for the e-bike project. It also made the limits of my process clear: I could mill traces, but I could not add solder mask or reproduce all the features of professionally manufactured boards. Dense assemblies eventually justified outsourcing PCB fabrication."
+      },
+      {
+        "title": "Why this one matters",
+        "text": "Making my own manufacturing equipment changed how I design parts. I had to understand the relationship between accuracy, stiffness, cost, and assembly, then carry those lessons into the projects the machine enabled."
+      }
+    ],
+    "featured": true,
+    "brief": false,
+    "related": [
+      "budget-ebike",
+      "remote-control-hot-wheels"
+    ],
+    "gallery": [
+      [
+        "cnc-milling",
+        "The spindle cutting an early e-bike circuit board."
+      ],
+      [
+        "pcb-front",
+        "One side of a double-sided milled PCB."
+      ],
+      [
+        "pcb-back",
+        "The reverse of the same prototype board."
+      ],
+      [
+        "pcb-layout",
+        "The e-bike PCB layout designed around the available manufacturing process."
+      ]
+    ],
+    "links": [
+      [
+        "Watch the detailed build",
+        "https://www.youtube.com/watch?v=7AKRvNOnj7Y"
+      ],
+      [
+        "Watch the short demo",
+        "https://www.youtube.com/shorts/1cG5I5Ygg0Y"
+      ]
+    ],
+    "role": "Independent project",
+    "image": "assets/images/cnc-milling.webp",
+    "imageAlt": "Desktop CNC spindle milling copper traces into a circuit board",
+    "imageType": "Workshop photograph",
+    "position": "center"
+  },
+  {
+    "slug": "cybertruck-go-kart",
+    "title": "Mini Cybertruck go-kart",
+    "category": "Mechanisms",
+    "summary": "A homemade steel-frame go-kart with electronic steering, remote control, and a custom starter-generator.",
+    "year": "2017–2024",
+    "tools": [
+      "Welding",
+      "CAD",
+      "3D printing",
+      "Electromechanics"
+    ],
+    "sections": [
+      {
+        "title": "From wood to welded steel",
+        "text": "The project began with a wooden go-kart built over several summers. Repeated damage exposed the limits of that material and led to a steel-frame version. I sourced scrap steel, worked from CAD designs, and continued the build under a tent in my backyard during the winter."
+      },
+      {
+        "title": "Making the controls electronic",
+        "text": "I built a steering actuator with a high-torque motor, a printed steering horn, and potentiometer feedback. The steering wheel itself used a spring return, with separate triggers for the throttle and brakes. Electronic control also made remote operation possible."
+      },
+      {
+        "title": "One motor, two jobs",
+        "text": "The most interesting mechanism was a motor that could start the engine and then act as a generator. A printed belt transmission and one-way bearings changed the mechanical advantage from 9:1 during starting to 1:1 when the engine drove the motor. Withstanding the engine’s compression torque was a major manufacturing challenge."
+      },
+      {
+        "title": "A whole system to integrate",
+        "text": "The build brought together steering, brake and throttle actuation, power distribution, an engine cutoff, lights, and servo-driven dashboard gauges. The 2024 documentation records a continuing integration effort, rather than a finished commercial vehicle."
+      }
+    ],
+    "featured": true,
+    "brief": false,
+    "related": [
+      "hybrid-rc-car",
+      "mechanical-clock"
+    ],
+    "gallery": [],
+    "links": [
+      [
+        "Watch the build time-lapse",
+        "https://youtu.be/tNitqDEvChc"
+      ],
+      [
+        "Watch the welding process",
+        "https://youtu.be/C5ELTJhHU74"
+      ]
+    ],
+    "role": "Independent project",
+    "image": "assets/illustrations/cybertruck-go-kart.svg",
+    "imageAlt": "Mini Cybertruck go-kart — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "hurc-mars-rover",
+    "title": "HURC Mars rover",
+    "category": "Robotics",
+    "summary": "Robotics team work at Harvard, connected to my role as Vice President of HURC.",
+    "year": "Harvard",
+    "tools": [
+      "Robotics",
+      "Teamwork"
+    ],
+    "sections": [
+      {
+        "title": "Team project",
+        "text": "The Mars rover is part of my work with the Harvard Undergraduate Robotics Club. This entry connects the project with my role as Vice President; a full account of the rover, my individual contributions, and its testing will follow."
+      }
+    ],
+    "featured": false,
+    "brief": true,
+    "related": [
+      "custom-drives",
+      "micro-swarming-drone"
+    ],
+    "gallery": [],
+    "links": [],
+    "role": "Harvard Undergraduate Robotics Club",
+    "image": "assets/illustrations/hurc-mars-rover.svg",
+    "imageAlt": "HURC Mars rover — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center",
+    "experience": "hurc"
+  },
+  {
+    "slug": "ion-thruster-boat",
+    "title": "Ion-thruster RC boat",
+    "category": "Electronics",
+    "summary": "An experimental remote-controlled boat propelled by ionic wind, with no moving propulsion parts.",
+    "year": "2023",
+    "tools": [
+      "Electrostatics",
+      "Prototyping",
+      "Experimental testing"
+    ],
+    "sections": [
+      {
+        "title": "An unusual way to move",
+        "text": "I explored whether an ionic-wind thruster could propel a small boat. The prototype used two independently driven thrusters, allowing differential steering without a conventional propeller or rudder."
+      },
+      {
+        "title": "Geometry became the experiment",
+        "text": "Electrode geometry and spacing strongly influenced the result. My early tests compared different gaps, and adjustable mounts made it possible to iterate. The project notes also record a mismatch between advertised supply ratings and observed behavior, reinforcing the need to test assumptions."
+      },
+      {
+        "title": "A demonstration, not a practical drivetrain",
+        "text": "The prototype produced a functioning, low-efficiency RC boat. Its value was as an experiment in electrostatic propulsion and hands-on testing, rather than as a competitive replacement for a motor-driven boat."
+      }
+    ],
+    "featured": false,
+    "brief": false,
+    "related": [
+      "budget-ebike",
+      "low-cost-rc-plane"
+    ],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/ion-thruster-boat.svg",
+    "imageAlt": "Ion-thruster RC boat — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "mechanical-clock",
+    "title": "3D-printed mechanical clock",
+    "category": "Mechanisms",
+    "summary": "A gravity-driven clock and a hands-on lesson in friction, gear geometry, and tolerances.",
+    "year": "2023",
+    "tools": [
+      "Gear design",
+      "CAD",
+      "FDM printing"
+    ],
+    "sections": [
+      {
+        "title": "Keeping time mechanically",
+        "text": "I designed and printed a fully mechanical, gravity-driven clock. The project required a gear train and escapement that could run with very little available energy."
+      },
+      {
+        "title": "Small friction, large consequences",
+        "text": "The high gear ratio meant that even slight friction near the escapement had a large effect on the drive requirements. I printed and tested many geometry and tolerance variations to improve the mechanism."
+      },
+      {
+        "title": "A measurable improvement",
+        "text": "The documented iterations reduced the required counterweight mass by 75%. The discarded prototypes were essential to understanding how printed parts behave as a working mechanism."
+      }
+    ],
+    "featured": false,
+    "brief": false,
+    "related": [
+      "cybertruck-go-kart",
+      "desktop-cnc"
+    ],
+    "gallery": [],
+    "links": [
+      [
+        "See the clock",
+        "https://www.instagram.com/p/CsScDaGt3Xx/"
+      ]
+    ],
+    "role": "Independent project",
+    "image": "assets/illustrations/mechanical-clock.svg",
+    "imageAlt": "3D-printed mechanical clock — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center",
+    "metrics": [
+      [
+        "75%",
+        "Reduction in counterweight mass"
+      ]
+    ]
+  },
+  {
+    "slug": "remote-control-hot-wheels",
+    "title": "Remote-controlled Hot Wheels",
+    "category": "Robotics",
+    "summary": "A miniature RC car designed from scratch, complete with tank steering and its own charging case.",
+    "year": "2022",
+    "tools": [
+      "Miniature mechanisms",
+      "SLA printing",
+      "Electronics",
+      "Tinkercad"
+    ],
+    "sections": [
+      {
+        "title": "A small car, a big learning curve",
+        "text": "My teacher proposed making a Hot Wheels-sized remote-controlled car. We took different approaches to steering: I chose differential drive and designed my own miniature body and chassis."
+      },
+      {
+        "title": "Working at miniature scale",
+        "text": "I combined resin-printed wheels, TPU tires, and small motors and controller boards recovered from servos. Gear meshing and assembly tolerances were particularly challenging at this size."
+      },
+      {
+        "title": "The finished object",
+        "text": "The final miniature Dodge Hellcat included underbody lighting and a portable AA-powered charging case. This was one of the first complex projects I pushed through to a working result, and its build video became a reminder to keep going on harder projects."
+      }
+    ],
+    "featured": false,
+    "brief": false,
+    "related": [
+      "hybrid-rc-car",
+      "desktop-cnc"
+    ],
+    "gallery": [],
+    "links": [
+      [
+        "Watch the build",
+        "https://www.youtube.com/watch?v=DkX7BQVGwjw"
+      ]
+    ],
+    "role": "Independent project",
+    "image": "assets/illustrations/remote-control-hot-wheels.svg",
+    "imageAlt": "Remote-controlled Hot Wheels — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "hydroponic-farm",
+    "title": "Automated hydroponic grow farm",
+    "category": "Electronics",
+    "summary": "From lettuce in repurposed containers to shelves of automatically watered microgreens.",
+    "year": "2017–2020",
+    "tools": [
+      "Arduino",
+      "Automation",
+      "Carpentry"
+    ],
+    "sections": [
+      {
+        "title": "Starting with a question",
+        "text": "An early interest in hydroponics led me to build growing systems at home. I started with lettuce under LED lights in repurposed containers, then gradually expanded the scale and automation."
+      },
+      {
+        "title": "Scaling to microgreens",
+        "text": "The later system used pine shelving and trays of microgreens. An Arduino controlled watering, the grow lights ran on a 16-hour cycle, and newly planted trays began in a dark incubation box."
+      },
+      {
+        "title": "Learning through a living system",
+        "text": "Unlike a mechanism that can be switched off between tests, the plants needed consistent care. The project connected physical construction, basic electronics, and the practical challenge of keeping a system running."
+      }
+    ],
+    "featured": false,
+    "brief": false,
+    "related": [
+      "industrial-robotic-vacuum",
+      "arcade-cabinet"
+    ],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/hydroponic-farm.svg",
+    "imageAlt": "Automated hydroponic grow farm — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "low-cost-rc-plane",
+    "title": "Low-cost RC plane",
+    "category": "Mechanisms",
+    "summary": "An original RC aircraft design refined through years of builds, flight attempts, repairs, and redesigns.",
+    "year": "2017–2023",
+    "tools": [
+      "Aircraft design",
+      "Rapid prototyping",
+      "Radio control"
+    ],
+    "sections": [
+      {
+        "title": "Learning by launching",
+        "text": "I developed successive versions of my own remote-controlled plane over several years. Many early versions crashed, sending me back to the workbench to repair the aircraft and change the design."
+      },
+      {
+        "title": "Iteration was the process",
+        "text": "Each failed flight helped expose a weakness and suggest the next change. By June 2023, the project record included a successful flight with the tenth version."
+      },
+      {
+        "title": "The useful part of failure",
+        "text": "This project made persistence tangible. It was not enough to improve a drawing: I had to build the revision, take it back outside, and try again."
+      }
+    ],
+    "featured": false,
+    "brief": false,
+    "related": [
+      "ion-thruster-boat",
+      "gimbaling-tvc"
+    ],
+    "gallery": [],
+    "links": [
+      [
+        "Watch the plane",
+        "https://www.youtube.com/watch?v=-kn2uNXWBkM"
+      ],
+      [
+        "Watch a flight test",
+        "https://youtu.be/S1qanpntDEY"
+      ]
+    ],
+    "role": "Independent project",
+    "image": "assets/illustrations/low-cost-rc-plane.svg",
+    "imageAlt": "Low-cost RC plane — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "hybrid-rc-car",
+    "title": "Hybrid RC car",
+    "category": "Mechanisms",
+    "summary": "A conversion project combining electric and nitro power, with an automatic starter.",
+    "year": "2023",
+    "tools": [
+      "Power transmission",
+      "Radio control",
+      "Mechanical design"
+    ],
+    "sections": [
+      {
+        "title": "Combining two power sources",
+        "text": "I designed a conversion for a Traxxas nitro RC car to add electric power and an automatic starting system. The project is recorded as completed in May 2023."
+      },
+      {
+        "title": "A connection to larger projects",
+        "text": "The interest in integrating combustion engines and electric machines also appears in my go-kart’s starter-generator system. Both projects explore the interfaces between motors, engines, and power transmission."
+      }
+    ],
+    "featured": false,
+    "brief": false,
+    "related": [
+      "cybertruck-go-kart",
+      "remote-control-hot-wheels"
+    ],
+    "gallery": [],
+    "links": [
+      [
+        "Watch the starter demonstration",
+        "https://youtube.com/shorts/lzJh_Nykc5Q"
+      ]
+    ],
+    "role": "Independent project",
+    "image": "assets/illustrations/hybrid-rc-car.svg",
+    "imageAlt": "Hybrid RC car — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "industrial-robotic-vacuum",
+    "title": "Industrial robotic vacuum",
+    "category": "Robotics",
+    "summary": "A school-scale robotic vacuum with a custom 3D-printed cyclone assembly.",
+    "year": "2022",
+    "tools": [
+      "Robotics",
+      "3D printing",
+      "Mechanical design"
+    ],
+    "sections": [
+      {
+        "title": "A useful machine for school",
+        "text": "I designed and built a robotic vacuum for my school. The build combined the physical cleaning mechanism with a mobile platform."
+      },
+      {
+        "title": "Making the airflow components",
+        "text": "The project included a printed cyclone vacuum assembly. Experimenting with its rotating components later informed the impeller work for my go-kart project."
+      },
+      {
+        "title": "Documented in motion",
+        "text": "The project was recorded as completed in May 2022, with videos of the machine operating. The linked demonstrations show the build in use."
+      }
+    ],
+    "featured": false,
+    "brief": false,
+    "related": [
+      "cybertruck-go-kart",
+      "hydroponic-farm"
+    ],
+    "gallery": [],
+    "links": [
+      [
+        "Watch the vacuum working",
+        "https://youtu.be/sJ7q2aCAnw4"
+      ],
+      [
+        "Another workshop demo",
+        "https://youtube.com/shorts/c073dHF14ZI"
+      ]
+    ],
+    "role": "Independent project",
+    "image": "assets/illustrations/industrial-robotic-vacuum.svg",
+    "imageAlt": "Industrial robotic vacuum — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "arcade-cabinet",
+    "title": "Universal arcade cabinet",
+    "category": "Fabrication",
+    "summary": "A Raspberry Pi arcade cabinet built with my brother from inexpensive wood and a repurposed monitor.",
+    "year": "2021–2022",
+    "tools": [
+      "Carpentry",
+      "Raspberry Pi",
+      "Electronics"
+    ],
+    "sections": [
+      {
+        "title": "A build with my brother",
+        "text": "We sourced inexpensive wood and built an arcade cabinet around a Raspberry Pi and a repurposed PC monitor. Unlike my other original projects, this cabinet used a design we found on YouTube."
+      },
+      {
+        "title": "Making the interface",
+        "text": "We drilled the control panel for joysticks and buttons and connected them to an IPAC 4 board. The interface translated the controls into keyboard inputs for the Raspberry Pi."
+      },
+      {
+        "title": "From materials to a playable machine",
+        "text": "The project brought together cabinet construction, wiring, and setup in a finished object we could actually use. It was completed by March 2022."
+      }
+    ],
+    "featured": false,
+    "brief": false,
+    "related": [
+      "remote-control-hot-wheels",
+      "hydroponic-farm"
+    ],
+    "gallery": [],
+    "links": [
+      [
+        "Watch Asteroids on the cabinet",
+        "https://youtu.be/x7p5orDRN7U"
+      ]
+    ],
+    "role": "Independent project",
+    "image": "assets/illustrations/arcade-cabinet.svg",
+    "imageAlt": "Universal arcade cabinet — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "gimbaling-tvc",
+    "title": "Gimbaling thrust-vector control",
+    "category": "Mechanisms",
+    "summary": "A prototype exploration of a printed pitch-and-yaw gimbal and ground-test hardware.",
+    "year": "2022–2023",
+    "tools": [
+      "CAD",
+      "Mechanisms",
+      "Testing"
+    ],
+    "sections": [
+      {
+        "title": "The mechanical question",
+        "text": "I explored a 3D-printed gimbal for pitch-and-yaw control as part of an early rocket project. The project brought together mechanism design and experimental ground testing."
+      },
+      {
+        "title": "A test that exposed a material limit",
+        "text": "Early ground-test hardware failed to retain its geometry under heat. The result underlined the gap between a part that works in CAD and one that survives its operating environment. The record does not establish a successful guided flight."
+      }
+    ],
+    "featured": false,
+    "brief": false,
+    "related": [
+      "low-cost-rc-plane",
+      "mechanical-clock"
+    ],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/gimbaling-tvc.svg",
+    "imageAlt": "Gimbaling thrust-vector control — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "ai-parts-database",
+    "title": "AI-enabled parts database",
+    "category": "Software",
+    "summary": "An AI-enabled approach to finding and organizing electronic parts.",
+    "year": "Project archive",
+    "tools": [
+      "Software",
+      "Inventory"
+    ],
+    "sections": [
+      {
+        "title": "Project notes",
+        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+      }
+    ],
+    "featured": false,
+    "brief": true,
+    "related": [],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/ai-parts-database.svg",
+    "imageAlt": "AI-enabled parts database — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "geophone-vibration-tester",
+    "title": "RIS geophone vibration tester",
+    "category": "Research",
+    "summary": "A vibration-testing project associated with the Rowland Institute for Science.",
+    "year": "Project archive",
+    "tools": [
+      "Instrumentation",
+      "Testing"
+    ],
+    "sections": [
+      {
+        "title": "Project notes",
+        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+      }
+    ],
+    "featured": false,
+    "brief": true,
+    "related": [],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/geophone-vibration-tester.svg",
+    "imageAlt": "RIS geophone vibration tester — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center",
+    "experience": "rowland"
+  },
+  {
+    "slug": "transducer-phased-array",
+    "title": "Transducer phased array",
+    "category": "Research",
+    "summary": "A phased-array project exploring coordinated transducer operation.",
+    "year": "Project archive",
+    "tools": [
+      "Transducers",
+      "Electronics"
+    ],
+    "sections": [
+      {
+        "title": "Project notes",
+        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+      }
+    ],
+    "featured": false,
+    "brief": true,
+    "related": [],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/transducer-phased-array.svg",
+    "imageAlt": "Transducer phased array — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "vacuum-tube-power-supply",
+    "title": "Vacuum-tube power supply",
+    "category": "Electronics",
+    "summary": "A high-voltage power-supply project for vacuum-tube work.",
+    "year": "Project archive",
+    "tools": [
+      "Power electronics"
+    ],
+    "sections": [
+      {
+        "title": "Project notes",
+        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+      }
+    ],
+    "featured": false,
+    "brief": true,
+    "related": [
+      "budget-ebike"
+    ],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/vacuum-tube-power-supply.svg",
+    "imageAlt": "Vacuum-tube power supply — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "custom-drives",
+    "title": "Low-cost custom drives",
+    "category": "Electronics",
+    "summary": "A project exploring custom drives with an emphasis on cost.",
+    "year": "Project archive",
+    "tools": [
+      "Motor drives",
+      "Electronics"
+    ],
+    "sections": [
+      {
+        "title": "Project notes",
+        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+      }
+    ],
+    "featured": false,
+    "brief": true,
+    "related": [
+      "budget-ebike"
+    ],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/custom-drives.svg",
+    "imageAlt": "Low-cost custom drives — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "micro-swarming-drone",
+    "title": "Micro swarming drone",
+    "category": "Robotics",
+    "summary": "A small-scale drone project in the portfolio.",
+    "year": "Project archive",
+    "tools": [
+      "Robotics"
+    ],
+    "sections": [
+      {
+        "title": "Project notes",
+        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+      }
+    ],
+    "featured": false,
+    "brief": true,
+    "related": [],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/micro-swarming-drone.svg",
+    "imageAlt": "Micro swarming drone — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "es51-final-project",
+    "title": "ES51 final project",
+    "category": "Coursework",
+    "summary": "A final course project in engineering design.",
+    "year": "Project archive",
+    "tools": [
+      "Coursework"
+    ],
+    "sections": [
+      {
+        "title": "Project notes",
+        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+      }
+    ],
+    "featured": false,
+    "brief": true,
+    "related": [],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/es51-final-project.svg",
+    "imageAlt": "ES51 final project — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  },
+  {
+    "slug": "125-final-project",
+    "title": "125 final project",
+    "category": "Coursework",
+    "summary": "An engineering course project in the portfolio.",
+    "year": "Project archive",
+    "tools": [
+      "Coursework"
+    ],
+    "sections": [
+      {
+        "title": "Project notes",
+        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+      }
+    ],
+    "featured": false,
+    "brief": true,
+    "related": [],
+    "gallery": [],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/illustrations/125-final-project.svg",
+    "imageAlt": "125 final project — conceptual line illustration",
+    "imageType": "Project illustration",
+    "position": "center"
+  }
+]

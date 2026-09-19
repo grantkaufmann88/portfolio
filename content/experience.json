@@ -1,0 +1,108 @@
+[
+  {
+    "slug": "rowland",
+    "org": "Harvard Rowland Institute",
+    "title": "Research Assistant",
+    "period": "Ongoing · Part-time",
+    "kind": "Research",
+    "mark": "RI",
+    "summary": "Working at the intersection of electronics, experimentation, and mechanical engineering.",
+    "sections": [
+      [
+        "At the bench",
+        "I work part-time at the Rowland Institute for Science at Harvard, where I started during my senior year of high school. My application materials describe working in Winfield Hill and Professor Paul Horowitz’s electrical engineering laboratory."
+      ],
+      [
+        "An interdisciplinary foundation",
+        "Studying mechanical engineering while working in an electronics laboratory reflects the way I like to build: understanding both the physical mechanism and the electronics that drive or measure it."
+      ]
+    ],
+    "projects": [
+      "geophone-vibration-tester"
+    ]
+  },
+  {
+    "slug": "spacex",
+    "org": "SpaceX",
+    "title": "Engineering Intern",
+    "period": "Fall 2025",
+    "kind": "Industry",
+    "mark": "SX",
+    "summary": "Industry experience alongside a background in hands-on design, fabrication, and testing.",
+    "sections": [
+      [
+        "Engineering in industry",
+        "I worked as an engineering intern at SpaceX in fall 2025. The experience is part of a broader path through independent projects, laboratory research, and mechanical engineering at Harvard."
+      ],
+      [
+        "Why I was drawn to the work",
+        "SpaceX became a source of inspiration after I watched Falcon Heavy’s 2018 landing. The emphasis on building, testing, and learning resonated with the way I approached my own engineering projects."
+      ]
+    ],
+    "projects": []
+  },
+  {
+    "slug": "hurc",
+    "org": "Harvard Undergraduate Robotics Club",
+    "title": "Vice President",
+    "period": "Harvard College",
+    "kind": "Leadership",
+    "mark": "HU",
+    "summary": "Helping build a student robotics team, with the Mars rover at the center of the project portfolio.",
+    "sections": [
+      [
+        "Building with a team",
+        "I serve as Vice President of the Harvard Undergraduate Robotics Club. Working in a student team means combining technical problem-solving with collaboration and making effective use of limited resources."
+      ],
+      [
+        "Connected work",
+        "The HURC Mars rover is featured in my project portfolio. The project page is the place for rover-specific documentation; this page provides the context of my leadership role."
+      ]
+    ],
+    "projects": [
+      "hurc-mars-rover"
+    ]
+  },
+  {
+    "slug": "nrotc",
+    "org": "BU–MIT NROTC Consortium",
+    "title": "Midshipman",
+    "period": "Alongside Harvard studies",
+    "kind": "Service",
+    "mark": "NR",
+    "summary": "Naval officer training alongside my engineering education.",
+    "sections": [
+      [
+        "Engineering and service",
+        "I am a Midshipman in the Naval Reserve Officers Training Corps through the BU–MIT consortium, alongside my studies at Harvard. My background brings together engineering, teamwork, and a commitment to service."
+      ]
+    ],
+    "projects": []
+  },
+  {
+    "slug": "crls-robotics",
+    "org": "CRLS FIRST Robotics",
+    "title": "Captain of Mechanical Design",
+    "period": "2023–2024",
+    "kind": "Leadership",
+    "mark": "CR",
+    "summary": "Teaching and mentoring a group of 25 students as we worked toward a competition robot.",
+    "sections": [
+      [
+        "Opening the workshop to more people",
+        "As captain of mechanical design, I helped teach and mentor a group of 25 students, many new to engineering, toward building a competitive robot for spring 2024."
+      ],
+      [
+        "Beyond the robotics team",
+        "I also worked as a teaching assistant with Mr. Martinez at Cambridge Rindge and Latin. I directly taught a group of six students through project-based Arduino work, helped develop curriculum, participated in faculty interviews, and introduced younger students to technical programs."
+      ],
+      [
+        "Continuing to give back",
+        "My later application materials describe returning to volunteer and mentor with the robotics team. Helping someone else understand a mechanism or get their first project working remains a meaningful part of engineering for me."
+      ]
+    ],
+    "projects": [
+      "low-cost-rc-plane"
+    ]
+  }
+]
