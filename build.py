@@ -35,11 +35,59 @@ def card(p,prefix='',featured_layout=False):
  badge='<span class="badge featured">Selected project</span>' if p['featured'] else ('<span class="badge">Brief entry</span>' if p['brief'] else '')
  link=f"{prefix}projects/{p['slug']}.html"
  search=' '.join([p['title'],p['category'],p['summary'],*p['tools']])
- return f'''<article class="project-card" data-project data-category="{e(p['category'])}" data-featured="{str(p['featured']).lower()}" data-search="{e(search)}"><a class="card-image-link" href="{link}" tabindex="-1" aria-hidden="true"><img class="card-image" src="{prefix}{p['image']}" alt="" width="600" height="460" loading="lazy" style="object-position:{p['position']}">{badge}</a><div class="card-copy"><div class="card-meta mono"><span>{e(p['category'])}</span><span class="year">{e(p['year'])}</span></div><h3><a href="{link}">{e(p['title'])}</a></h3><p>{e(p['summary'])}</p>{'<div class="card-cta">'+text_link(link,'Explore the project')+'</div>' if featured_layout else ''}</div></article>'''
+ cover=next((normalize_media(m) for m in p['gallery'] if normalize_media(m)['src']==p['image']), {'src':p['image']})
+ image_attrs=responsive_attrs(cover,prefix,'(max-width: 620px) 90vw, (max-width: 960px) 45vw, 640px')
+ return f'''<article class="project-card" data-project data-category="{e(p['category'])}" data-featured="{str(p['featured']).lower()}" data-search="{e(search)}"><a class="card-image-link" href="{link}" tabindex="-1" aria-hidden="true"><img class="card-image" {image_attrs} alt="" width="600" height="460" loading="lazy" style="object-position:{p['position']}">{badge}</a><div class="card-copy"><div class="card-meta mono"><span>{e(p['category'])}</span><span class="year">{e(p['year'])}</span></div><h3><a href="{link}">{e(p['title'])}</a></h3><p>{e(p['summary'])}</p>{'<div class="card-cta">'+text_link(link,'Explore the project')+'</div>' if featured_layout else ''}</div></article>'''
 def intro(kicker,title,description):
  return f'<section class="wrap page-intro"><div class="eyebrow accent">{kicker}</div><h1>{title}</h1><p>{description}</p></section>'
 def note():
  return '''<div class="work-note"><div class="eyebrow">A note from the workbench</div><span class="note-mark" aria-hidden="true">+</span><blockquote>“Building tools and components has given me a deeper understanding of making.”</blockquote><div class="note-bottom eyebrow">Grant Kaufmann</div></div>'''
+
+
+def normalize_media(item):
+ """Accept both explicit image objects and the original [name, caption] entries."""
+ if isinstance(item, dict):
+  return item
+ name, caption = item
+ return {'src': 'assets/images/' + name + '.webp', 'caption': caption, 'width': 1200, 'height': 900}
+
+def responsive_attrs(media, prefix, sizes):
+ """Width descriptors use actual proportional image widths, including portraits."""
+ src=prefix+media['src']; thumb=media.get('thumb')
+ if not thumb:
+  return f'src="{e(src)}"'
+ width=media.get('width',1800);height=media.get('height',1800)
+ thumb_width=max(1,round(width*min(1,640/width,640/height)))
+ return f'src="{e(prefix+thumb)}" srcset="{e(prefix+thumb)} {thumb_width}w, {e(src)} {width}w" sizes="{e(sizes)}"'
+
+def gallery_markup(items, prefix='../', title='From the build.'):
+ if not items:
+  return ''
+ figures=[]
+ for raw in items:
+  media=normalize_media(raw)
+  src=prefix+media['src']; caption=media['caption']
+  attrs=responsive_attrs(media,prefix,'(max-width: 620px) 43vw, (max-width: 960px) 30vw, 340px')
+  live=''
+  if media.get('live'):
+   live_src=prefix+media['live'];poster=prefix+media.get('thumb',media['src'])
+   live=f'<details class="live-photo"><summary>Play Live Photo</summary><video controls playsinline preload="none" poster="{e(poster)}" aria-label="Live Photo: {e(caption)}"><source src="{e(live_src)}" type="video/mp4"><a href="{e(live_src)}">Open the video</a></video></details>'
+  figures.append(f'<figure><a class="gallery-open" href="{e(src)}" data-gallery-src="{e(src)}" data-caption="{e(caption)}" aria-label="Enlarge image: {e(caption)}"><img {attrs} alt="{e(caption)}" width="{media.get("width",1200)}" height="{media.get("height",900)}" loading="lazy" decoding="async"><span class="gallery-expand" aria-hidden="true">+</span></a><figcaption>{e(caption)}</figcaption>{live}</figure>')
+ visible=''.join(figures[:8]);more=''
+ if len(figures)>8:
+  more=f'<details class="gallery-more"><summary>View {len(figures)-8} more photos <span aria-hidden="true">+</span></summary><div class="gallery">'+''.join(figures[8:])+'</div></details>'
+ return f'<section class="gallery-section" id="build-photos"><div class="gallery-heading"><h2>{e(title)}</h2><span class="mono">{len(figures)} photos</span></div><p class="gallery-help">Select any photo to open the full-size gallery.</p><div class="gallery">{visible}</div>{more}</section>'
+
+def video_markup(items,prefix='../'):
+ if not items:return ''
+ figures=[]
+ for media in items:
+  src=prefix+media['src'];poster=prefix+media['poster'];caption=media['caption']
+  figures.append(f'<figure class="video-figure"><video controls playsinline preload="none" poster="{e(poster)}" width="{media["width"]}" height="{media["height"]}" aria-label="{e(caption)}"><source src="{e(src)}" type="video/mp4"><a href="{e(src)}">Open the video</a></video><figcaption>{e(caption)}</figcaption></figure>')
+ return '<section class="video-section" id="build-videos"><h2>See it in motion.</h2><div class="video-gallery">'+''.join(figures)+'</div></section>'
+
+def lightbox_markup():
+ return '<dialog id="lightbox" class="lightbox" aria-label="Project image viewer"><div class="lightbox-toolbar"><span data-image-count aria-live="polite"></span><div class="lightbox-actions"><a data-original target="_blank" rel="noopener noreferrer">Open full-size photo</a><button data-close aria-label="Close image viewer" autofocus>Close &times;</button></div></div><img class="lightbox-image" alt=""><div class="lightbox-bottom"><p class="lightbox-caption" aria-live="polite"></p><div class="lightbox-controls"><button data-prev aria-label="Previous image">&larr;</button><button data-next aria-label="Next image">&rarr;</button></div></div></dialog>'
 
 def home():
  affiliation=''.join(f'<a href="experience/{slug}.html">{name}<small>{role}</small></a>' for slug,name,role in [('spacex','SpaceX','Engineering intern'),('rowland','Harvard Rowland','Research assistant'),('hurc','HURC','Vice president'),('nrotc','NROTC','Midshipman')])
@@ -54,7 +102,7 @@ def catalog():
  filters=''.join(f'<button class="filter" data-filter="{cat}" aria-pressed="{str(cat=="All").lower()}">{cat}</button>' for cat in ['All','Featured','Robotics','Electronics','Mechanisms','Fabrication','Research','Software','Coursework'])
  body=intro('The project archive','Made. Tested. Reimagined.', 'A collection of mechanisms, electronics, and things I wanted to understand by building. Start with a featured project, or follow your curiosity.')
  body+=f'''<section class="wrap catalog" aria-label="Projects"><div class="catalog-controls js-only"><div class="filters" role="group" aria-label="Filter projects by category">{filters}</div><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search projects</span><input id="project-search" type="search" placeholder="Search projects…" autocomplete="off"></label></div><div class="catalog-status"><span id="result-count" aria-live="polite" aria-atomic="true">{len(PROJECTS)} projects</span><span>Brief entries have more documentation on the way.</span></div><div class="project-grid" data-catalog>{''.join(card(p) for p in PROJECTS)}</div><div id="empty-state" class="empty-state" hidden><h2>No projects found.</h2><p>Try a different term or explore the full collection.</p><button class="button" id="reset-filters">Reset filters <span aria-hidden="true">↗</span></button></div></section>'''
- write('projects.html',shell('Projects','Explore 21 projects in robotics, electronics, mechanical design, fabrication, and research.',body,'projects'))
+ write('projects.html',shell('Projects',f'Explore {len(PROJECTS)} projects in robotics, electronics, mechanical design, fabrication, and research.',body,'projects'))
 
 def related(slugs,prefix='../'):
  if not slugs:return ''
@@ -72,15 +120,14 @@ def project_pages():
   if p.get('metrics'):metrics='<div class="metrics">'+''.join(f'<div><strong>{e(value)}</strong><span>{e(label)}</span></div>' for value,label in p['metrics'])+'</div>'
   notice='<div class="brief-notice"><div class="eyebrow">Project brief</div><p>Full build documentation is on the way.</p></div>' if p['brief'] else ''
   prose=''.join(f'<section><h2>{e(s["title"])}</h2><p>{e(s["text"])}</p></section>' for s in p['sections'])
-  gallery=''
-  if p['gallery']:
-   figures=''
-   for name,caption in p['gallery']:
-    url='../assets/images/'+name+'.webp'
-    figures+=f'''<figure><button type="button" data-gallery-src="{url}" data-caption="{e(caption)}" aria-label="Enlarge image: {e(caption)}"><img src="{url}" alt="{e(caption)}" width="600" height="460" loading="lazy"></button><figcaption>{e(caption)}</figcaption></figure>'''
-   gallery=f'<section class="gallery-section"><h2>From the build.</h2><div class="gallery">{figures}</div></section>'
-  gallery_dialog='''<dialog id="lightbox" class="lightbox" aria-label="Project image viewer"><div class="lightbox-toolbar"><span data-image-count aria-live="polite"></span><button data-close aria-label="Close image viewer" autofocus>Close ×</button></div><img class="lightbox-image" alt=""><div class="lightbox-bottom"><p class="lightbox-caption" aria-live="polite"></p><div class="lightbox-controls"><button data-prev aria-label="Previous image">←</button><button data-next aria-label="Next image">→</button></div></div></dialog>''' if gallery else ''
-  body=f'''<section class="wrap detail-intro"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../projects.html">Projects</a><span aria-hidden="true">/</span><span aria-current="page">{e(title)}</span></nav><div class="eyebrow accent">{e(p['category'])} / {e(p['year'])}</div><h1>{e(title)}.</h1><p class="lead">{e(p['summary'])}</p></section><div class="wrap"><figure class="detail-cover{' illustration' if is_ill else ''}"><img src="../{p['image']}" alt="{e(p['imageAlt'])}" width="1280" height="540" style="object-position:{p['position']}" fetchpriority="high"><figcaption>{'Conceptual illustration · Build photos to follow' if is_ill else e(p['imageAlt'])}</figcaption></figure><div class="detail-body">{side}<div class="prose">{notice}{metrics}{prose}{gallery}</div></div></div>{related(p['related'])}{gallery_dialog}'''
+  gallery=gallery_markup(p['gallery'])
+  video_section=video_markup(p.get('videos',[]))
+  gallery_dialog=lightbox_markup() if p['gallery'] else ''
+  media_links=[]
+  if p['gallery']:media_links.append(text_link('#build-photos',f"View {len(p['gallery'])} photos"))
+  if p.get('videos'):media_links.append(text_link('#build-videos','Watch the build'))
+  jump_links='<div class="media-jumps">'+''.join(media_links)+'</div>' if media_links else ''
+  body=f'''<section class="wrap detail-intro"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../projects.html">Projects</a><span aria-hidden="true">/</span><span aria-current="page">{e(title)}</span></nav><div class="eyebrow accent">{e(p['category'])} / {e(p['year'])}</div><h1>{e(title)}.</h1><p class="lead">{e(p['summary'])}</p>{jump_links}</section><div class="wrap"><figure class="detail-cover{' illustration' if is_ill else ' photograph'}"><img src="../{p['image']}" alt="{e(p['imageAlt'])}" width="1280" height="540" style="object-position:{p['position']}" fetchpriority="high"><figcaption>{'Conceptual illustration · Build photos to follow' if is_ill else e(p['imageAlt'])}</figcaption></figure><div class="detail-body">{side}<div class="prose">{notice}{metrics}{prose}{gallery}{video_section}</div></div></div>{related(p['related'])}{gallery_dialog}'''
   write(f"projects/{p['slug']}.html",shell(title,p['summary'],body,'projects','../'))
 
 def experiences():
@@ -90,7 +137,9 @@ def experiences():
  body=intro('Experience','Different settings.<br>The same curiosity.', 'Research, industry, student robotics, and service. The teams and places that have shaped how I work.')+f'<section class="wrap experience-list" aria-label="Experience">{items}</section>'
  write('experience.html',shell('Experience','Research at Harvard Rowland, a SpaceX internship, robotics leadership, and NROTC.',body,'experience'))
  for x in EXPERIENCE:
-  body=f'''<section class="wrap detail-intro"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../experience.html">Experience</a><span aria-hidden="true">/</span><span aria-current="page">{e(x['org'])}</span></nav><div class="eyebrow accent">{e(x['kind'])} / {e(x['period'])}</div><h1>{e(x['title'])}.</h1><p class="lead">{e(x['org'])}</p></section><div class="wrap"><div class="experience-detail-mark"><span class="large-mark" aria-hidden="true">{x['mark']}</span><div><div class="eyebrow">{e(x['kind'])}</div><div class="org-name">{e(x['org'])}</div></div></div><div class="detail-body"><aside class="detail-sidebar"><dl class="meta-list"><dt>Role</dt><dd>{e(x['title'])}</dd><dt>Period</dt><dd>{e(x['period'])}</dd></dl><div class="side-links"><a href="../{PROFILE['resume']}" download>Download résumé ↓</a><a href="../contact.html">Get in touch ↗</a></div></aside><div class="prose">{''.join(f'<section><h2>{e(t)}</h2><p>{e(s)}</p></section>' for t,s in x['sections'])}</div></div></div>{related(x['projects'])}'''
+  experience_gallery=gallery_markup(x.get('gallery',[]),title='A closer look.')
+  experience_dialog=lightbox_markup() if x.get('gallery') else ''
+  body=f'''<section class="wrap detail-intro"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../experience.html">Experience</a><span aria-hidden="true">/</span><span aria-current="page">{e(x['org'])}</span></nav><div class="eyebrow accent">{e(x['kind'])} / {e(x['period'])}</div><h1>{e(x['title'])}.</h1><p class="lead">{e(x['org'])}</p></section><div class="wrap"><div class="experience-detail-mark"><span class="large-mark" aria-hidden="true">{x['mark']}</span><div><div class="eyebrow">{e(x['kind'])}</div><div class="org-name">{e(x['org'])}</div></div></div><div class="detail-body"><aside class="detail-sidebar"><dl class="meta-list"><dt>Role</dt><dd>{e(x['title'])}</dd><dt>Period</dt><dd>{e(x['period'])}</dd></dl><div class="side-links"><a href="../{PROFILE['resume']}" download>Download résumé ↓</a><a href="../contact.html">Get in touch ↗</a></div></aside><div class="prose">{''.join(f'<section><h2>{e(t)}</h2><p>{e(s)}</p></section>' for t,s in x['sections'])}{experience_gallery}</div></div></div>{related(x['projects'])}{experience_dialog}'''
   write('experience/'+x['slug']+'.html',shell(x['title']+' at '+x['org'],x['summary'],body,'experience','../'))
 
 def about():

@@ -26,7 +26,7 @@
       },
       {
         "title": "What the prototype demonstrated",
-        "text": "Bench tests demonstrated motor control with a small brushless motor, back-EMF sensing, throttle input, and Bluetooth data exchange with an iPhone. I also built and tested an iron-filled PLA motor with a Halbach magnet arrangement. The printed motor turned, but heat softened the plastic under load. That thermal limitation kept it from being a finished, road-ready kit."
+        "text": "Bench tests demonstrated motor control with a small brushless motor, back-EMF sensing, throttle input, and Bluetooth data exchange with an iPhone. I also built and tested an iron-filled PLA motor with a Halbach magnet arrangement. The printed motor turned, but heat softened the plastic under load. The supplied build videos include bench demonstrations and an outdoor bicycle test; those prototype tests do not establish a finished, road-ready kit."
       },
       {
         "title": "Where I would take it next",
@@ -40,34 +40,263 @@
       "custom-drives"
     ],
     "gallery": [
-      [
-        "controller-cad",
-        "CAD assembly of the custom control board."
-      ],
-      [
-        "cnc-milling",
-        "Manufacturing an early PCB on my homemade CNC mill."
-      ],
-      [
-        "ebike-electronics",
-        "An assembled prototype board and its wiring."
-      ],
-      [
-        "housing-cad",
-        "The removable battery and electronics housing in CAD."
-      ],
-      [
-        "motor-prototype",
-        "An early hand-wound printed motor prototype."
-      ],
-      [
-        "motor-stator",
-        "The iron-filled printed stator and copper windings."
-      ],
-      [
-        "wheel-motor",
-        "The experimental motor mounted to a bicycle wheel."
-      ]
+      {
+        "src": "assets/projects/budget-ebike/img_0727.webp",
+        "thumb": "assets/projects/budget-ebike/img_0727-thumb.webp",
+        "caption": "The hand-wound experimental motor mounted inside a bicycle wheel.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0727.JPEG",
+        "live": "assets/projects/budget-ebike/videos/img_0727.mp4"
+      },
+      {
+        "src": "assets/projects/budget-ebike/1e49a998-0db4-4636-b27c-240b2f6d5ef0.webp",
+        "thumb": "assets/projects/budget-ebike/1e49a998-0db4-4636-b27c-240b2f6d5ef0-thumb.webp",
+        "caption": "An early milled motor-controller PCB.",
+        "width": 1440,
+        "height": 1800,
+        "source": "1E49A998-0DB4-4636-B27C-240B2F6D5EF0.jpg"
+      },
+      {
+        "src": "assets/projects/budget-ebike/69983399099__b4cb86ac-fd33-4de7-aecb-915153a02ed5.webp",
+        "thumb": "assets/projects/budget-ebike/69983399099__b4cb86ac-fd33-4de7-aecb-915153a02ed5-thumb.webp",
+        "caption": "PCB layout for the e-bike motor controller.",
+        "width": 1800,
+        "height": 1350,
+        "source": "69983399099__B4CB86AC-FD33-4DE7-AECB-915153A02ED5.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/69983457196__0b1e5b91-a874-4e8f-9694-0786b8bb8352.webp",
+        "thumb": "assets/projects/budget-ebike/69983457196__0b1e5b91-a874-4e8f-9694-0786b8bb8352-thumb.webp",
+        "caption": "CAD model of the battery and electronics enclosure.",
+        "width": 1800,
+        "height": 1350,
+        "source": "69983457196__0B1E5B91-A874-4E8F-9694-0786B8BB8352.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_0627.webp",
+        "thumb": "assets/projects/budget-ebike/img_0627-thumb.webp",
+        "caption": "Motor-control electronics during a bench test.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0627.JPEG",
+        "live": "assets/projects/budget-ebike/videos/img_0627.mp4"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_0738.webp",
+        "thumb": "assets/projects/budget-ebike/img_0738-thumb.webp",
+        "caption": "Printed motor stator with copper windings.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0738.JPEG",
+        "live": "assets/projects/budget-ebike/videos/img_0738.mp4"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_0739.webp",
+        "thumb": "assets/projects/budget-ebike/img_0739-thumb.webp",
+        "caption": "A second view of the hand-wound stator.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0739.JPEG",
+        "live": "assets/projects/budget-ebike/videos/img_0739.mp4"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_0744.webp",
+        "thumb": "assets/projects/budget-ebike/img_0744-thumb.webp",
+        "caption": "Custom motor controller with its power and phase leads.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0744.JPEG",
+        "live": "assets/projects/budget-ebike/videos/img_0744.mp4"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_0746.webp",
+        "thumb": "assets/projects/budget-ebike/img_0746-thumb.webp",
+        "caption": "Oscilloscope measurements during a bicycle-wheel motor test.",
+        "width": 831,
+        "height": 1800,
+        "source": "IMG_0746.PNG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_0749.webp",
+        "thumb": "assets/projects/budget-ebike/img_0749-thumb.webp",
+        "caption": "Battery and control electronics inside the printed enclosure.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0749.JPEG",
+        "live": "assets/projects/budget-ebike/videos/img_0749.mp4"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_0750.webp",
+        "thumb": "assets/projects/budget-ebike/img_0750-thumb.webp",
+        "caption": "The enclosure with the control board and motor wiring exposed.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0750.JPEG",
+        "live": "assets/projects/budget-ebike/videos/img_0750.mp4"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7647.webp",
+        "thumb": "assets/projects/budget-ebike/img_7647-thumb.webp",
+        "caption": "The bicycle with the experimental front-wheel motor installed.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_7647.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7699.webp",
+        "thumb": "assets/projects/budget-ebike/img_7699-thumb.webp",
+        "caption": "An early motor-controller board with power leads attached.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7699.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7702.webp",
+        "thumb": "assets/projects/budget-ebike/img_7702-thumb.webp",
+        "caption": "Arduino-based motor-controller prototype.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7702.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7857.webp",
+        "thumb": "assets/projects/budget-ebike/img_7857-thumb.webp",
+        "caption": "Milled copper traces on an early controller PCB.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7857.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7962.webp",
+        "thumb": "assets/projects/budget-ebike/img_7962-thumb.webp",
+        "caption": "Assembled controller with its row of power transistors.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7962.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7964.webp",
+        "thumb": "assets/projects/budget-ebike/img_7964-thumb.webp",
+        "caption": "An early printed motor assembly with hand-wound coils.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7964.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7965.webp",
+        "thumb": "assets/projects/budget-ebike/img_7965-thumb.webp",
+        "caption": "The same motor assembly viewed from its bearing side.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7965.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7968.webp",
+        "thumb": "assets/projects/budget-ebike/img_7968-thumb.webp",
+        "caption": "Controller prototype with the motor wiring laid out.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7968.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7969.webp",
+        "thumb": "assets/projects/budget-ebike/img_7969-thumb.webp",
+        "caption": "Printed rotor and hand-wound stator assembly.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7969.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7970.webp",
+        "thumb": "assets/projects/budget-ebike/img_7970-thumb.webp",
+        "caption": "The compact experimental motor in hand.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7970.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_7973.webp",
+        "thumb": "assets/projects/budget-ebike/img_7973-thumb.webp",
+        "caption": "The printed outer rotor surrounding the stator windings.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7973.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_8129.webp",
+        "thumb": "assets/projects/budget-ebike/img_8129-thumb.webp",
+        "caption": "Motor-driver breadboard test with an Arduino.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_8129.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_8130.webp",
+        "thumb": "assets/projects/budget-ebike/img_8130-thumb.webp",
+        "caption": "A closer view of the controller test wiring.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_8130.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_8339.webp",
+        "thumb": "assets/projects/budget-ebike/img_8339-thumb.webp",
+        "caption": "Programming and testing the motor-control electronics at the workbench.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_8339.JPEG"
+      },
+      {
+        "src": "assets/projects/budget-ebike/img_8343.webp",
+        "thumb": "assets/projects/budget-ebike/img_8343-thumb.webp",
+        "caption": "The motor-control test bench with an oscilloscope and prototype wiring.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_8343.JPEG"
+      },
+      {
+        "src": "assets/images/cnc-milling.webp",
+        "caption": "Manufacturing an early PCB on my homemade CNC mill.",
+        "width": 1600,
+        "height": 1200,
+        "source": "existing portfolio asset"
+      },
+      {
+        "src": "assets/images/ebike-electronics.webp",
+        "caption": "An assembled prototype board and its wiring.",
+        "width": 1200,
+        "height": 1600,
+        "source": "existing portfolio asset"
+      },
+      {
+        "src": "assets/images/housing-cad.webp",
+        "caption": "The removable battery and electronics housing in CAD.",
+        "width": 1600,
+        "height": 850,
+        "source": "existing portfolio asset"
+      },
+      {
+        "src": "assets/images/motor-prototype.webp",
+        "caption": "An early hand-wound printed motor prototype.",
+        "width": 1200,
+        "height": 1600,
+        "source": "existing portfolio asset"
+      },
+      {
+        "src": "assets/images/motor-stator.webp",
+        "caption": "The iron-filled printed stator and copper windings.",
+        "width": 1200,
+        "height": 1600,
+        "source": "existing portfolio asset"
+      },
+      {
+        "src": "assets/images/wheel-motor.webp",
+        "caption": "The experimental motor mounted to a bicycle wheel.",
+        "width": 1200,
+        "height": 1600,
+        "source": "existing portfolio asset"
+      }
     ],
     "links": [
       [
@@ -76,10 +305,10 @@
       ]
     ],
     "role": "Independent project",
-    "image": "assets/images/wheel-motor.webp",
-    "imageAlt": "Grant’s hand-wound experimental hub motor mounted inside a bicycle wheel",
-    "imageType": "Prototype photograph",
-    "position": "50% 47%",
+    "image": "assets/projects/budget-ebike/img_0727.webp",
+    "imageAlt": "The hand-wound experimental motor mounted inside a bicycle wheel.",
+    "imageType": "Build photograph",
+    "position": "50% 52%",
     "metrics": [
       [
         "<$150",
@@ -93,7 +322,28 @@
         "2023–24",
         "Development period"
       ]
-    ]
+    ],
+    "videos": [
+      {
+        "src": "assets/projects/budget-ebike/videos/img_0752.mp4",
+        "poster": "assets/projects/budget-ebike/videos/img_0752-poster.webp",
+        "caption": "Bicycle and experimental motor demonstration.",
+        "duration": 28.79,
+        "width": 720,
+        "height": 1280,
+        "source": "IMG_0752.MP4"
+      },
+      {
+        "src": "assets/projects/budget-ebike/videos/img_5494.mp4",
+        "poster": "assets/projects/budget-ebike/videos/img_5494-poster.webp",
+        "caption": "Outdoor bicycle test with the experimental wheel motor.",
+        "duration": 16.27,
+        "width": 720,
+        "height": 1280,
+        "source": "IMG_5494.MP4"
+      }
+    ],
+    "imageThumb": "assets/projects/budget-ebike/img_0727-thumb.webp"
   },
   {
     "slug": "desktop-cnc",
@@ -132,22 +382,59 @@
       "remote-control-hot-wheels"
     ],
     "gallery": [
-      [
-        "cnc-milling",
-        "The spindle cutting an early e-bike circuit board."
-      ],
-      [
-        "pcb-front",
-        "One side of a double-sided milled PCB."
-      ],
-      [
-        "pcb-back",
-        "The reverse of the same prototype board."
-      ],
-      [
-        "pcb-layout",
-        "The e-bike PCB layout designed around the available manufacturing process."
-      ]
+      {
+        "src": "assets/projects/desktop-cnc/img_7117.webp",
+        "thumb": "assets/projects/desktop-cnc/img_7117-thumb.webp",
+        "caption": "The assembled CNC mill connected to its control laptop.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_7117.JPEG",
+        "live": "assets/projects/desktop-cnc/videos/img_7117.mp4"
+      },
+      {
+        "src": "assets/projects/desktop-cnc/69033204239__27ec7664-dd9c-4a3a-ba69-733246d51c6b.webp",
+        "thumb": "assets/projects/desktop-cnc/69033204239__27ec7664-dd9c-4a3a-ba69-733246d51c6b-thumb.webp",
+        "caption": "The desktop CNC mill on the workbench.",
+        "width": 1350,
+        "height": 1800,
+        "source": "69033204239__27EC7664-DD9C-4A3A-BA69-733246D51C6B.JPEG"
+      },
+      {
+        "src": "assets/projects/desktop-cnc/img_7360.webp",
+        "thumb": "assets/projects/desktop-cnc/img_7360-thumb.webp",
+        "caption": "A small milled copper test board.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7360.JPEG"
+      },
+      {
+        "src": "assets/images/cnc-milling.webp",
+        "caption": "The spindle cutting an early e-bike circuit board.",
+        "width": 1600,
+        "height": 1200,
+        "source": "existing portfolio asset"
+      },
+      {
+        "src": "assets/images/pcb-front.webp",
+        "caption": "One side of a double-sided milled PCB.",
+        "width": 1200,
+        "height": 1600,
+        "source": "existing portfolio asset"
+      },
+      {
+        "src": "assets/images/pcb-back.webp",
+        "caption": "The reverse of the same prototype board.",
+        "width": 1200,
+        "height": 1600,
+        "source": "existing portfolio asset"
+      },
+      {
+        "src": "assets/images/pcb-layout.webp",
+        "caption": "The e-bike PCB layout designed around the available manufacturing process.",
+        "width": 1600,
+        "height": 1123,
+        "source": "existing portfolio asset"
+      }
     ],
     "links": [
       [
@@ -160,10 +447,22 @@
       ]
     ],
     "role": "Independent project",
-    "image": "assets/images/cnc-milling.webp",
-    "imageAlt": "Desktop CNC spindle milling copper traces into a circuit board",
-    "imageType": "Workshop photograph",
-    "position": "center"
+    "image": "assets/projects/desktop-cnc/img_7117.webp",
+    "imageAlt": "The assembled CNC mill connected to its control laptop.",
+    "imageType": "Build photograph",
+    "position": "50% 50%",
+    "videos": [
+      {
+        "src": "assets/projects/desktop-cnc/videos/img_7852.mp4",
+        "poster": "assets/projects/desktop-cnc/videos/img_7852-poster.webp",
+        "caption": "The CNC mill cutting traces into a copper circuit board.",
+        "duration": 35.83,
+        "width": 1280,
+        "height": 720,
+        "source": "IMG_7852.MP4"
+      }
+    ],
+    "imageThumb": "assets/projects/desktop-cnc/img_7117-thumb.webp"
   },
   {
     "slug": "cybertruck-go-kart",
@@ -201,7 +500,85 @@
       "hybrid-rc-car",
       "mechanical-clock"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/cybertruck-go-kart/img_0435.webp",
+        "thumb": "assets/projects/cybertruck-go-kart/img_0435-thumb.webp",
+        "caption": "The steel-frame go-kart with body panels and lighting installed.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0435.JPEG"
+      },
+      {
+        "src": "assets/projects/cybertruck-go-kart/img_0163.webp",
+        "thumb": "assets/projects/cybertruck-go-kart/img_0163-thumb.webp",
+        "caption": "CAD model of the go-kart impeller and intake housing.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0163.JPEG",
+        "live": "assets/projects/cybertruck-go-kart/videos/img_0163.mp4"
+      },
+      {
+        "src": "assets/projects/cybertruck-go-kart/img_0295.webp",
+        "thumb": "assets/projects/cybertruck-go-kart/img_0295-thumb.webp",
+        "caption": "Go-kart chassis, steering controls, dashboard, and wiring during integration.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0295.JPEG"
+      },
+      {
+        "src": "assets/projects/cybertruck-go-kart/img_0334.webp",
+        "thumb": "assets/projects/cybertruck-go-kart/img_0334-thumb.webp",
+        "caption": "An early wooden-frame go-kart under construction.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0334.JPG"
+      },
+      {
+        "src": "assets/projects/cybertruck-go-kart/img_0356.webp",
+        "thumb": "assets/projects/cybertruck-go-kart/img_0356-thumb.webp",
+        "caption": "Prototype control board from the go-kart build.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0356.JPEG",
+        "live": "assets/projects/cybertruck-go-kart/videos/img_0356.mp4"
+      },
+      {
+        "src": "assets/projects/cybertruck-go-kart/img_0481.webp",
+        "thumb": "assets/projects/cybertruck-go-kart/img_0481-thumb.webp",
+        "caption": "Steering-wheel controls and dashboard during a test.",
+        "width": 831,
+        "height": 1800,
+        "source": "IMG_0481.PNG"
+      },
+      {
+        "src": "assets/projects/cybertruck-go-kart/img_3299.webp",
+        "thumb": "assets/projects/cybertruck-go-kart/img_3299-thumb.webp",
+        "caption": "Engine mounted on the steel-frame go-kart chassis.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_3299.JPEG",
+        "live": "assets/projects/cybertruck-go-kart/videos/img_3299.mp4"
+      },
+      {
+        "src": "assets/projects/cybertruck-go-kart/img_8829.webp",
+        "thumb": "assets/projects/cybertruck-go-kart/img_8829-thumb.webp",
+        "caption": "Go-kart frame parts and CAD work during assembly.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_8829.JPEG",
+        "live": "assets/projects/cybertruck-go-kart/videos/img_8829.mp4"
+      },
+      {
+        "src": "assets/projects/cybertruck-go-kart/img_9959.webp",
+        "thumb": "assets/projects/cybertruck-go-kart/img_9959-thumb.webp",
+        "caption": "Motor and printed belt-drive hardware for the starter-generator.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_9959.JPEG",
+        "live": "assets/projects/cybertruck-go-kart/videos/img_9959.mp4"
+      }
+    ],
     "links": [
       [
         "Watch the build time-lapse",
@@ -213,10 +590,12 @@
       ]
     ],
     "role": "Independent project",
-    "image": "assets/illustrations/cybertruck-go-kart.svg",
-    "imageAlt": "Mini Cybertruck go-kart — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/cybertruck-go-kart/img_0435.webp",
+    "imageAlt": "The steel-frame go-kart with body panels and lighting installed.",
+    "imageType": "Build photograph",
+    "position": "50% 48%",
+    "videos": [],
+    "imageThumb": "assets/projects/cybertruck-go-kart/img_0435-thumb.webp"
   },
   {
     "slug": "hurc-mars-rover",
@@ -240,14 +619,77 @@
       "custom-drives",
       "micro-swarming-drone"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/hurc-mars-rover/img_2683.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_2683-thumb.webp",
+        "caption": "Rover chassis, suspension, and manipulator on a workshop stand.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_2683.JPEG"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/00c5c5e2-a0ef-48d1-88ed-e7095dcc2999.webp",
+        "thumb": "assets/projects/hurc-mars-rover/00c5c5e2-a0ef-48d1-88ed-e7095dcc2999-thumb.webp",
+        "caption": "Unpopulated HURC power-distribution circuit boards.",
+        "width": 1012,
+        "height": 1800,
+        "source": "00C5C5E2-A0EF-48D1-88ED-E7095DCC2999.jpg"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/78d0e59e-3d7f-4e95-86f0-bab9bfee5e6a.webp",
+        "thumb": "assets/projects/hurc-mars-rover/78d0e59e-3d7f-4e95-86f0-bab9bfee5e6a-thumb.webp",
+        "caption": "The HURC power-distribution board with components installed.",
+        "width": 1350,
+        "height": 1800,
+        "source": "78D0E59E-3D7F-4E95-86F0-BAB9BFEE5E6A.jpg",
+        "live": "assets/projects/hurc-mars-rover/videos/78d0e59e-3d7f-4e95-86f0-bab9bfee5e6a.mp4"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/img_3942.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_3942-thumb.webp",
+        "caption": "Assembled HURC power-distribution board with connectors and fuses.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_3942.JPEG"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/img_4769.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_4769-thumb.webp",
+        "caption": "CAD model of the rover drill assembly.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_4769.JPEG",
+        "live": "assets/projects/hurc-mars-rover/videos/img_4769.mp4"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/img_4804.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_4804-thumb.webp",
+        "caption": "A workshop visit beside the rover.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_4804.JPEG",
+        "live": "assets/projects/hurc-mars-rover/videos/img_4804.mp4"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/img_4866.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_4866-thumb.webp",
+        "caption": "Rover hardware set up beside soil samples for testing.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_4866.JPEG",
+        "live": "assets/projects/hurc-mars-rover/videos/img_4866.mp4"
+      }
+    ],
     "links": [],
     "role": "Harvard Undergraduate Robotics Club",
-    "image": "assets/illustrations/hurc-mars-rover.svg",
-    "imageAlt": "HURC Mars rover — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center",
-    "experience": "hurc"
+    "image": "assets/projects/hurc-mars-rover/img_2683.webp",
+    "imageAlt": "Rover chassis, suspension, and manipulator on a workshop stand.",
+    "imageType": "Build photograph",
+    "position": "50% 52%",
+    "experience": "hurc",
+    "videos": [],
+    "imageThumb": "assets/projects/hurc-mars-rover/img_2683-thumb.webp"
   },
   {
     "slug": "ion-thruster-boat",
@@ -280,13 +722,65 @@
       "budget-ebike",
       "low-cost-rc-plane"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/ion-thruster-boat/img_0054.webp",
+        "thumb": "assets/projects/ion-thruster-boat/img_0054-thumb.webp",
+        "caption": "Electrode rails set up for a workshop test.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0054.JPEG",
+        "live": "assets/projects/ion-thruster-boat/videos/img_0054.mp4"
+      },
+      {
+        "src": "assets/projects/ion-thruster-boat/352ddddb-a39f-4177-adbd-9c7aeb7633ab.webp",
+        "thumb": "assets/projects/ion-thruster-boat/352ddddb-a39f-4177-adbd-9c7aeb7633ab-thumb.webp",
+        "caption": "The ionic-wind experiment operating in a darkened workspace.",
+        "width": 1440,
+        "height": 1794,
+        "source": "352DDDDB-A39F-4177-ADBD-9C7AEB7633AB.jpg"
+      },
+      {
+        "src": "assets/projects/ion-thruster-boat/9383212a-04ed-4e3f-a16b-dd8122c18ae1.webp",
+        "thumb": "assets/projects/ion-thruster-boat/9383212a-04ed-4e3f-a16b-dd8122c18ae1-thumb.webp",
+        "caption": "The electrode rails and high-voltage hardware of the ionic-wind experiment.",
+        "width": 1440,
+        "height": 1794,
+        "source": "9383212A-04ED-4E3F-A16B-DD8122C18AE1.jpg"
+      },
+      {
+        "src": "assets/projects/ion-thruster-boat/img_9835.webp",
+        "thumb": "assets/projects/ion-thruster-boat/img_9835-thumb.webp",
+        "caption": "A second view of the ionic-wind test setup.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_9835.JPEG"
+      },
+      {
+        "src": "assets/projects/ion-thruster-boat/img_9839.webp",
+        "thumb": "assets/projects/ion-thruster-boat/img_9839-thumb.webp",
+        "caption": "The twin electrode assemblies mounted on the test rig.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_9839.JPEG"
+      },
+      {
+        "src": "assets/projects/ion-thruster-boat/img_9917.webp",
+        "thumb": "assets/projects/ion-thruster-boat/img_9917-thumb.webp",
+        "caption": "The electrode assembly during a dark-room test.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_9917.JPEG"
+      }
+    ],
     "links": [],
     "role": "Independent project",
-    "image": "assets/illustrations/ion-thruster-boat.svg",
-    "imageAlt": "Ion-thruster RC boat — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/ion-thruster-boat/img_0054.webp",
+    "imageAlt": "Electrode rails set up for a workshop test.",
+    "imageType": "Build photograph",
+    "position": "50% 50%",
+    "videos": [],
+    "imageThumb": "assets/projects/ion-thruster-boat/img_0054-thumb.webp"
   },
   {
     "slug": "mechanical-clock",
@@ -319,7 +813,50 @@
       "cybertruck-go-kart",
       "desktop-cnc"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/mechanical-clock/img_3965.webp",
+        "thumb": "assets/projects/mechanical-clock/img_3965-thumb.webp",
+        "caption": "The white printed mechanical clock mounted on a wall.",
+        "width": 858,
+        "height": 1107,
+        "source": "IMG_3965.JPG"
+      },
+      {
+        "src": "assets/projects/mechanical-clock/img_7144.webp",
+        "thumb": "assets/projects/mechanical-clock/img_7144-thumb.webp",
+        "caption": "An early purple clock mechanism showing the gear train and pendulum.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7144.JPEG",
+        "live": "assets/projects/mechanical-clock/videos/img_7144.mp4"
+      },
+      {
+        "src": "assets/projects/mechanical-clock/img_7146.webp",
+        "thumb": "assets/projects/mechanical-clock/img_7146-thumb.webp",
+        "caption": "The prototype clock mounted for a gravity-powered test.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7146.JPEG",
+        "live": "assets/projects/mechanical-clock/videos/img_7146.mp4"
+      },
+      {
+        "src": "assets/projects/mechanical-clock/img_8367.webp",
+        "thumb": "assets/projects/mechanical-clock/img_8367-thumb.webp",
+        "caption": "CAD assembly of the mechanical clock.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_8367.JPEG"
+      },
+      {
+        "src": "assets/projects/mechanical-clock/img_8369.webp",
+        "thumb": "assets/projects/mechanical-clock/img_8369-thumb.webp",
+        "caption": "Printed gears, frames, and parts from successive clock iterations.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_8369.JPEG"
+      }
+    ],
     "links": [
       [
         "See the clock",
@@ -327,16 +864,28 @@
       ]
     ],
     "role": "Independent project",
-    "image": "assets/illustrations/mechanical-clock.svg",
-    "imageAlt": "3D-printed mechanical clock — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center",
+    "image": "assets/projects/mechanical-clock/img_3965.webp",
+    "imageAlt": "The white printed mechanical clock mounted on a wall.",
+    "imageType": "Build photograph",
+    "position": "50% 32%",
     "metrics": [
       [
         "75%",
         "Reduction in counterweight mass"
       ]
-    ]
+    ],
+    "videos": [
+      {
+        "src": "assets/projects/mechanical-clock/videos/img_7679.mp4",
+        "poster": "assets/projects/mechanical-clock/videos/img_7679-poster.webp",
+        "caption": "Mechanical clock mechanism and pendulum demonstration.",
+        "duration": 49.13,
+        "width": 720,
+        "height": 1280,
+        "source": "IMG_7679.MP4"
+      }
+    ],
+    "imageThumb": "assets/projects/mechanical-clock/img_3965-thumb.webp"
   },
   {
     "slug": "remote-control-hot-wheels",
@@ -370,7 +919,33 @@
       "hybrid-rc-car",
       "desktop-cnc"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/remote-control-hot-wheels/img_0022.webp",
+        "thumb": "assets/projects/remote-control-hot-wheels/img_0022-thumb.webp",
+        "caption": "The miniature RC car beside its matching charging case.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0022.JPEG",
+        "live": "assets/projects/remote-control-hot-wheels/videos/img_0022.mp4"
+      },
+      {
+        "src": "assets/projects/remote-control-hot-wheels/img_4809.webp",
+        "thumb": "assets/projects/remote-control-hot-wheels/img_4809-thumb.webp",
+        "caption": "An early miniature RC chassis with battery and control electronics.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_4809.JPEG"
+      },
+      {
+        "src": "assets/projects/remote-control-hot-wheels/img_4817.webp",
+        "thumb": "assets/projects/remote-control-hot-wheels/img_4817-thumb.webp",
+        "caption": "The underside of the small printed RC chassis.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_4817.JPEG"
+      }
+    ],
     "links": [
       [
         "Watch the build",
@@ -378,10 +953,22 @@
       ]
     ],
     "role": "Independent project",
-    "image": "assets/illustrations/remote-control-hot-wheels.svg",
-    "imageAlt": "Remote-controlled Hot Wheels — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/remote-control-hot-wheels/img_0022.webp",
+    "imageAlt": "The miniature RC car beside its matching charging case.",
+    "imageType": "Build photograph",
+    "position": "50% 50%",
+    "videos": [
+      {
+        "src": "assets/projects/remote-control-hot-wheels/videos/img_4025.mp4",
+        "poster": "assets/projects/remote-control-hot-wheels/videos/img_4025-poster.webp",
+        "caption": "Miniature RC-car chassis demonstration.",
+        "duration": 16.9,
+        "width": 720,
+        "height": 1280,
+        "source": "IMG_4025.MP4"
+      }
+    ],
+    "imageThumb": "assets/projects/remote-control-hot-wheels/img_0022-thumb.webp"
   },
   {
     "slug": "hydroponic-farm",
@@ -414,13 +1001,73 @@
       "industrial-robotic-vacuum",
       "arcade-cabinet"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/hydroponic-farm/59184761451__04793e41-5d08-4c60-bb66-c2402385cf58.webp",
+        "thumb": "assets/projects/hydroponic-farm/59184761451__04793e41-5d08-4c60-bb66-c2402385cf58-thumb.webp",
+        "caption": "An early hydroponic growing system with stacked containers and lights.",
+        "width": 1350,
+        "height": 1800,
+        "source": "59184761451__04793E41-5D08-4C60-BB66-C2402385CF58.JPG"
+      },
+      {
+        "src": "assets/projects/hydroponic-farm/img_0301.webp",
+        "thumb": "assets/projects/hydroponic-farm/img_0301-thumb.webp",
+        "caption": "Lettuce harvested from the hydroponic setup.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0301.JPEG",
+        "live": "assets/projects/hydroponic-farm/videos/img_0301.mp4"
+      },
+      {
+        "src": "assets/projects/hydroponic-farm/img_0516.webp",
+        "thumb": "assets/projects/hydroponic-farm/img_0516-thumb.webp",
+        "caption": "Seedlings growing under the lighting system.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0516.JPG"
+      },
+      {
+        "src": "assets/projects/hydroponic-farm/img_0537.webp",
+        "thumb": "assets/projects/hydroponic-farm/img_0537-thumb.webp",
+        "caption": "A freshly planted tray of microgreens.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0537.JPEG"
+      },
+      {
+        "src": "assets/projects/hydroponic-farm/img_0558.webp",
+        "thumb": "assets/projects/hydroponic-farm/img_0558-thumb.webp",
+        "caption": "Microgreen trays at different stages of growth.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0558.JPEG"
+      },
+      {
+        "src": "assets/projects/hydroponic-farm/img_0581.webp",
+        "thumb": "assets/projects/hydroponic-farm/img_0581-thumb.webp",
+        "caption": "A mature tray of microgreens ready for harvesting.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0581.JPEG"
+      },
+      {
+        "src": "assets/projects/hydroponic-farm/img_0612.webp",
+        "thumb": "assets/projects/hydroponic-farm/img_0612-thumb.webp",
+        "caption": "The packed HydroGarden Micro growing kit and instructions.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0612.JPEG"
+      }
+    ],
     "links": [],
     "role": "Independent project",
-    "image": "assets/illustrations/hydroponic-farm.svg",
-    "imageAlt": "Automated hydroponic grow farm — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/hydroponic-farm/59184761451__04793e41-5d08-4c60-bb66-c2402385cf58.webp",
+    "imageAlt": "An early hydroponic growing system with stacked containers and lights.",
+    "imageType": "Build photograph",
+    "position": "50% 56%",
+    "videos": [],
+    "imageThumb": "assets/projects/hydroponic-farm/59184761451__04793e41-5d08-4c60-bb66-c2402385cf58-thumb.webp"
   },
   {
     "slug": "low-cost-rc-plane",
@@ -453,7 +1100,122 @@
       "ion-thruster-boat",
       "gimbaling-tvc"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_1536.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_1536-thumb.webp",
+        "caption": "A blue-and-white RC aircraft ready for an outdoor flight test.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_1536.JPEG",
+        "live": "assets/projects/low-cost-rc-plane/videos/img_1536.mp4"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/3f9abf81-ad8c-49de-907a-a4ff67c2c443.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/3f9abf81-ad8c-49de-907a-a4ff67c2c443-thumb.webp",
+        "caption": "A delta-wing prototype in flight over the beach.",
+        "width": 1440,
+        "height": 1794,
+        "source": "3F9ABF81-AD8C-49DE-907A-A4FF67C2C443.jpg"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/68497546802__60ff606a-c368-42ee-882e-faa3b8ad1cb1.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/68497546802__60ff606a-c368-42ee-882e-faa3b8ad1cb1-thumb.webp",
+        "caption": "Foam wing structure and onboard wiring during assembly.",
+        "width": 1350,
+        "height": 1800,
+        "source": "68497546802__60FF606A-C368-42EE-882E-FAA3B8AD1CB1.JPEG"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/dfa36ace-f39b-43df-a124-c698f19eb18e.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/dfa36ace-f39b-43df-a124-c698f19eb18e-thumb.webp",
+        "caption": "A delta-wing aircraft and its transmitter during a beach test.",
+        "width": 1440,
+        "height": 1800,
+        "source": "DFA36ACE-F39B-43DF-A124-C698F19EB18E.jpg"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_0043.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_0043-thumb.webp",
+        "caption": "An early conventional foam-airframe design, seen from above.",
+        "width": 1746,
+        "height": 1800,
+        "source": "IMG_0043.JPG"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_0047.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_0047-thumb.webp",
+        "caption": "Side view of the same early foam RC plane.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0047.JPG"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_1676.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_1676-thumb.webp",
+        "caption": "A wooden RC aircraft and transmitter before testing.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_1676.JPEG"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_6390.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_6390-thumb.webp",
+        "caption": "Cardboard delta-wing prototype with exposed servos and linkages.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_6390.JPEG"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_6425.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_6425-thumb.webp",
+        "caption": "A foam aircraft prototype on the workbench.",
+        "width": 1125,
+        "height": 1398,
+        "source": "IMG_6425.JPG"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_6524.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_6524-thumb.webp",
+        "caption": "Foam delta wing with its electronics and control surfaces fitted.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_6524.JPEG"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_6544.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_6544-thumb.webp",
+        "caption": "Wooden aircraft structure with printed mounts and a rear propeller.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_6544.JPEG"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_6545.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_6545-thumb.webp",
+        "caption": "A second view of the wooden airframe and printed fittings.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_6545.JPEG"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_6574.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_6574-thumb.webp",
+        "caption": "A completed foam delta-wing prototype.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_6574.JPEG"
+      },
+      {
+        "src": "assets/projects/low-cost-rc-plane/img_9997.webp",
+        "thumb": "assets/projects/low-cost-rc-plane/img_9997-thumb.webp",
+        "caption": "The blue-and-white aircraft after an outdoor test.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_9997.JPEG",
+        "live": "assets/projects/low-cost-rc-plane/videos/img_9997.mp4"
+      }
+    ],
     "links": [
       [
         "Watch the plane",
@@ -465,10 +1227,12 @@
       ]
     ],
     "role": "Independent project",
-    "image": "assets/illustrations/low-cost-rc-plane.svg",
-    "imageAlt": "Low-cost RC plane — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/low-cost-rc-plane/img_1536.webp",
+    "imageAlt": "A blue-and-white RC aircraft ready for an outdoor flight test.",
+    "imageType": "Build photograph",
+    "position": "50% 55%",
+    "videos": [],
+    "imageThumb": "assets/projects/low-cost-rc-plane/img_1536-thumb.webp"
   },
   {
     "slug": "hybrid-rc-car",
@@ -497,7 +1261,24 @@
       "cybertruck-go-kart",
       "remote-control-hot-wheels"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/hybrid-rc-car/70717838356__c9ce5e66-cfc6-4bcf-8ea2-1ca3005b5f52.webp",
+        "thumb": "assets/projects/hybrid-rc-car/70717838356__c9ce5e66-cfc6-4bcf-8ea2-1ca3005b5f52-thumb.webp",
+        "caption": "The hybrid RC car with its engine, battery, and added electric hardware.",
+        "width": 1800,
+        "height": 1350,
+        "source": "70717838356__C9CE5E66-CFC6-4BCF-8EA2-1CA3005B5F52.JPEG"
+      },
+      {
+        "src": "assets/projects/hybrid-rc-car/img_8448.webp",
+        "thumb": "assets/projects/hybrid-rc-car/img_8448-thumb.webp",
+        "caption": "The nitro RC chassis during the electric-drive conversion.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_8448.JPEG"
+      }
+    ],
     "links": [
       [
         "Watch the starter demonstration",
@@ -505,10 +1286,12 @@
       ]
     ],
     "role": "Independent project",
-    "image": "assets/illustrations/hybrid-rc-car.svg",
-    "imageAlt": "Hybrid RC car — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/hybrid-rc-car/70717838356__c9ce5e66-cfc6-4bcf-8ea2-1ca3005b5f52.webp",
+    "imageAlt": "The hybrid RC car with its engine, battery, and added electric hardware.",
+    "imageType": "Build photograph",
+    "position": "50% 50%",
+    "videos": [],
+    "imageThumb": "assets/projects/hybrid-rc-car/70717838356__c9ce5e66-cfc6-4bcf-8ea2-1ca3005b5f52-thumb.webp"
   },
   {
     "slug": "industrial-robotic-vacuum",
@@ -541,7 +1324,24 @@
       "cybertruck-go-kart",
       "hydroponic-farm"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/industrial-robotic-vacuum/img_4956.webp",
+        "thumb": "assets/projects/industrial-robotic-vacuum/img_4956-thumb.webp",
+        "caption": "The underside of the robotic vacuum with drive hardware and wiring exposed.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_4956.JPEG"
+      },
+      {
+        "src": "assets/projects/industrial-robotic-vacuum/img_5380.webp",
+        "thumb": "assets/projects/industrial-robotic-vacuum/img_5380-thumb.webp",
+        "caption": "Vacuum motor and cleaning hardware during disassembly and testing.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_5380.JPEG"
+      }
+    ],
     "links": [
       [
         "Watch the vacuum working",
@@ -553,10 +1353,12 @@
       ]
     ],
     "role": "Independent project",
-    "image": "assets/illustrations/industrial-robotic-vacuum.svg",
-    "imageAlt": "Industrial robotic vacuum — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/industrial-robotic-vacuum/img_4956.webp",
+    "imageAlt": "The underside of the robotic vacuum with drive hardware and wiring exposed.",
+    "imageType": "Build photograph",
+    "position": "50% 50%",
+    "videos": [],
+    "imageThumb": "assets/projects/industrial-robotic-vacuum/img_4956-thumb.webp"
   },
   {
     "slug": "arcade-cabinet",
@@ -589,7 +1391,48 @@
       "remote-control-hot-wheels",
       "hydroponic-farm"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/arcade-cabinet/img_4929.webp",
+        "thumb": "assets/projects/arcade-cabinet/img_4929-thumb.webp",
+        "caption": "The assembled cabinet before the screen and controls were fitted.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_4929.JPEG"
+      },
+      {
+        "src": "assets/projects/arcade-cabinet/img_4181.webp",
+        "thumb": "assets/projects/arcade-cabinet/img_4181-thumb.webp",
+        "caption": "The arcade cabinet at an early stage of wooden-frame construction.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_4181.JPEG"
+      },
+      {
+        "src": "assets/projects/arcade-cabinet/img_4930.webp",
+        "thumb": "assets/projects/arcade-cabinet/img_4930-thumb.webp",
+        "caption": "Side view of the unfinished arcade cabinet.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_4930.JPEG"
+      },
+      {
+        "src": "assets/projects/arcade-cabinet/img_4940.webp",
+        "thumb": "assets/projects/arcade-cabinet/img_4940-thumb.webp",
+        "caption": "Joystick and button wiring on the back of the arcade control panel.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_4940.JPEG"
+      },
+      {
+        "src": "assets/projects/arcade-cabinet/img_4941.webp",
+        "thumb": "assets/projects/arcade-cabinet/img_4941-thumb.webp",
+        "caption": "A closer view of the arcade control wiring and interface board.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_4941.JPEG"
+      }
+    ],
     "links": [
       [
         "Watch Asteroids on the cabinet",
@@ -597,10 +1440,12 @@
       ]
     ],
     "role": "Independent project",
-    "image": "assets/illustrations/arcade-cabinet.svg",
-    "imageAlt": "Universal arcade cabinet — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/arcade-cabinet/img_4929.webp",
+    "imageAlt": "The assembled cabinet before the screen and controls were fitted.",
+    "imageType": "Build photograph",
+    "position": "50% 50%",
+    "videos": [],
+    "imageThumb": "assets/projects/arcade-cabinet/img_4929-thumb.webp"
   },
   {
     "slug": "gimbaling-tvc",
@@ -629,13 +1474,64 @@
       "low-cost-rc-plane",
       "mechanical-clock"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/gimbaling-tvc/d2398c0b-ee7e-400e-ac0d-d79b9553afd2.webp",
+        "thumb": "assets/projects/gimbaling-tvc/d2398c0b-ee7e-400e-ac0d-d79b9553afd2-thumb.webp",
+        "caption": "CAD model of the two-axis gimbal and its servos.",
+        "width": 1370,
+        "height": 771,
+        "source": "D2398C0B-EE7E-400E-AC0D-D79B9553AFD2.jpg"
+      },
+      {
+        "src": "assets/projects/gimbaling-tvc/68730842134__a875c6fd-12ed-4b2a-a4e0-05169fee5385.webp",
+        "thumb": "assets/projects/gimbaling-tvc/68730842134__a875c6fd-12ed-4b2a-a4e0-05169fee5385-thumb.webp",
+        "caption": "Gimbal electronics and wiring inside the printed test housing.",
+        "width": 1350,
+        "height": 1800,
+        "source": "68730842134__A875C6FD-12ED-4B2A-A4E0-05169FEE5385.JPEG"
+      },
+      {
+        "src": "assets/projects/gimbaling-tvc/68731686833__66b67716-ed6f-4fc8-a6e3-30235b6ed853.webp",
+        "thumb": "assets/projects/gimbaling-tvc/68731686833__66b67716-ed6f-4fc8-a6e3-30235b6ed853-thumb.webp",
+        "caption": "The printed gimbal and tube assembly.",
+        "width": 1350,
+        "height": 1800,
+        "source": "68731686833__66B67716-ED6F-4FC8-A6E3-30235B6ED853.JPEG"
+      },
+      {
+        "src": "assets/projects/gimbaling-tvc/cbac8ed2-6b7d-40df-befd-4271e8a291a2.webp",
+        "thumb": "assets/projects/gimbaling-tvc/cbac8ed2-6b7d-40df-befd-4271e8a291a2-thumb.webp",
+        "caption": "The outdoor ground-test fixture after a test.",
+        "width": 1370,
+        "height": 770,
+        "source": "CBAC8ED2-6B7D-40DF-BEFD-4271E8A291A2.jpg"
+      },
+      {
+        "src": "assets/projects/gimbaling-tvc/img_6780.webp",
+        "thumb": "assets/projects/gimbaling-tvc/img_6780-thumb.webp",
+        "caption": "A second CAD view of the thrust-vector-control gimbal.",
+        "width": 852,
+        "height": 1019,
+        "source": "IMG_6780.JPG"
+      },
+      {
+        "src": "assets/projects/gimbaling-tvc/img_6812.webp",
+        "thumb": "assets/projects/gimbaling-tvc/img_6812-thumb.webp",
+        "caption": "The gimbal controller and wiring during assembly.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_6812.JPEG"
+      }
+    ],
     "links": [],
     "role": "Independent project",
-    "image": "assets/illustrations/gimbaling-tvc.svg",
-    "imageAlt": "Gimbaling thrust-vector control — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/gimbaling-tvc/d2398c0b-ee7e-400e-ac0d-d79b9553afd2.webp",
+    "imageAlt": "CAD model of the two-axis gimbal and its servos.",
+    "imageType": "Build photograph",
+    "position": "50% 50%",
+    "videos": [],
+    "imageThumb": "assets/projects/gimbaling-tvc/d2398c0b-ee7e-400e-ac0d-d79b9553afd2-thumb.webp"
   },
   {
     "slug": "ai-parts-database",
@@ -705,19 +1601,46 @@
     "sections": [
       {
         "title": "Project notes",
-        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+        "text": "The photographs below document the board and its assembly. A detailed account of the circuit design, testing, and results is being prepared."
       }
     ],
     "featured": false,
     "brief": true,
     "related": [],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/transducer-phased-array/img_3963.webp",
+        "thumb": "assets/projects/transducer-phased-array/img_3963-thumb.webp",
+        "caption": "The assembled transducer phased-array board.",
+        "width": 1240,
+        "height": 1800,
+        "source": "IMG_3963.JPEG"
+      },
+      {
+        "src": "assets/projects/transducer-phased-array/img_3706.webp",
+        "thumb": "assets/projects/transducer-phased-array/img_3706-thumb.webp",
+        "caption": "The driver circuitry on the reverse side of the phased-array board.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_3706.JPEG"
+      },
+      {
+        "src": "assets/projects/transducer-phased-array/img_3822.webp",
+        "thumb": "assets/projects/transducer-phased-array/img_3822-thumb.webp",
+        "caption": "The ultrasonic transducer array connected for bench testing.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_3822.JPEG"
+      }
+    ],
     "links": [],
     "role": "Independent project",
-    "image": "assets/illustrations/transducer-phased-array.svg",
-    "imageAlt": "Transducer phased array — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/transducer-phased-array/img_3963.webp",
+    "imageAlt": "The assembled transducer phased-array board.",
+    "imageType": "Build photograph",
+    "position": "50% 45%",
+    "videos": [],
+    "imageThumb": "assets/projects/transducer-phased-array/img_3963-thumb.webp"
   },
   {
     "slug": "vacuum-tube-power-supply",
@@ -731,7 +1654,7 @@
     "sections": [
       {
         "title": "Project notes",
-        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+        "text": "The photographs below document the board and its assembly. A detailed account of the circuit design, testing, and results is being prepared."
       }
     ],
     "featured": false,
@@ -739,13 +1662,33 @@
     "related": [
       "budget-ebike"
     ],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/vacuum-tube-power-supply/img_3713.webp",
+        "thumb": "assets/projects/vacuum-tube-power-supply/img_3713-thumb.webp",
+        "caption": "A later power-supply board with adjustment hardware and revised circuitry.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_3713.JPEG"
+      },
+      {
+        "src": "assets/projects/vacuum-tube-power-supply/img_2779.webp",
+        "thumb": "assets/projects/vacuum-tube-power-supply/img_2779-thumb.webp",
+        "caption": "Prototype high-voltage power-supply board with its transformer and output wiring.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_2779.JPEG",
+        "live": "assets/projects/vacuum-tube-power-supply/videos/img_2779.mp4"
+      }
+    ],
     "links": [],
     "role": "Independent project",
-    "image": "assets/illustrations/vacuum-tube-power-supply.svg",
-    "imageAlt": "Vacuum-tube power supply — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/vacuum-tube-power-supply/img_3713.webp",
+    "imageAlt": "A later power-supply board with adjustment hardware and revised circuitry.",
+    "imageType": "Build photograph",
+    "position": "50% 50%",
+    "videos": [],
+    "imageThumb": "assets/projects/vacuum-tube-power-supply/img_3713-thumb.webp"
   },
   {
     "slug": "custom-drives",
@@ -813,20 +1756,55 @@
     ],
     "sections": [
       {
-        "title": "Project notes",
-        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+        "title": "The robot build",
+        "text": "The ES51 Turf Wars robot brought together a multi-linkage object-picking arm and a custom shifting gearbox. The photographs below show the transmission CAD, component-level prototypes, chassis assembly, and the robot on the course."
       }
     ],
     "featured": false,
     "brief": true,
     "related": [],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/projects/es51-final-project/img_5951.webp",
+        "thumb": "assets/projects/es51-final-project/img_5951-thumb.webp",
+        "caption": "The purple ES51 robot on the Turf Wars course.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_5951.JPEG"
+      },
+      {
+        "src": "assets/projects/es51-final-project/img_5816.webp",
+        "thumb": "assets/projects/es51-final-project/img_5816-thumb.webp",
+        "caption": "Planetary gearing and printed mounting hardware for the ES51 robot.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_5816.JPEG"
+      },
+      {
+        "src": "assets/projects/es51-final-project/img_5817.webp",
+        "thumb": "assets/projects/es51-final-project/img_5817-thumb.webp",
+        "caption": "The robot chassis and mechanism during assembly.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_5817.JPEG"
+      },
+      {
+        "src": "assets/projects/es51-final-project/img_5826.webp",
+        "thumb": "assets/projects/es51-final-project/img_5826-thumb.webp",
+        "caption": "CAD view of the robot transmission and shifting mechanism.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_5826.JPEG"
+      }
+    ],
     "links": [],
     "role": "Independent project",
-    "image": "assets/illustrations/es51-final-project.svg",
-    "imageAlt": "ES51 final project — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/es51-final-project/img_5951.webp",
+    "imageAlt": "The purple ES51 robot on the Turf Wars course.",
+    "imageType": "Build photograph",
+    "position": "50% 50%",
+    "videos": [],
+    "imageThumb": "assets/projects/es51-final-project/img_5951-thumb.webp"
   },
   {
     "slug": "125-final-project",
@@ -853,5 +1831,80 @@
     "imageAlt": "125 final project — conceptual line illustration",
     "imageType": "Project illustration",
     "position": "center"
+  },
+  {
+    "slug": "smart-home-device",
+    "title": "Smart home controller",
+    "category": "Electronics",
+    "summary": "An Arduino-based home controller, from exposed prototype wiring to a wall-mounted display and enclosure.",
+    "year": "2021-2023",
+    "tools": [
+      "Arduino",
+      "Electronics",
+      "Enclosure design",
+      "3D printing"
+    ],
+    "sections": [
+      {
+        "title": "From prototype to wall-mounted hardware",
+        "text": "The build photographs trace a home-controller prototype from an Arduino and small motor to an integrated wall-mounted unit with a display and custom enclosure. A full account of the control functions and development process will follow."
+      }
+    ],
+    "featured": false,
+    "brief": true,
+    "related": [
+      "budget-ebike"
+    ],
+    "gallery": [
+      {
+        "src": "assets/projects/smart-home-device/img_7498.webp",
+        "thumb": "assets/projects/smart-home-device/img_7498-thumb.webp",
+        "caption": "The display and enclosure during installation.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_7498.JPEG"
+      },
+      {
+        "src": "assets/projects/smart-home-device/34f0f47c-5941-4d61-a0b3-c1d0f727d193.webp",
+        "thumb": "assets/projects/smart-home-device/34f0f47c-5941-4d61-a0b3-c1d0f727d193-thumb.webp",
+        "caption": "Wall-mounted controller with its display and internal electronics exposed.",
+        "width": 1440,
+        "height": 1794,
+        "source": "34F0F47C-5941-4D61-A0B3-C1D0F727D193.jpg"
+      },
+      {
+        "src": "assets/projects/smart-home-device/63321396521__1e7bc2e4-9b7a-42e0-906d-a67b0ae54c6e.webp",
+        "thumb": "assets/projects/smart-home-device/63321396521__1e7bc2e4-9b7a-42e0-906d-a67b0ae54c6e-thumb.webp",
+        "caption": "An Arduino-based smart-home prototype with a small motor and controller.",
+        "width": 1350,
+        "height": 1800,
+        "source": "63321396521__1E7BC2E4-9B7A-42E0-906D-A67B0AE54C6E.JPEG",
+        "live": "assets/projects/smart-home-device/videos/63321396521__1e7bc2e4-9b7a-42e0-906d-a67b0ae54c6e.mp4"
+      },
+      {
+        "src": "assets/projects/smart-home-device/img_0026.webp",
+        "thumb": "assets/projects/smart-home-device/img_0026-thumb.webp",
+        "caption": "The early Arduino-based controller installed on the wall.",
+        "width": 1124,
+        "height": 823,
+        "source": "IMG_0026.JPG"
+      },
+      {
+        "src": "assets/projects/smart-home-device/img_7497.webp",
+        "thumb": "assets/projects/smart-home-device/img_7497-thumb.webp",
+        "caption": "Internal wiring of the wall-mounted smart-home controller.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_7497.JPEG"
+      }
+    ],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/projects/smart-home-device/img_7498.webp",
+    "imageAlt": "The display and enclosure during installation.",
+    "imageType": "Build photograph",
+    "position": "50% 55%",
+    "videos": [],
+    "imageThumb": "assets/projects/smart-home-device/img_7498-thumb.webp"
   }
 ]

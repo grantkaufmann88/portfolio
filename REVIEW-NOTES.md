@@ -1,62 +1,31 @@
-# Review notes for Grant
+# Verification of the photo-integrated edition
 
-## Content decisions
+## Completed checks
 
-The current `Prompt.docx` is the main source for your present identity: third-year Harvard Mechanical Engineering student, Class of 2028, Rowland research assistant, SpaceX intern, HURC vice president, and NROTC midshipman. The older applications supply project descriptions and personal history.
+The standard-library build succeeds and produces 33 HTML pages: 22 projects, five experience pages, the home/project-index/experience-index/about/contact pages, and a 404 page.
 
-- **SpaceX:** “last fall” in the September 2026 brief is interpreted as fall 2025. No team, program, performance claim, or confidential work is invented. Add your actual internship responsibilities and results.
-- **Rowland:** the brief says both “last 3 years” and “since the spring of my senior year of high school.” Those do not match exactly with Class of 2024. The site says you started during senior year and work part-time, avoiding an invented date or duration.
-- **NROTC:** the site uses “Midshipman,” without advancing or inferring your class/rank from the dates in old documents.
-- **Résumé:** the included one-page résumé is a new draft based on supplied material. Review it and preferably replace it with your current résumé before publication. Your old CV describes you as a 17-year-old applicant and is not offered as a current download.
-- **Contact:** the supplied CV lists `kaufmann.grant@gmail.com` and `617-851-7057`. Those are used because the brief explicitly requests contact details and a phone number. Check that both are still your preferred public contacts.
-- **Privacy:** the website package does not include the original application essays, home address, or unrelated personal details.
+`python scripts/check_site.py` passes with 1,591 local references checked. The checker covers normal links, fragments, cover images, responsive image paths, full-size gallery images, MP4 sources, video posters, project relationships, duplicate page titles, WebP file headers, and the existing resume download. All 174 input media files are accounted for in the manifest.
 
-## Photos and missing documentation
+All 256 WebP files (119 new images and their thumbnails, five video posters, and 13 retained image assets) pass Pillow's image verification. All 174 original files in the separate sorted-photo archive pass SHA-256 comparison against the source files.
 
-All 21 folders under `Project Info` were empty in the uploaded ZIP. Fourteen usable project photographs and CAD images were recovered from the e-bike PDF. The other covers are original, clearly labeled conceptual illustrations. They are visual placeholders, not renderings of the real hardware.
+All 32 non-error pages were rendered in Chromium at desktop and 390-pixel mobile widths. Selected pages were also checked at 320 pixels. An existing About-page decorative SVG was found to exceed the mobile viewport; its maximum width was fixed and rechecked at 320, 390, 620, 960, and 1,440 pixels. No remaining horizontal-overflow or image-decoding failures were found in these checks.
 
-Nine projects have deliberately brief entries: HURC Mars rover, AI-enabled parts database, RIS geophone vibration tester, transducer phased array, vacuum-tube power supply, low-cost custom drives, micro swarming drone, ES51 final project, and 125 final project. The folders name these projects but do not provide sufficient specifications, results, roles, or photos. Do not infer completion from their presence in the portfolio.
+The gallery was exercised with mouse controls, arrow keys, Escape, focus restoration, expanded photo sections, and a mobile-size dialog. Project filtering, text search, empty-state reset, and the mobile menu passed their interaction checks.
 
-For the transducer array, the folder mentions a telescope application but gives no supporting description; that application is not asserted on the page. Course 125 is not expanded to a course title without evidence.
+All 37 published MP4 files successfully exposed video dimensions and duration to Chromium. One Live Photo was additionally played and its pause-on-collapse behavior was verified. Videos remain paused on initial page load.
 
-The three featured projects are the e-bike kit, desktop CNC, and go-kart because those have the strongest supplied narratives. The rover has a reciprocal link with the HURC experience page, ready for your full case study.
+## Test-environment limitation
 
-## Engineering descriptions
+The environment's browser administrator policy blocks navigation to both localhost and `file://` addresses. Browser rendering and interaction tests therefore used the generated HTML with local styles, scripts, and media inlined into an otherwise unchanged page. The same MP4 bytes were supplied as local data URLs for browser playback checks. Thumbnail variants were used in visual renders; full-size images were used in the dedicated gallery tests.
 
-- The e-bike's sub-$150 figure is a materials-cost target, not an achieved sale price.
-- The $82.74 figure is identified as the 2024 component estimate excluding the motor.
-- The printed motor's thermal failure remains visible. The site does not call the kit road-ready, certified waterproof, or commercially available.
-- Estimated range, uncertain efficiency calculations, brake-replacement claims, and unverified electrical specifications in the old draft are omitted.
-- The 75% clock counterweight reduction comes from the maker portfolio captions.
-- The go-kart transmission ratios and the 216-mile / 22-day hike come from your supplied documents.
-- Rocket and high-voltage projects are described at portfolio level, without reproducing experimental construction or safety instructions.
+Separately, a local HTTP server successfully served all 32 non-error HTML pages, and the offline checker validated the actual relative file paths and responsive-image references. Browser URL-history persistence, live GitHub Pages hosting, and actual network selection of `srcset` variants were not verified in this environment. No website was uploaded or deployed.
 
-## Web research
+## Content decisions to review
 
-The brief requests maker-portfolio references and public background research. The design takes general cues from short introductions, clear project hierarchies, and linked work histories in these public portfolios; no code, photos, or personal copy were copied:
+Thirteen images remain in labeled `needs-review` folders in the separate sorted-photo package. They include the blue gripper robot, December 2025 laser-cut frame, portable computer, and other unidentified prototypes or context shots. These files were not published under a guessed project. `PHOTO-REVIEW.html` in that package provides a contact sheet with filenames and assignment notes.
 
-- [Greg Lagana](https://www.greglagana.com/)
-- [Efren Cabebe](https://www.efrencabebe.com/)
+Five original project pages still use conceptual covers because no supplied photo could be confidently assigned to them: AI-enabled parts database, geophone vibration tester, low-cost custom drives, micro swarming drone, and 125 final project.
 
-Your [LinkedIn profile](https://www.linkedin.com/in/grant-kaufmann-harvard/) could not be retrieved. Your [YouTube channel](https://www.youtube.com/@grantkprojects) and video pages did not expose playable content or transcripts here. The videos were **not watched**. The project video links on the site were extracted from your supplied documents and should be checked during your review. No unrelated search results were used to fill biographical gaps.
+The supplied profile, contact details, experience narratives, and resume PDF were preserved. The Smart home controller page is a new brief entry based on the clearly identifiable controller photos. The ES51 brief describes the robot's documented arm and transmission, without inventing performance results. The e-bike text was minimally adjusted to acknowledge the supplied outdoor ride video without implying a finished or road-ready kit.
 
-The source texts were read locally from the uploaded archive. The supplied PDFs were also inspected for recoverable images. Full project dates and current completion status should be confirmed as you update the older stories.
-
-## Feedback that will make the next pass better
-
-1. Does the restrained workshop style feel like you? Which page feels strongest or weakest?
-2. Which projects should lead the homepage once all photos and descriptions are available?
-3. Can you supply photos of the rover, go-kart, clock, and yourself, plus a current résumé?
-4. What did you personally own and accomplish at SpaceX, Rowland, and HURC?
-5. What are the current status and most interesting technical result of each brief entry?
-
-You can provide screenshots, page names, and rough notes. The content is separate from the layout so revisions do not require a redesign.
-
-## Verification performed
-
-- Generated 32 static HTML pages and checked 700 local link/asset references. All resolved successfully; no duplicate page titles or missing image labels were found.
-- Started the included Python server and requested all 71 website pages and assets over local HTTP. All returned HTTP 200; the résumé download contained a valid PDF.
-- Checked JavaScript syntax and exercised all filter categories, combined search, empty/reset behavior, URL filter initialization, menu open/Escape behavior, email copy success/fallback, and gallery next/previous/wrap/close logic in a minimal DOM event harness. These are logic checks, not a browser rendering test.
-- Rendered and visually inspected the one-page résumé PDF, including embedded fonts and page fit.
-- Browser rendering was attempted but blocked by the environment: the primary runtime had no browser executable and its download was denied; the isolated runtime's installed browser could not launch due to operating-system restrictions. **Desktop/mobile screenshot inspection, actual browser keyboard/focus testing, and visual layout verification remain for local review.** No screenshots are presented as if they were verified.
-- The linked external videos and LinkedIn destination were not verified as accessible here.
+`ORIGINAL-CONTENT-NOTES.md` preserves the older edition's content notes. Its claims about missing photographs predate this integration and should not be treated as the current media inventory.

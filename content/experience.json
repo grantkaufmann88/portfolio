@@ -19,6 +19,35 @@
     ],
     "projects": [
       "geophone-vibration-tester"
+    ],
+    "gallery": [
+      {
+        "src": "assets/experience/rowland/img_0927.webp",
+        "thumb": "assets/experience/rowland/img_0927-thumb.webp",
+        "caption": "Laboratory racks of electronic test equipment.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_0927.JPEG",
+        "live": "assets/experience/rowland/videos/img_0927.mp4"
+      },
+      {
+        "src": "assets/experience/rowland/img_1368.webp",
+        "thumb": "assets/experience/rowland/img_1368-thumb.webp",
+        "caption": "An oscilloscope trace during electronics testing.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_1368.JPEG",
+        "live": "assets/experience/rowland/videos/img_1368.mp4"
+      },
+      {
+        "src": "assets/experience/rowland/img_5012.webp",
+        "thumb": "assets/experience/rowland/img_5012-thumb.webp",
+        "caption": "Organized electronic component storage.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_5012.JPEG",
+        "live": "assets/experience/rowland/videos/img_5012.mp4"
+      }
     ]
   },
   {
@@ -39,7 +68,8 @@
         "SpaceX became a source of inspiration after I watched Falcon Heavy’s 2018 landing. The emphasis on building, testing, and learning resonated with the way I approached my own engineering projects."
       ]
     ],
-    "projects": []
+    "projects": [],
+    "gallery": []
   },
   {
     "slug": "hurc",
@@ -61,6 +91,42 @@
     ],
     "projects": [
       "hurc-mars-rover"
+    ],
+    "gallery": [
+      {
+        "src": "assets/projects/hurc-mars-rover/img_2683.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_2683-thumb.webp",
+        "caption": "Rover chassis, suspension, and manipulator on a workshop stand.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_2683.JPEG"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/img_3942.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_3942-thumb.webp",
+        "caption": "Assembled HURC power-distribution board with connectors and fuses.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_3942.JPEG"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/img_4866.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_4866-thumb.webp",
+        "caption": "Rover hardware set up beside soil samples for testing.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_4866.JPEG",
+        "live": "assets/projects/hurc-mars-rover/videos/img_4866.mp4"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/img_4804.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_4804-thumb.webp",
+        "caption": "A workshop visit beside the rover.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_4804.JPEG",
+        "live": "assets/projects/hurc-mars-rover/videos/img_4804.mp4"
+      }
     ]
   },
   {
@@ -77,7 +143,35 @@
         "I am a Midshipman in the Naval Reserve Officers Training Corps through the BU–MIT consortium, alongside my studies at Harvard. My background brings together engineering, teamwork, and a commitment to service."
       ]
     ],
-    "projects": []
+    "projects": [],
+    "gallery": [
+      {
+        "src": "assets/experience/nrotc/img_3771.webp",
+        "thumb": "assets/experience/nrotc/img_3771-thumb.webp",
+        "caption": "An NROTC uniformed ceremony.",
+        "width": 1800,
+        "height": 1200,
+        "source": "IMG_3771.JPG"
+      },
+      {
+        "src": "assets/experience/nrotc/img_7354.webp",
+        "thumb": "assets/experience/nrotc/img_7354-thumb.webp",
+        "caption": "Naval training alongside a U.S. Navy landing craft.",
+        "width": 1800,
+        "height": 1350,
+        "source": "IMG_7354.JPEG",
+        "live": "assets/experience/nrotc/videos/img_7354.mp4"
+      },
+      {
+        "src": "assets/experience/nrotc/img_8184.webp",
+        "thumb": "assets/experience/nrotc/img_8184-thumb.webp",
+        "caption": "A cockpit view during naval aviation training.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_8184.JPEG",
+        "live": "assets/experience/nrotc/videos/img_8184.mp4"
+      }
+    ]
   },
   {
     "slug": "crls-robotics",
@@ -103,6 +197,41 @@
     ],
     "projects": [
       "low-cost-rc-plane"
+    ],
+    "gallery": [
+      {
+        "src": "assets/experience/crls-robotics/6e1902f9-d56c-4e91-8476-489a8a9c61e4-1.webp",
+        "thumb": "assets/experience/crls-robotics/6e1902f9-d56c-4e91-8476-489a8a9c61e4-1-thumb.webp",
+        "caption": "The CRLS robotics team with its competition robot.",
+        "width": 1800,
+        "height": 1350,
+        "source": "6e1902f9-d56c-4e91-8476-489a8a9c61e4-1.jpg"
+      },
+      {
+        "src": "assets/experience/crls-robotics/img_0812.webp",
+        "thumb": "assets/experience/crls-robotics/img_0812-thumb.webp",
+        "caption": "The competition robot chassis during assembly.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0812.JPEG"
+      },
+      {
+        "src": "assets/experience/crls-robotics/img_0814.webp",
+        "thumb": "assets/experience/crls-robotics/img_0814-thumb.webp",
+        "caption": "The robot intake mechanism and wiring.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0814.JPEG"
+      },
+      {
+        "src": "assets/experience/crls-robotics/img_0856.webp",
+        "thumb": "assets/experience/crls-robotics/img_0856-thumb.webp",
+        "caption": "The assembled competition robot with team number 97.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_0856.JPEG",
+        "live": "assets/experience/crls-robotics/videos/img_0856.mp4"
+      }
     ]
   }
 ]

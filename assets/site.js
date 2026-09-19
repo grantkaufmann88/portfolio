@@ -72,21 +72,34 @@
 
   const galleryButtons = [...document.querySelectorAll('[data-gallery-src]')];
   const dialog = document.querySelector('#lightbox');
-  if (dialog && galleryButtons.length) {
+  if (dialog && galleryButtons.length && typeof dialog.showModal === 'function') {
     const image = dialog.querySelector('.lightbox-image');
     const caption = dialog.querySelector('.lightbox-caption');
     const counter = dialog.querySelector('[data-image-count]');
+    const original = dialog.querySelector('[data-original]');
     let current = 0;
+    let lastTrigger = null;
     function show(index) {
       current = (index + galleryButtons.length) % galleryButtons.length;
-      const button = galleryButtons[current];
-      image.src = button.dataset.gallerySrc;
-      image.alt = button.dataset.caption;
-      caption.textContent = button.dataset.caption;
+      const link = galleryButtons[current];
+      image.src = link.dataset.gallerySrc;
+      image.alt = link.dataset.caption;
+      caption.textContent = link.dataset.caption;
+      original.href = link.dataset.gallerySrc;
       counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(galleryButtons.length).padStart(2, '0')}`;
+      // Only the next image is prefetched; the rest of the gallery stays lazy.
+      if (galleryButtons.length > 1) {
+        const next = new Image();
+        next.src = galleryButtons[(current + 1) % galleryButtons.length].dataset.gallerySrc;
+      }
     }
-    galleryButtons.forEach((button, index) => button.addEventListener('click', () => {
-      show(index); dialog.showModal(); document.body.classList.add('modal-open');
+    galleryButtons.forEach((link, index) => link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      lastTrigger = link;
+      show(index);
+      dialog.showModal();
+      document.body.classList.add('modal-open');
     }));
     dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
     dialog.querySelector('[data-prev]').addEventListener('click', () => show(current - 1));
@@ -99,8 +112,26 @@
       const rect = dialog.getBoundingClientRect();
       if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
     });
-    dialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('modal-open');
+      image.removeAttribute('src');
+      lastTrigger?.focus({ preventScroll: true });
+    });
   }
+
+  // Live Photo clips play only on request and stop when their panel is closed.
+  document.querySelectorAll('.live-photo').forEach(details => {
+    details.addEventListener('toggle', () => {
+      if (!details.open) details.querySelector('video')?.pause();
+    });
+  });
+  // Opening another build video never leaves the previous one playing off screen.
+  document.addEventListener('play', event => {
+    if (!(event.target instanceof HTMLVideoElement)) return;
+    document.querySelectorAll('video').forEach(video => {
+      if (video !== event.target && !video.paused) video.pause();
+    });
+  }, true);
 
   document.querySelectorAll('[data-copy]').forEach(button => {
     button.addEventListener('click', async () => {
