@@ -24,7 +24,8 @@
       "MIT Maker Portfolio Picture Descriptions_.pdf",
       "Grant_Kaufmann_Resume_SpaceX.pdf",
       "Grant Kaufmann CV.docx",
-      "Project and Website Monologue.docx"
+      "Project and Website Monologue.docx",
+      "IMG_7875.jpeg (additional personal photographs)"
     ]
   },
   "hurc-mars-rover": {
@@ -275,7 +276,8 @@
     "title": "SpaceX",
     "sources": [
       "Grant-Kaufmann-Resume(1).pdf",
-      "Project and Website Monologue.docx"
+      "Project and Website Monologue.docx",
+      "Additional road-trip, Seattle, house-project, and hiking photographs"
     ]
   },
   "experience/hurc": {
@@ -290,7 +292,8 @@
     "sources": [
       "Project and Website Monologue.docx",
       "Website Changes_.pdf",
-      "Grant-Kaufmann-Resume(1).pdf"
+      "Grant-Kaufmann-Resume(1).pdf",
+      "FullSizeRender.jpeg (additional Navy ceremony photograph)"
     ]
   },
   "experience/crls-robotics": {
@@ -305,12 +308,18 @@
     "title": "About Grant Kaufmann",
     "sources": [
       "Project and Website Monologue.docx",
-      "Grant-Kaufmann-Resume(1).pdf"
+      "Grant-Kaufmann-Resume(1).pdf",
+      "IMG_6294.jpeg (additional hiking photograph)"
     ]
   },
   "resume": {
     "source": "Grant-Kaufmann-Resume(1).pdf",
     "sha256": "f96ffb340683cef6745ab539b6660917b6362f008c76b1b3e2c3b81a7312d0ba",
     "modified": false
+  },
+  "personal_photographs": {
+    "inventory": "content/media-manifest.json:personal_photos",
+    "total": 10,
+    "scope": "User-provided photographs; descriptions use supplied context and visible subject matter. No unconfirmed person identities, landmark names, or performance claims added."
   }
 }

@@ -526,7 +526,20 @@
     "sections": [
       {
         "title": "A project that grew with me",
-        "text": "The first version was a wooden go-kart I worked on over several summers. Repeated damage eventually pushed me toward a welded steel frame. I bought scrap steel on Facebook Marketplace, laid out the parts from my CAD model, and continued building under a tent in my backyard through the winter. A repurposed gaming chair became the seat.\n\nThe later version combined a 212 cc Predator engine, a continuously variable transmission, and a body inspired by the Cybertruck. Much of the challenge came from choosing electronic steering and controls rather than a conventional mechanical connection between the driver and the wheels."
+        "text": "The first version was a wooden go-kart I worked on over several summers. Repeated damage eventually pushed me toward a welded steel frame. I bought scrap steel on Facebook Marketplace, laid out the parts from my CAD model, and continued building under a tent in my backyard through the winter. A repurposed gaming chair became the seat.\n\nThe later version combined a 212 cc Predator engine, a continuously variable transmission, and a body inspired by the Cybertruck. Much of the challenge came from choosing electronic steering and controls rather than a conventional mechanical connection between the driver and the wheels.",
+        "images": [
+          {
+            "src": "assets/projects/cybertruck-go-kart/early-wooden-kart.webp",
+            "thumb": "assets/projects/cybertruck-go-kart/early-wooden-kart-thumb.webp",
+            "caption": "An earlier wooden go-kart, before the later welded-steel version.",
+            "width": 1800,
+            "height": 1018,
+            "thumbWidth": 640,
+            "thumbHeight": 362,
+            "source": "IMG_7875.jpeg",
+            "natural": true
+          }
+        ]
       },
       {
         "title": "Building an electronic steering system",
@@ -558,6 +571,17 @@
         "width": 1800,
         "height": 1350,
         "source": "IMG_0435.JPEG"
+      },
+      {
+        "src": "assets/projects/cybertruck-go-kart/early-wooden-kart.webp",
+        "thumb": "assets/projects/cybertruck-go-kart/early-wooden-kart-thumb.webp",
+        "caption": "An earlier wooden go-kart, before the later welded-steel version.",
+        "width": 1800,
+        "height": 1018,
+        "thumbWidth": 640,
+        "thumbHeight": 362,
+        "source": "IMG_7875.jpeg",
+        "natural": true
       },
       {
         "src": "assets/projects/cybertruck-go-kart/img_0163.webp",
@@ -651,7 +675,8 @@
       "MIT Maker Portfolio Picture Descriptions_.pdf",
       "Grant_Kaufmann_Resume_SpaceX.pdf",
       "Grant Kaufmann CV.docx",
-      "Project and Website Monologue.docx"
+      "Project and Website Monologue.docx",
+      "IMG_7875.jpeg (additional personal photographs)"
     ],
     "youtube": [
       {

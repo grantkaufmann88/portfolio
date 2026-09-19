@@ -76,11 +76,19 @@
       ],
       [
         "Driving across the country",
-        "Before the internship, I drove across the country to Seattle. The trip turned the move into an opportunity to explore, spend time outdoors, and see places I had not been before. Hiking and time with friends remained a large part of the summer outside work."
+        "Before the internship, I drove across the country to Seattle. The trip turned the move into an opportunity to explore, spend time outdoors, and see places I had not been before."
       ],
       [
         "A house full of roommates and side projects",
-        "I lived with seven roommates, and my habit of building things followed me home. I adapted the house intercom to accept Bluetooth audio so we could play music throughout the house, and designed a double-decker couch so more of us could fit upstairs to watch TV.\n\nThese were personal projects outside SpaceX, not company work. They capture another part of the summer: living with friends, finding things to improve, and building for the people around me."
+        "I lived with seven roommates, and my habit of building things followed me home. I designed a double-decker couch so more of us could fit upstairs to watch TV."
+      ],
+      [
+        "Giving the house intercom Bluetooth",
+        "I adapted the house intercom to accept Bluetooth audio so we could play music throughout the house.\n\nThe couch and intercom were personal projects outside SpaceX, not company work. They capture another part of the summer: living with friends, finding things to improve, and building for the people around me."
+      ],
+      [
+        "Weekends outdoors",
+        "Hiking and time with friends remained a large part of the summer outside work."
       ],
       [
         "What I took away",
@@ -88,11 +96,178 @@
       ]
     ],
     "projects": [],
-    "gallery": [],
+    "gallery": [
+      {
+        "src": "assets/experience/spacex/road-trip/mountain-stop.webp",
+        "thumb": "assets/experience/spacex/road-trip/mountain-stop-thumb.webp",
+        "caption": "A mountain stop on the drive to Seattle.",
+        "width": 1536,
+        "height": 1152,
+        "thumbWidth": 640,
+        "thumbHeight": 480,
+        "source": "IMG_6070.jpeg",
+        "natural": true
+      },
+      {
+        "src": "assets/experience/spacex/road-trip/bison-roadside.webp",
+        "thumb": "assets/experience/spacex/road-trip/bison-roadside-thumb.webp",
+        "caption": "Bison beside the road on the cross-country trip.",
+        "width": 1536,
+        "height": 1152,
+        "thumbWidth": 640,
+        "thumbHeight": 480,
+        "source": "IMG_6105.jpeg",
+        "natural": true
+      },
+      {
+        "src": "assets/experience/spacex/road-trip/canyon-overlook.webp",
+        "thumb": "assets/experience/spacex/road-trip/canyon-overlook-thumb.webp",
+        "caption": "A canyon overlook along the cross-country route.",
+        "width": 1536,
+        "height": 1152,
+        "thumbWidth": 640,
+        "thumbHeight": 480,
+        "source": "IMG_5932.jpeg",
+        "natural": true
+      },
+      {
+        "src": "assets/experience/spacex/house-projects/double-decker-couch-front.webp",
+        "thumb": "assets/experience/spacex/house-projects/double-decker-couch-front-thumb.webp",
+        "caption": "A front view of the couch and its timber support frame.",
+        "width": 1536,
+        "height": 1152,
+        "thumbWidth": 640,
+        "thumbHeight": 480,
+        "source": "IMG_6963.jpeg",
+        "natural": true
+      },
+      {
+        "src": "assets/experience/spacex/house-projects/double-decker-couch-side.webp",
+        "thumb": "assets/experience/spacex/house-projects/double-decker-couch-side-thumb.webp",
+        "caption": "The double-decker couch in the shared house in Seattle.",
+        "width": 1536,
+        "height": 1152,
+        "thumbWidth": 640,
+        "thumbHeight": 480,
+        "source": "IMG_6258.jpeg",
+        "natural": true
+      },
+      {
+        "src": "assets/experience/spacex/house-projects/intercom-bluetooth.webp",
+        "thumb": "assets/experience/spacex/house-projects/intercom-bluetooth-thumb.webp",
+        "caption": "Working on the house intercom for the Bluetooth audio conversion.",
+        "width": 1350,
+        "height": 1800,
+        "thumbWidth": 480,
+        "thumbHeight": 640,
+        "source": "IMG_7880.jpeg",
+        "natural": true
+      },
+      {
+        "src": "assets/personal/hiking/lakeside-hike-with-friends.webp",
+        "thumb": "assets/personal/hiking/lakeside-hike-with-friends-thumb.webp",
+        "caption": "Hiking with friends during the summer in the Seattle area.",
+        "width": 1152,
+        "height": 1536,
+        "thumbWidth": 480,
+        "thumbHeight": 640,
+        "source": "IMG_6245.jpeg",
+        "natural": true
+      }
+    ],
     "sources": [
       "Grant-Kaufmann-Resume(1).pdf",
-      "Project and Website Monologue.docx"
-    ]
+      "Project and Website Monologue.docx",
+      "Additional road-trip, Seattle, house-project, and hiking photographs"
+    ],
+    "sectionMedia": {
+      "1": [
+        {
+          "src": "assets/experience/spacex/road-trip/mountain-stop.webp",
+          "thumb": "assets/experience/spacex/road-trip/mountain-stop-thumb.webp",
+          "caption": "A mountain stop on the drive to Seattle.",
+          "width": 1536,
+          "height": 1152,
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "source": "IMG_6070.jpeg",
+          "natural": true
+        },
+        {
+          "src": "assets/experience/spacex/road-trip/bison-roadside.webp",
+          "thumb": "assets/experience/spacex/road-trip/bison-roadside-thumb.webp",
+          "caption": "Bison beside the road on the cross-country trip.",
+          "width": 1536,
+          "height": 1152,
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "source": "IMG_6105.jpeg",
+          "natural": true
+        },
+        {
+          "src": "assets/experience/spacex/road-trip/canyon-overlook.webp",
+          "thumb": "assets/experience/spacex/road-trip/canyon-overlook-thumb.webp",
+          "caption": "A canyon overlook along the cross-country route.",
+          "width": 1536,
+          "height": 1152,
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "source": "IMG_5932.jpeg",
+          "natural": true
+        }
+      ],
+      "2": [
+        {
+          "src": "assets/experience/spacex/house-projects/double-decker-couch-front.webp",
+          "thumb": "assets/experience/spacex/house-projects/double-decker-couch-front-thumb.webp",
+          "caption": "A front view of the couch and its timber support frame.",
+          "width": 1536,
+          "height": 1152,
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "source": "IMG_6963.jpeg",
+          "natural": true
+        },
+        {
+          "src": "assets/experience/spacex/house-projects/double-decker-couch-side.webp",
+          "thumb": "assets/experience/spacex/house-projects/double-decker-couch-side-thumb.webp",
+          "caption": "The double-decker couch in the shared house in Seattle.",
+          "width": 1536,
+          "height": 1152,
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "source": "IMG_6258.jpeg",
+          "natural": true
+        }
+      ],
+      "3": [
+        {
+          "src": "assets/experience/spacex/house-projects/intercom-bluetooth.webp",
+          "thumb": "assets/experience/spacex/house-projects/intercom-bluetooth-thumb.webp",
+          "caption": "Working on the house intercom for the Bluetooth audio conversion.",
+          "width": 1350,
+          "height": 1800,
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "source": "IMG_7880.jpeg",
+          "natural": true
+        }
+      ],
+      "4": [
+        {
+          "src": "assets/personal/hiking/lakeside-hike-with-friends.webp",
+          "thumb": "assets/personal/hiking/lakeside-hike-with-friends-thumb.webp",
+          "caption": "Hiking with friends during the summer in the Seattle area.",
+          "width": 1152,
+          "height": 1536,
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "source": "IMG_6245.jpeg",
+          "natural": true
+        }
+      ]
+    },
+    "galleryTitle": "Summer outside work"
   },
   {
     "slug": "hurc",
@@ -215,13 +390,41 @@
         "width": 1350,
         "height": 1800,
         "source": "IMG_8184.JPEG"
+      },
+      {
+        "src": "assets/experience/nrotc/navy-ceremony.webp",
+        "thumb": "assets/experience/nrotc/navy-ceremony-thumb.webp",
+        "caption": "A Navy ceremony.",
+        "width": 1800,
+        "height": 1358,
+        "thumbWidth": 640,
+        "thumbHeight": 483,
+        "source": "FullSizeRender.jpeg",
+        "natural": true
       }
     ],
     "sources": [
       "Project and Website Monologue.docx",
       "Website Changes_.pdf",
-      "Grant-Kaufmann-Resume(1).pdf"
-    ]
+      "Grant-Kaufmann-Resume(1).pdf",
+      "FullSizeRender.jpeg (additional Navy ceremony photograph)"
+    ],
+    "sectionMedia": {
+      "2": [
+        {
+          "src": "assets/experience/nrotc/navy-ceremony.webp",
+          "thumb": "assets/experience/nrotc/navy-ceremony-thumb.webp",
+          "caption": "A Navy ceremony.",
+          "width": 1800,
+          "height": 1358,
+          "thumbWidth": 640,
+          "thumbHeight": 483,
+          "source": "FullSizeRender.jpeg",
+          "natural": true
+        }
+      ]
+    },
+    "galleryTitle": "Photos"
   },
   {
     "slug": "crls-robotics",

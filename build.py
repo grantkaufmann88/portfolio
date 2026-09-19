@@ -73,7 +73,7 @@ def image(media: dict, prefix: str = '', alt: str | None = None, cls: str = '', 
     attrs = f'src="{e(src)}"'
     if media.get('thumb'):
         thumb = local_url(media['thumb'], prefix)
-        tw = max(1, round(width * min(1, 640 / width, 640 / height)))
+        tw = media.get("thumbWidth", max(1, round(width * min(1, 640 / width, 640 / height))))
         attrs = f'src="{e(thumb)}" srcset="{e(thumb)} {tw}w, {e(src)} {width}w" sizes="{e(sizes)}"'
     loading = 'loading="eager" fetchpriority="high"' if eager else 'loading="lazy"'
     return f'<img {attrs} alt="{e(media.get("caption", "") if alt is None else alt)}" class="{e(cls)}" width="{width}" height="{height}" {loading} decoding="async">'
@@ -145,8 +145,13 @@ def article_media(items: list, prefix: str = '../') -> str:
         caption = media.get('caption', '')
         src = local_url(media['src'], prefix)
         photo = image(media, prefix, sizes='(max-width: 680px) 90vw, 740px')
-        figures.append(f'<figure class="article-figure"><a class="article-image-open" href="{e(src)}" data-gallery-src="{e(src)}" data-caption="{e(caption)}" aria-label="Enlarge: {e(caption)}">{photo}<span class="expand-label" aria-hidden="true">&#8599;</span></a><figcaption>{e(caption)}</figcaption></figure>')
-    return '<div class="article-media' + (' paired' if len(items) == 2 else '') + '">' + ''.join(figures) + '</div>'
+        natural = ' natural-photo' if media.get('natural') else ''
+        portrait = ' portrait-photo' if natural and media.get('height', 0) > media.get('width', 1) else ''
+        figures.append(f'<figure class="article-figure{natural}{portrait}"><a class="article-image-open" href="{e(src)}" data-gallery-src="{e(src)}" data-caption="{e(caption)}" aria-label="Enlarge: {e(caption)}">{photo}<span class="expand-label" aria-hidden="true">&#8599;</span></a><figcaption>{e(caption)}</figcaption></figure>')
+    layout = ' paired' if len(items) == 2 else ''
+    if len(items) == 3 and all(normalize_media(item).get('natural') for item in items):
+        layout = ' photo-story'
+    return '<div class="article-media' + layout + '">' + ''.join(figures) + '</div>'
 
 
 def resource_links(items: list, prefix: str = '../') -> str:
@@ -172,7 +177,7 @@ def related(slugs: list, prefix: str = '../', title: str = 'Related projects') -
     return f'<section class="wrap section related"><div class="section-heading"><h2>{e(title)}</h2>{link("projects.html", "All projects", prefix, "inline-link")}</div><div class="project-grid related-grid">' + ''.join(card(p, prefix) for p in items) + '</div></section>'
 
 
-def gallery_markup(items: list, prefix: str = '../') -> str:
+def gallery_markup(items: list, prefix: str = '../', title: str = 'Photos & drawings') -> str:
     if not items:
         return ''
     figures = []
@@ -183,7 +188,7 @@ def gallery_markup(items: list, prefix: str = '../') -> str:
     more = ''
     if len(figures) > 8:
         more = f'<details class="gallery-more"><summary>Show {len(figures) - 8} more photos</summary><div class="gallery-grid">' + ''.join(figures[8:]) + '</div></details>'
-    return f'<section class="section gallery-section" id="photos"><div class="section-heading"><h2>Photos &amp; drawings</h2><span class="quiet">{len(figures)} images</span></div><div class="gallery-grid">' + ''.join(figures[:8]) + '</div>' + more + '</section>'
+    return f'<section class="section gallery-section" id="photos"><div class="section-heading"><h2>{e(title)}</h2><span class="quiet">{len(figures)} images</span></div><div class="gallery-grid">' + ''.join(figures[:8]) + '</div>' + more + '</section>'
 
 
 def lightbox() -> str:
@@ -307,19 +312,21 @@ def experiences() -> None:
             project_links = '<section class="experience-project-links"><h2>Projects from this work</h2><div>' + ''.join(f'<a href="../projects/{slug}.html">{e(BY_SLUG[slug]["title"])} {ARROW}</a>' for slug in x['projects'] if slug in BY_SLUG) + '</div></section>'
         else:
             project_links = ''
-        body += f'<div class="wrap">{project_links}<div class="article-layout experience-article">{side}<article class="prose" aria-label="Experience description">{article}</article></div>{gallery_markup(x.get("gallery", []))}</div>' + related(x['projects'], title='Explore the work') + (lightbox() if x.get('gallery') else '')
+        body += f'<div class="wrap">{project_links}<div class="article-layout experience-article">{side}<article class="prose" aria-label="Experience description">{article}</article></div>{gallery_markup(x.get("gallery", []), title=x.get("galleryTitle", "Photos & drawings"))}</div>' + related(x['projects'], title='Explore the work') + (lightbox() if x.get('gallery') or any(x.get('sectionMedia', {}).values()) else '')
         write(f'experience/{x["slug"]}.html', shell(x['org'], x['summary'], body, 'experience', '../'))
 
 
 def about() -> None:
     body = page_intro('About', 'I learn by building.', 'Mechanical engineering at Harvard College, Class of 2028. Based in Cambridge, Massachusetts.')
-    sections = ''.join(f'<section><h2>{e(title)}</h2>{paragraphs(text)}</section>' for title, text in PROFILE['aboutSections'])
+    sections = ''.join(f'<section><h2>{e(title)}</h2>{paragraphs(text)}{article_media(PROFILE.get("aboutSectionMedia", {}).get(str(i), []), "")}</section>' for i, (title, text) in enumerate(PROFILE['aboutSections']))
     facts = '<dl class="about-facts">' + ''.join(f'<div><dt>{e(label)}</dt><dd>{e(value)}</dd></div>' for value, label in PROFILE.get('aboutFacts', [])) + '</dl>'
     skills = ''.join(f'<div><h3>{e(title)}</h3><p>{e(text)}</p></div>' for title, text in PROFILE['aboutSkills'])
     actions = link('experience.html', 'Experience & leadership', cls='button') + link(PROFILE['resume'], 'Download r\u00e9sum\u00e9', cls='button', download=True)
     body += f'<section class="wrap about-layout"><div class="prose">{sections}{resource_links(PROFILE.get("aboutLinks", []), "")}<div class="actions">{actions}</div></div><aside class="about-skills">{facts}<h2>Tools I work with</h2>{skills}</aside></section>'
     maker = {'slug': 'maker', 'image': BY_SLUG['cybertruck-go-kart']['image'], 'gallery': BY_SLUG['cybertruck-go-kart']['gallery'], 'youtube': [{'title': 'Earlier maker portfolio', 'url': PROFILE['makerVideo']}], 'videos': []}
     body += '<div class="wrap maker-video"><div class="maker-note"><p class="eyebrow">An earlier chapter</p><h2>My maker portfolio</h2><p>An older video of the independent projects that came before my current research and college work.</p></div>' + videos_markup(maker, '') + '</div>'
+    if any(PROFILE.get('aboutSectionMedia', {}).values()):
+        body += lightbox()
     write('about.html', shell('About', 'Meet Grant Kaufmann, a Harvard mechanical engineering student, researcher, and independent builder.', body, 'about'))
 
 

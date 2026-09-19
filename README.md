@@ -41,7 +41,7 @@ Then use your normal commit/push workflow, for example:
 
 ```powershell
 git add .
-git commit -m "Integrate project monologues and new media"
+git commit -m "Add road-trip, Seattle, hiking, and Navy photos"
 git push
 ```
 
@@ -120,12 +120,21 @@ image in the main gallery too: the viewer deduplicates it automatically.
 Experience pages can use a `sectionMedia` object whose keys are zero-based
 section numbers, as shown on the HURC experience page. The About page is driven
 by `aboutSections`, `aboutFacts`, and `aboutSkills` in `profile.json`.
+Use `aboutSectionMedia` with the same zero-based section-number keys to place
+photos in the About text. Its images open in the same accessible viewer.
+A `galleryTitle` on an experience can customize its gallery heading.
+
+For personal photos, `"natural": true` preserves the full image framing in the
+article. Three such images appear as one large image above a pair on desktop;
+all stack on mobile. Single portrait photos are kept at a readable width.
 
 ## Files and checks
 
 `content/source-map.json` records the source documents used for each write-up.
 `content/media-manifest.json` tracks 25 additional images/drawings, the latest
-media assignments, and all 174 files in the earlier original-photo archive.
+media assignments, all 174 files in the earlier original-photo archive,
+and the ten additions listed under `personal_photos`. `PERSONAL-PHOTOS.md` maps
+each new upload to its folder and page.
 The original photo bytes remain in the separate originals archive; this website
 contains web-ready copies. Do not upload the originals ZIP as part of the site.
 

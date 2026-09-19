@@ -1,5 +1,5 @@
 {
-  "edition": "Monologue integration, September 2026",
+  "edition": "Personal photos update, September 2026",
   "new_images": [
     {
       "project": "geophone-vibration-tester",
@@ -265,7 +265,7 @@
     "63321396521__1e7bc2e4-9b7a-42e0-906d-a67b0ae54c6e.mp4",
     "img_2779.mp4"
   ],
-  "note": "The original 174-file inventory remains intact. New uploads are tracked separately under monologue_media. Previously published high-resolution copies of repeat photographs are retained instead of adding duplicates.",
+  "note": "The original 174-file inventory and previous monologue media remain intact. Ten further personal photographs are recorded under personal_photos; each is stored once as a web-ready image with a smaller thumbnail. Uploaded originals are not modified. No EXIF or location metadata is copied into these new website images.",
   "original_photo_inventory": [
     {
       "number": 1,
@@ -3335,6 +3335,198 @@
       "assigned_to": "125-final-project",
       "action": "Converted CAD walkthrough to web MP4, not labeled as a physical drop test",
       "web_path": "assets/projects/125-final-project/egg-drop-cad-walkthrough.mp4"
+    }
+  ],
+  "personal_photos": [
+    {
+      "src": "assets/projects/cybertruck-go-kart/early-wooden-kart.webp",
+      "thumb": "assets/projects/cybertruck-go-kart/early-wooden-kart-thumb.webp",
+      "caption": "An earlier wooden go-kart, before the later welded-steel version.",
+      "width": 1800,
+      "height": 1018,
+      "thumbWidth": 640,
+      "thumbHeight": 362,
+      "source": "IMG_7875.jpeg",
+      "natural": true,
+      "pages": [
+        "projects/cybertruck-go-kart.html"
+      ],
+      "source_sha256": "10799ee434712bbe2525464fb4c34dc8d3fd646f5d65fd381739dbdc9ba83520",
+      "source_width": 2133,
+      "source_height": 1206,
+      "metadata_removed": true,
+      "original_modified": false
+    },
+    {
+      "src": "assets/experience/spacex/house-projects/double-decker-couch-side.webp",
+      "thumb": "assets/experience/spacex/house-projects/double-decker-couch-side-thumb.webp",
+      "caption": "The double-decker couch in the shared house in Seattle.",
+      "width": 1536,
+      "height": 1152,
+      "thumbWidth": 640,
+      "thumbHeight": 480,
+      "source": "IMG_6258.jpeg",
+      "natural": true,
+      "pages": [
+        "experience/spacex.html"
+      ],
+      "source_sha256": "4a958c87a1a2d543ecefbe1d0a9d117bca05f772d87902077b280d75f295e86c",
+      "source_width": 1536,
+      "source_height": 1152,
+      "metadata_removed": true,
+      "original_modified": false
+    },
+    {
+      "src": "assets/experience/spacex/house-projects/double-decker-couch-front.webp",
+      "thumb": "assets/experience/spacex/house-projects/double-decker-couch-front-thumb.webp",
+      "caption": "A front view of the couch and its timber support frame.",
+      "width": 1536,
+      "height": 1152,
+      "thumbWidth": 640,
+      "thumbHeight": 480,
+      "source": "IMG_6963.jpeg",
+      "natural": true,
+      "pages": [
+        "experience/spacex.html"
+      ],
+      "source_sha256": "0c0966538010dd436d0c212826a26213dcf040a9d674a440b027894854d1088d",
+      "source_width": 1536,
+      "source_height": 1152,
+      "metadata_removed": true,
+      "original_modified": false
+    },
+    {
+      "src": "assets/personal/hiking/mountain-lake.webp",
+      "thumb": "assets/personal/hiking/mountain-lake-thumb.webp",
+      "caption": "A mountain-lake stop on a hike.",
+      "width": 1536,
+      "height": 1024,
+      "thumbWidth": 640,
+      "thumbHeight": 427,
+      "source": "IMG_6294.jpeg",
+      "natural": true,
+      "pages": [
+        "about.html"
+      ],
+      "source_sha256": "449b53b19b3568c593f5fa2f841583b98b86f33db364988df486cba6f9a4932e",
+      "source_width": 1536,
+      "source_height": 1024,
+      "metadata_removed": true,
+      "original_modified": false
+    },
+    {
+      "src": "assets/personal/hiking/lakeside-hike-with-friends.webp",
+      "thumb": "assets/personal/hiking/lakeside-hike-with-friends-thumb.webp",
+      "caption": "Hiking with friends during the summer in the Seattle area.",
+      "width": 1152,
+      "height": 1536,
+      "thumbWidth": 480,
+      "thumbHeight": 640,
+      "source": "IMG_6245.jpeg",
+      "natural": true,
+      "pages": [
+        "experience/spacex.html"
+      ],
+      "source_sha256": "8b8934b9e156490daae808fc3d635d0eadca0ef18cd0c62cd4c97473d4933ff0",
+      "source_width": 1152,
+      "source_height": 1536,
+      "metadata_removed": true,
+      "original_modified": false
+    },
+    {
+      "src": "assets/experience/nrotc/navy-ceremony.webp",
+      "thumb": "assets/experience/nrotc/navy-ceremony-thumb.webp",
+      "caption": "A Navy ceremony.",
+      "width": 1800,
+      "height": 1358,
+      "thumbWidth": 640,
+      "thumbHeight": 483,
+      "source": "FullSizeRender.jpeg",
+      "natural": true,
+      "pages": [
+        "experience/nrotc.html"
+      ],
+      "source_sha256": "8a760bf15022f552f3b21ff8fb477047d6cf19da27c08fe7fab8cb8faa409988",
+      "source_width": 1942,
+      "source_height": 1465,
+      "metadata_removed": true,
+      "original_modified": false
+    },
+    {
+      "src": "assets/experience/spacex/house-projects/intercom-bluetooth.webp",
+      "thumb": "assets/experience/spacex/house-projects/intercom-bluetooth-thumb.webp",
+      "caption": "Working on the house intercom for the Bluetooth audio conversion.",
+      "width": 1350,
+      "height": 1800,
+      "thumbWidth": 480,
+      "thumbHeight": 640,
+      "source": "IMG_7880.jpeg",
+      "natural": true,
+      "pages": [
+        "experience/spacex.html"
+      ],
+      "source_sha256": "1be275c5c8aea98ab604d027fc252a40620f68cf2ec8a3b58647037ff83c0f29",
+      "source_width": 1536,
+      "source_height": 2048,
+      "metadata_removed": true,
+      "original_modified": false
+    },
+    {
+      "src": "assets/experience/spacex/road-trip/bison-roadside.webp",
+      "thumb": "assets/experience/spacex/road-trip/bison-roadside-thumb.webp",
+      "caption": "Bison beside the road on the cross-country trip.",
+      "width": 1536,
+      "height": 1152,
+      "thumbWidth": 640,
+      "thumbHeight": 480,
+      "source": "IMG_6105.jpeg",
+      "natural": true,
+      "pages": [
+        "experience/spacex.html"
+      ],
+      "source_sha256": "7d64eb6909fcc41da5d62dcdd6f9d10e9b30597f276a362f0fbf0a0746d8216f",
+      "source_width": 1536,
+      "source_height": 1152,
+      "metadata_removed": true,
+      "original_modified": false
+    },
+    {
+      "src": "assets/experience/spacex/road-trip/mountain-stop.webp",
+      "thumb": "assets/experience/spacex/road-trip/mountain-stop-thumb.webp",
+      "caption": "A mountain stop on the drive to Seattle.",
+      "width": 1536,
+      "height": 1152,
+      "thumbWidth": 640,
+      "thumbHeight": 480,
+      "source": "IMG_6070.jpeg",
+      "natural": true,
+      "pages": [
+        "experience/spacex.html"
+      ],
+      "source_sha256": "2b29493a038563462bbba520ed8b852096ae97b3261ed1a5778488c53ae37e9c",
+      "source_width": 1536,
+      "source_height": 1152,
+      "metadata_removed": true,
+      "original_modified": false
+    },
+    {
+      "src": "assets/experience/spacex/road-trip/canyon-overlook.webp",
+      "thumb": "assets/experience/spacex/road-trip/canyon-overlook-thumb.webp",
+      "caption": "A canyon overlook along the cross-country route.",
+      "width": 1536,
+      "height": 1152,
+      "thumbWidth": 640,
+      "thumbHeight": 480,
+      "source": "IMG_5932.jpeg",
+      "natural": true,
+      "pages": [
+        "experience/spacex.html"
+      ],
+      "source_sha256": "4822ef0651392ff846c4276aaf8b4f74c0e244faca6efa6fbbaec0faef065275",
+      "source_width": 1536,
+      "source_height": 1152,
+      "metadata_removed": true,
+      "original_modified": false
     }
   ]
 }

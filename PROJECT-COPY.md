@@ -682,13 +682,21 @@ The internship gave me responsibility for hardware beyond my own prototypes and 
 
 ### Driving across the country
 
-Before the internship, I drove across the country to Seattle. The trip turned the move into an opportunity to explore, spend time outdoors, and see places I had not been before. Hiking and time with friends remained a large part of the summer outside work.
+Before the internship, I drove across the country to Seattle. The trip turned the move into an opportunity to explore, spend time outdoors, and see places I had not been before.
 
 ### A house full of roommates and side projects
 
-I lived with seven roommates, and my habit of building things followed me home. I adapted the house intercom to accept Bluetooth audio so we could play music throughout the house, and designed a double-decker couch so more of us could fit upstairs to watch TV.
+I lived with seven roommates, and my habit of building things followed me home. I designed a double-decker couch so more of us could fit upstairs to watch TV.
 
-These were personal projects outside SpaceX, not company work. They capture another part of the summer: living with friends, finding things to improve, and building for the people around me.
+### Giving the house intercom Bluetooth
+
+I adapted the house intercom to accept Bluetooth audio so we could play music throughout the house.
+
+The couch and intercom were personal projects outside SpaceX, not company work. They capture another part of the summer: living with friends, finding things to improve, and building for the people around me.
+
+### Weekends outdoors
+
+Hiking and time with friends remained a large part of the summer outside work.
 
 ### What I took away
 

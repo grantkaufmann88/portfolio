@@ -64,8 +64,24 @@
   ],
   "sources": [
     "Project and Website Monologue.docx",
-    "Grant-Kaufmann-Resume(1).pdf"
+    "Grant-Kaufmann-Resume(1).pdf",
+    "IMG_6294.jpeg (additional hiking photograph)"
   ],
   "resumeSha256": "f96ffb340683cef6745ab539b6660917b6362f008c76b1b3e2c3b81a7312d0ba",
-  "resumeSource": "Grant-Kaufmann-Resume(1).pdf"
+  "resumeSource": "Grant-Kaufmann-Resume(1).pdf",
+  "aboutSectionMedia": {
+    "2": [
+      {
+        "src": "assets/personal/hiking/mountain-lake.webp",
+        "thumb": "assets/personal/hiking/mountain-lake-thumb.webp",
+        "caption": "A mountain-lake stop on a hike.",
+        "width": 1536,
+        "height": 1024,
+        "thumbWidth": 640,
+        "thumbHeight": 427,
+        "source": "IMG_6294.jpeg",
+        "natural": true
+      }
+    ]
+  }
 }

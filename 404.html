@@ -285,4 +285,12 @@ body.dialog-open{overflow:hidden}
 @media(max-width:680px){.article-media.paired{grid-template-columns:minmax(0,1fr)}.article-media.paired img{height:auto;max-height:420px}.context-note{padding:22px 20px}.about-facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.about-facts dd{font-size:22px}.card-date{gap:6px}.card-meta{gap:10px}}
 @media(max-width:360px){.about-facts{grid-template-columns:1fr}.about-facts>div{flex-direction:row-reverse;justify-content:space-between;align-items:center}.about-facts dt{max-width:130px}}
 @media(min-width:701px) and (max-width:850px){.about-facts{grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;padding-bottom:24px}}
+
+/* Personal photographs retain their original framing. Older technical figures
+   keep their existing presentation; only photos marked natural use these rules. */
+.article-figure.natural-photo .article-image-open img{width:100%;height:auto;max-height:none;object-fit:contain}
+.article-media:not(.paired):not(.photo-story)>.portrait-photo{width:min(100%,420px);justify-self:center}
+.article-media.photo-story{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px}
+.article-media.photo-story>.article-figure:first-child{grid-column:1/-1}
+@media(max-width:680px){.article-media.photo-story{grid-template-columns:minmax(0,1fr)}.article-media.photo-story>.article-figure:first-child{grid-column:auto}}
 </style></head><body><main class="wrap not-found"><p class="eyebrow">404</p><h1>Page not found.</h1><p>The page may have moved, or the address may be incomplete.</p><a class="button primary" href="./index.html" id="home-link">Back to the portfolio</a></main><script>(()=>{const parts=location.pathname.split('/').filter(Boolean);if(parts.length)parts.pop();const a=document.getElementById('home-link');(async()=>{for(let i=parts.length;i>=0;i--){const base='/'+parts.slice(0,i).join('/')+(i?'/':'');try{const r=await fetch(base+'index.html');if(r.ok&&(await r.text()).includes('Grant Kaufmann')){a.href=base+'index.html';return;}}catch{}}})();})();</script></body></html>

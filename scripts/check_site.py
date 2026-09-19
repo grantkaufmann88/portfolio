@@ -124,6 +124,37 @@ def main():
         for key in ('src', 'thumb'):
             if not (ROOT / record[key]).is_file():
                 errors.append('Missing added image: ' + record[key])
+    # New personal media is separate from the historical 174-file inventory.
+    # Validate the content mappings as well as the rendered relative links.
+    profile = json.loads((ROOT / 'content/profile.json').read_text(encoding='utf-8'))
+    inline_groups = []
+    for project in projects:
+        inline_groups.extend(section.get('images', []) for section in project.get('sections', []))
+    for item in experiences:
+        inline_groups.extend(item.get('sectionMedia', {}).values())
+    inline_groups.extend(profile.get('aboutSectionMedia', {}).values())
+    for group in inline_groups:
+        for media in group:
+            if not isinstance(media, dict):
+                continue
+            for key in ('src', 'thumb'):
+                if key in media and not (ROOT / media[key]).is_file():
+                    errors.append('Missing inline image: ' + media[key])
+    personal = media_record.get('personal_photos', [])
+    if len({record['src'] for record in personal}) != len(personal):
+        errors.append('Duplicate path in the added personal photo inventory')
+    for record in personal:
+        for key in ('src', 'thumb'):
+            if not (ROOT / record[key]).is_file():
+                errors.append('Missing personal photograph: ' + record[key])
+        if not record.get('caption') or record.get('width', 0) < 1 or record.get('height', 0) < 1:
+            errors.append('Incomplete personal photo description: ' + record['src'])
+        for page in record.get('pages', []):
+            html_path = ROOT / page
+            if not html_path.is_file() or record['src'] not in html_path.read_text(encoding='utf-8'):
+                errors.append('Personal photograph is not present on its assigned page: ' + record['src'] + ' -> ' + page)
+    if profile.get('aboutSectionMedia') and 'id="lightbox"' not in (ROOT / 'about.html').read_text(encoding='utf-8'):
+        errors.append('About photos have no image viewer')
     if len(manifest) != 174 or len({record['file'] for record in manifest}) != 174:
         errors.append('Source inventory must account for all 174 original files')
     for record in manifest:

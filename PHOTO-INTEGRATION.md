@@ -1,3 +1,7 @@
+> Latest addition: see `PERSONAL-PHOTOS.md` for the ten road-trip, Seattle,
+> hiking, Navy, and earlier go-kart photographs. The earlier integration is
+> documented below.
+
 # Media integration - monologue edition
 
 ## New and refreshed media
