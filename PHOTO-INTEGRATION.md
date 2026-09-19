@@ -1,59 +1,30 @@
-# Photo integration report
+# Media integration - monologue edition
 
-Base: the complete multi-page `Grant-Kaufmann-Portfolio(1).zip`, not the older eight-project one-page starter. All existing pages and source content files were retained. A short Smart home controller entry was added for the clearly identifiable wall-mounted controller photos.
+## New and refreshed media
 
-## Inventory
+| Supplied file | Website assignment | Treatment |
+| --- | --- | --- |
+| IMG_3942.jpeg | HURC Mars rover | Reused the existing higher-resolution board image; corrected team attribution. |
+| IMG_3922.jpeg | ES125 egg-drop mechanism | Reused the existing higher-resolution frame image. |
+| IMG_3925.MOV | ES125 egg-drop mechanism | Converted the 11.34-second CAD walkthrough to H.264/AAC MP4 with a local poster. It is not labeled as a drop test. |
+| Rowland directory screenshot | Lab parts and equipment database | Replaced the existing screenshot; cropped browser and taskbar only. |
+| DOCX embedded image1.jpg | HURC science module | Added the drill/carriage bench photograph and thumbnail. |
+| DOCX embedded image3.jpg | HURC science module | Added the wider electronics/test-bench photograph and thumbnail. |
+| DOCX embedded image2.jpg | HURC science module | Matched to existing IMG_4769; retained the higher-resolution copy. |
 
-- 133 original photos.
-- 36 Live Photo companion clips.
-- 5 standalone videos.
-- 119 newly optimized website photos; one exact duplicate team photo omitted from public galleries only.
-- 13 photos require confirmation and are not published.
-- 32 published Live Photo clips and all five standalone videos converted to browser-ready MP4.
+The two new photographs appear within the science-module discussion as well as
+in the gallery. The PDB photo sits alongside the mentoring explanation. Repeated
+inline/gallery links open a single, deduplicated modal image sequence.
 
-## Folder assignments
+## Preserved material
 
-| Folder | Photos | Live Photo clips | Standalone videos |
-| --- | ---: | ---: | ---: |
-| `experience/crls-robotics` | 5 | 1 | 0 |
-| `experience/nrotc` | 3 | 2 | 0 |
-| `experience/rowland` | 3 | 3 | 0 |
-| `needs-review/blue-gripper-robot` | 3 | 0 | 0 |
-| `needs-review/bowl-and-motor-prototype` | 1 | 0 | 0 |
-| `needs-review/car-dashboard` | 1 | 0 | 0 |
-| `needs-review/classroom-meeting` | 1 | 1 | 0 |
-| `needs-review/dispenser-prototype` | 1 | 1 | 0 |
-| `needs-review/laser-cut-frame` | 2 | 0 | 0 |
-| `needs-review/microscope-pcb` | 1 | 1 | 0 |
-| `needs-review/phone-repair` | 1 | 0 | 0 |
-| `needs-review/portable-computer` | 1 | 1 | 0 |
-| `needs-review/wooden-mechanism` | 1 | 0 | 0 |
-| `projects/arcade-cabinet` | 5 | 0 | 0 |
-| `projects/budget-ebike` | 26 | 7 | 2 |
-| `projects/cybertruck-go-kart` | 9 | 5 | 0 |
-| `projects/desktop-cnc` | 3 | 1 | 1 |
-| `projects/es51-final-project` | 4 | 0 | 0 |
-| `projects/gimbaling-tvc` | 6 | 0 | 0 |
-| `projects/hurc-mars-rover` | 7 | 4 | 0 |
-| `projects/hybrid-rc-car` | 2 | 0 | 0 |
-| `projects/hydroponic-farm` | 7 | 1 | 0 |
-| `projects/industrial-robotic-vacuum` | 2 | 0 | 0 |
-| `projects/ion-thruster-boat` | 6 | 1 | 0 |
-| `projects/low-cost-rc-plane` | 14 | 2 | 0 |
-| `projects/mechanical-clock` | 5 | 2 | 1 |
-| `projects/remote-control-hot-wheels` | 3 | 1 | 1 |
-| `projects/smart-home-device` | 5 | 1 | 0 |
-| `projects/transducer-phased-array` | 3 | 0 | 0 |
-| `projects/vacuum-tube-power-supply` | 2 | 1 | 0 |
+The website retains the earlier project folders and five original standalone
+project videos; the CAD walkthrough brings the standalone-video total to six.
+The 25 additional photos/drawings listed in `new_images` include the earlier
+23-image integration and the two new rover images. A refreshed screenshot is not
+counted as a new unique photo. All 174 source files remain accounted for in
+`original_photo_inventory`; the separate original-photo ZIP is untouched.
 
-## Deliberate decisions
-
-Original filenames and file bytes are preserved in the separate sorted-photo archive. The site uses metadata-free, orientation-corrected WebP copies and H.264 MP4 videos. The full-resolution web images are limited to 1800 pixels on their longest edge, with 640-pixel thumbnails for smaller views.
-
-The purple robot, planetary-gear prototype, and transmission CAD are grouped with ES51. The HURC-branded power-distribution boards and drill-assembly CAD are grouped with the rover. The transformer-based boards are grouped with the vacuum-tube power supply. The 8-by-8 transducer PCB is grouped with the phased array. General instrument-rack, scope-trace, and component-storage photos are used only as general Rowland experience images, not attributed to a specific experiment.
-
-The blue 2022 gripper robot, December 2025 laser-cut frame, classroom meeting, portable computer, microscope close-up, dispenser, phone repairs, car dashboard, metal-bowl prototype, and wooden mechanism are separated under `needs-review`. No exact course, project, or role was invented for those photos. Open `PHOTO-REVIEW.html` in the sorted-photo archive to inspect them.
-
-A zero-byte `controller-cad.webp` in the supplied website was removed from its gallery. Valid existing PDF-extracted pictures and diagrams were retained.
-
-Project narratives were otherwise preserved. The e-bike description was minimally adjusted to acknowledge the supplied outdoor test clip without claiming the prototype is road-ready. No new performance claims were inferred from still photographs.
+Live Photo controls are still absent. Unconfirmed original photos remain off the
+public pages. No new fictional project photography or unverified attribution has
+been added.

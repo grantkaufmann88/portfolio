@@ -2,22 +2,29 @@
   {
     "slug": "rowland",
     "org": "Harvard Rowland Institute",
-    "title": "Research Assistant",
-    "period": "Ongoing · Part-time",
+    "title": "Undergraduate Research Fellow",
+    "period": "2024-present",
     "kind": "Research",
     "mark": "RI",
-    "summary": "Working at the intersection of electronics, experimentation, and mechanical engineering.",
+    "summary": "Designing electronic and mechanical instruments for researchers in the Rowland laboratory.",
     "sections": [
       [
-        "At the bench",
-        "I work part-time at the Rowland Institute for Science at Harvard, where I started during my senior year of high school. My application materials describe working in Winfield Hill and Professor Paul Horowitz’s electrical engineering laboratory."
+        "Building instruments for other researchers",
+        "I work in the electrical engineering laboratory of Winfield Hill and Professor Paul Horowitz at Harvard's Rowland Institute. I began in May 2024, near the end of high school, and have continued alongside my undergraduate studies. The work combines electronic and mechanical design for researchers who need a particular instrument rather than an off-the-shelf product."
       ],
       [
-        "An interdisciplinary foundation",
-        "Studying mechanical engineering while working in an electronics laboratory reflects the way I like to build: understanding both the physical mechanism and the electronics that drive or measure it."
+        "Four different laboratory needs",
+        "My projects include a geophone vibration test stand, an adjustable high-voltage supply for vacuum-tube work, the lab's parts and equipment directory, and ongoing transducer-array and positioning hardware for temperature measurements at Rubin Observatory.\n\nThe requirements are different, but the process is similar: understand the measurement need, build a model or prototype, and work through the details that the first design did not capture."
+      ],
+      [
+        "Analysis, fabrication, and feedback",
+        "For the geophone stand, I replaced a mechanically noisy actuator with a hand-wound electromagnetic drive and tuned printed springs. For the power supply, I worked on the PCB and magnetic components together. The Rubin project now brings my independent work on transducer arrays and printed gearboxes into the lab.\n\nI enjoy that connection between making something with my own hands and helping another person carry out an experiment."
       ]
     ],
     "projects": [
+      "precision-angular-positioning",
+      "vacuum-tube-power-supply",
+      "ai-parts-database",
       "geophone-vibration-tester"
     ],
     "gallery": [
@@ -27,8 +34,7 @@
         "caption": "Laboratory racks of electronic test equipment.",
         "width": 1800,
         "height": 1350,
-        "source": "IMG_0927.JPEG",
-        "live": "assets/experience/rowland/videos/img_0927.mp4"
+        "source": "IMG_0927.JPEG"
       },
       {
         "src": "assets/experience/rowland/img_1368.webp",
@@ -36,8 +42,7 @@
         "caption": "An oscilloscope trace during electronics testing.",
         "width": 1800,
         "height": 1350,
-        "source": "IMG_1368.JPEG",
-        "live": "assets/experience/rowland/videos/img_1368.mp4"
+        "source": "IMG_1368.JPEG"
       },
       {
         "src": "assets/experience/rowland/img_5012.webp",
@@ -45,48 +50,74 @@
         "caption": "Organized electronic component storage.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_5012.JPEG",
-        "live": "assets/experience/rowland/videos/img_5012.mp4"
+        "source": "IMG_5012.JPEG"
       }
+    ],
+    "sources": [
+      "Website Changes_.pdf",
+      "E.E. Lab Shenanagans.pptx",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx",
+      "Grant-Kaufmann-Resume(1).pdf"
     ]
   },
   {
     "slug": "spacex",
     "org": "SpaceX",
-    "title": "Engineering Intern",
-    "period": "Fall 2025",
+    "title": "Electrical Integration Intern",
+    "period": "May-August 2026",
     "kind": "Industry",
     "mark": "SX",
-    "summary": "Industry experience alongside a background in hands-on design, fabrication, and testing.",
+    "summary": "A summer with the Starlink Aviation electrical integration team, and a season of building and exploring in the Seattle area.",
     "sections": [
       [
-        "Engineering in industry",
-        "I worked as an engineering intern at SpaceX in fall 2025. The experience is part of a broader path through independent projects, laboratory research, and mechanical engineering at Harvard."
+        "Starlink Aviation",
+        "Most of my technical work is not something I can share in detail here. During summer 2026, I worked with the Starlink Aviation electrical integration team in the Seattle area, supporting component qualification and aircraft installation work.\n\nThe internship gave me responsibility for hardware beyond my own prototypes and a closer view of how design, testing, and installation fit together. My resume provides a high-level summary of the work."
       ],
       [
-        "Why I was drawn to the work",
-        "SpaceX became a source of inspiration after I watched Falcon Heavy’s 2018 landing. The emphasis on building, testing, and learning resonated with the way I approached my own engineering projects."
+        "Driving across the country",
+        "Before the internship, I drove across the country to Seattle. The trip turned the move into an opportunity to explore, spend time outdoors, and see places I had not been before. Hiking and time with friends remained a large part of the summer outside work."
+      ],
+      [
+        "A house full of roommates and side projects",
+        "I lived with seven roommates, and my habit of building things followed me home. I adapted the house intercom to accept Bluetooth audio so we could play music throughout the house, and designed a double-decker couch so more of us could fit upstairs to watch TV.\n\nThese were personal projects outside SpaceX, not company work. They capture another part of the summer: living with friends, finding things to improve, and building for the people around me."
+      ],
+      [
+        "What I took away",
+        "I valued the responsibility and the chance to learn from the team. Outside the office, the road trip, hiking, and shared house made the summer just as memorable. Both sides of it reinforced how much I enjoy making things and sharing new experiences with other people."
       ]
     ],
     "projects": [],
-    "gallery": []
+    "gallery": [],
+    "sources": [
+      "Grant-Kaufmann-Resume(1).pdf",
+      "Project and Website Monologue.docx"
+    ]
   },
   {
     "slug": "hurc",
     "org": "Harvard Undergraduate Robotics Club",
     "title": "Vice President",
-    "period": "Harvard College",
+    "period": "Ongoing",
     "kind": "Leadership",
     "mark": "HU",
-    "summary": "Helping build a student robotics team, with the Mars rover at the center of the project portfolio.",
+    "summary": "Growing the rover team, teaching practical electronics, and helping students take ownership of their subsystems.",
     "sections": [
       [
-        "Building with a team",
-        "I serve as Vice President of the Harvard Undergraduate Robotics Club. Working in a student team means combining technical problem-solving with collaboration and making effective use of limited resources."
+        "Joining early, then helping the team grow",
+        "I joined HURC during the spring of my freshman year, when the club was still very new. I initially helped with practical electronics and integration, then became Vice President that summer. Recruiting, fundraising, and teaching became as much a part of the job as hardware.\n\nI have helped the club grow to more than 60 members while trying to keep responsibility spread across the team rather than concentrated in the leadership group."
       ],
       [
-        "Connected work",
-        "The HURC Mars rover is featured in my project portfolio. The project page is the place for rover-specific documentation; this page provides the context of my leadership role."
+        "Mentoring through a real engineering deliverable",
+        "I coached two students on the electrical team through designing the main rover power-distribution board. The board is their design, developed with my guidance. Moving from introductory circuit work to ownership of a subsystem gave them a concrete reason to learn the tools and make decisions.\n\nI also teach CAD and practical PCB design to new members. That project-based approach is similar to the teaching I did in my high-school engineering classes."
+      ],
+      [
+        "Working with the science team",
+        "Over winter break, I supervised the science team and contributed to the mechanical design of the rover's drilling and sample-handling module. That work connected the arm, electronics, and onboard testing goals to hardware that had to be assembled and integrated. The rover project page describes those mechanisms in more detail."
+      ],
+      [
+        "Leadership I brought from NROTC",
+        "NROTC taught me the value of preparation, clear roles, and a chain of responsibility. I have applied those habits to HURC while continuing to learn from the students I teach. Recruiting and onboarding the next group of members is part of making the club last beyond the current rover or leadership team."
       ]
     ],
     "projects": [
@@ -94,56 +125,72 @@
     ],
     "gallery": [
       {
-        "src": "assets/projects/hurc-mars-rover/img_2683.webp",
-        "thumb": "assets/projects/hurc-mars-rover/img_2683-thumb.webp",
-        "caption": "Rover chassis, suspension, and manipulator on a workshop stand.",
-        "width": 1800,
-        "height": 1350,
-        "source": "IMG_2683.JPEG"
+        "src": "assets/projects/hurc-mars-rover/science-module-drill.webp",
+        "thumb": "assets/projects/hurc-mars-rover/science-module-drill-thumb.webp",
+        "caption": "Rover science-module hardware: drill, linear carriage, wiring, and sample-handling assembly during bench integration.",
+        "width": 1125,
+        "height": 2000,
+        "source": "Project and Website Monologue.docx / word/media/image1.jpg"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/science-module-bench.webp",
+        "thumb": "assets/projects/hurc-mars-rover/science-module-bench-thumb.webp",
+        "caption": "The science-module electronics and drilling hardware connected on the bench.",
+        "width": 2000,
+        "height": 1500,
+        "source": "Project and Website Monologue.docx / word/media/image3.jpg"
       },
       {
         "src": "assets/projects/hurc-mars-rover/img_3942.webp",
         "thumb": "assets/projects/hurc-mars-rover/img_3942-thumb.webp",
-        "caption": "Assembled HURC power-distribution board with connectors and fuses.",
+        "caption": "The assembled rover power-distribution board, designed by two electrical-team members I mentored.",
         "width": 1350,
         "height": 1800,
         "source": "IMG_3942.JPEG"
-      },
-      {
-        "src": "assets/projects/hurc-mars-rover/img_4866.webp",
-        "thumb": "assets/projects/hurc-mars-rover/img_4866-thumb.webp",
-        "caption": "Rover hardware set up beside soil samples for testing.",
-        "width": 1350,
-        "height": 1800,
-        "source": "IMG_4866.JPEG",
-        "live": "assets/projects/hurc-mars-rover/videos/img_4866.mp4"
-      },
-      {
-        "src": "assets/projects/hurc-mars-rover/img_4804.webp",
-        "thumb": "assets/projects/hurc-mars-rover/img_4804-thumb.webp",
-        "caption": "A workshop visit beside the rover.",
-        "width": 1800,
-        "height": 1350,
-        "source": "IMG_4804.JPEG",
-        "live": "assets/projects/hurc-mars-rover/videos/img_4804.mp4"
       }
-    ]
+    ],
+    "sources": [
+      "Grant-Kaufmann-Resume(1).pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "sectionMedia": {
+      "1": [
+        {
+          "src": "assets/projects/hurc-mars-rover/img_3942.webp",
+          "thumb": "assets/projects/hurc-mars-rover/img_3942-thumb.webp",
+          "caption": "The assembled rover power-distribution board, designed by two electrical-team members I mentored.",
+          "width": 1350,
+          "height": 1800,
+          "source": "IMG_3942.JPEG"
+        }
+      ]
+    }
   },
   {
     "slug": "nrotc",
     "org": "BU–MIT NROTC Consortium",
-    "title": "Midshipman",
-    "period": "Alongside Harvard studies",
+    "title": "Former Midshipman",
+    "period": "2024-spring 2026",
     "kind": "Service",
     "mark": "NR",
-    "summary": "Naval officer training alongside my engineering education.",
+    "summary": "Past naval leadership training that continues to shape my teamwork, preparation, and life outside engineering.",
     "sections": [
       [
-        "Engineering and service",
-        "I am a Midshipman in the Naval Reserve Officers Training Corps through the BU–MIT consortium, alongside my studies at Harvard. My background brings together engineering, teamwork, and a commitment to service."
+        "An important part of my education",
+        "I participated in the BU-MIT NROTC Consortium while studying at Harvard, including training in Great Lakes during summer 2024 and San Diego during summer 2025. I left the program in spring 2026 and am no longer a midshipman.\n\nThe experience was demanding mentally and physically, and it became an important source of balance alongside my academic work."
+      ],
+      [
+        "What stayed with me",
+        "NROTC changed how I think about preparation, responsibility, and working with a team. I have carried those lessons into the Harvard Undergraduate Robotics Club, where clear roles and trust in other people matter as much as an individual technical contribution.\n\nIt also helped me build habits around exercise and consistency that I have kept after leaving the program."
+      ],
+      [
+        "A continuing personal connection",
+        "I remain close to people I trained with, and the Navy is part of my family as well. Leaving NROTC did not remove its influence on me. It remains an important part of my background and of how I approach both work and the rest of my life."
       ]
     ],
-    "projects": [],
+    "projects": [
+      "hurc-mars-rover"
+    ],
     "gallery": [
       {
         "src": "assets/experience/nrotc/img_3771.webp",
@@ -159,8 +206,7 @@
         "caption": "Naval training alongside a U.S. Navy landing craft.",
         "width": 1800,
         "height": 1350,
-        "source": "IMG_7354.JPEG",
-        "live": "assets/experience/nrotc/videos/img_7354.mp4"
+        "source": "IMG_7354.JPEG"
       },
       {
         "src": "assets/experience/nrotc/img_8184.webp",
@@ -168,9 +214,13 @@
         "caption": "A cockpit view during naval aviation training.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_8184.JPEG",
-        "live": "assets/experience/nrotc/videos/img_8184.mp4"
+        "source": "IMG_8184.JPEG"
       }
+    ],
+    "sources": [
+      "Project and Website Monologue.docx",
+      "Website Changes_.pdf",
+      "Grant-Kaufmann-Resume(1).pdf"
     ]
   },
   {
@@ -183,16 +233,16 @@
     "summary": "Teaching and mentoring a group of 25 students as we worked toward a competition robot.",
     "sections": [
       [
-        "Opening the workshop to more people",
-        "As captain of mechanical design, I helped teach and mentor a group of 25 students, many new to engineering, toward building a competitive robot for spring 2024."
+        "Mechanical design and teaching",
+        "As captain of mechanical design for the CRLS FIRST Robotics team in 2023-2024, I helped teach and mentor a group of 25 students working toward the competition robot. The role combined design work with helping new students become comfortable in the workshop."
       ],
       [
-        "Beyond the robotics team",
-        "I also worked as a teaching assistant with Mr. Martinez at Cambridge Rindge and Latin. I directly taught a group of six students through project-based Arduino work, helped develop curriculum, participated in faculty interviews, and introduced younger students to technical programs."
+        "Supporting the engineering program",
+        "I also served as an engineering teaching assistant, including direct project-based instruction for six students. I helped develop curriculum, participated in faculty interviews, and introduced younger students to the technical programs."
       ],
       [
-        "Continuing to give back",
-        "My later application materials describe returning to volunteer and mentor with the robotics team. Helping someone else understand a mechanism or get their first project working remains a meaningful part of engineering for me."
+        "Staying involved",
+        "I later returned to volunteer and mentor with the team. Teaching has remained a meaningful part of engineering for me: explaining a mechanism or helping someone debug their first circuit often makes my own understanding clearer."
       ]
     ],
     "projects": [
@@ -229,9 +279,13 @@
         "caption": "The assembled competition robot with team number 97.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_0856.JPEG",
-        "live": "assets/experience/crls-robotics/videos/img_0856.mp4"
+        "source": "IMG_0856.JPEG"
       }
+    ],
+    "sources": [
+      "Grant-Kaufmann-Resume.pdf",
+      "Grant Kaufmann Brag Sheet - Dr. T.docx",
+      "SpaceX Internship Cover Letter.docx"
     ]
   }
 ]

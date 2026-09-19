@@ -3,8 +3,8 @@
     "slug": "budget-ebike",
     "title": "Budget e-bike conversion kit",
     "category": "Electronics",
-    "summary": "Custom motor control, a printed hub motor, and a simple goal: make electric transportation more accessible.",
-    "year": "2023–2024",
+    "summary": "A custom motor controller, removable battery enclosure, and experimental printed motor for an affordable bicycle conversion.",
+    "year": "2023-2024",
     "tools": [
       "PCB design",
       "Motor control",
@@ -13,28 +13,37 @@
     ],
     "sections": [
       {
-        "title": "The starting point",
-        "text": "I wanted to make electric transportation more affordable by converting a bicycle someone already owns. I set a materials-cost target below $150, with a stretch goal below $100, and split the kit into rider controls, a removable battery and electronics enclosure, and a motor."
+        "title": "A conversion kit, not a new bicycle",
+        "text": "I wanted to make electric transportation more affordable by adding power to a bicycle someone already owns. I set a materials-cost target below $150, with a stretch goal below $100. Easy installation, a removable battery, straightforward maintenance, and low-cost manufacturing were central design requirements.\n\nAn initial attempt in 2020 stalled when I did not yet have the tools or electronics background to finish it. I returned to the project after building my own circuit-board mill and studying circuits and electromagnetism. The later prototype was divided into three systems: rider controls, a battery-and-electronics enclosure, and a motor."
       },
       {
-        "title": "Designing across disciplines",
-        "text": "I designed the control board, battery housing, mounting system, and experimental brushless motor. The electronics brought together a custom brushless speed controller, an Arduino-based prototype, Bluetooth communication, and a thumb throttle. PETG housings and TPU seals were part of the enclosure design; these were prototype design choices, not a certified ingress-protection rating."
+        "title": "Designing the sensorless motor controller",
+        "text": "The electronic speed controller was the hardest part of the kit. I designed three MOSFET half-bridges around an ATmega328P microcontroller, with gate-driver chips controlling the power transistors. Rather than adding a rotor-position sensor, I used the voltage generated in the phase that was not being driven to work out when to switch phases.\n\nAt each step, two motor phases were driven while the third was left floating. Monitoring that floating phase's back-EMF zero crossing gave the controller information about the rotor position. Avoiding a separate sensor reduced the number of parts and connections I would have to package and protect on a bicycle.\n\nThe board also brought together a thumb throttle and an HM-10 Bluetooth module. Bench tests demonstrated control of a small brushless drone motor, detection of the generated voltage signal, throttle response, and two-way communication with an iPhone."
       },
       {
-        "title": "Fifty boards, and a better process",
-        "text": "I initially manufactured the PCBs on my homemade CNC mill. Without solder mask, dense boards were difficult to assemble reliably. After more than 50 attempts, I stepped back and changed the process: outsourcing board fabrication and using integrated gate drivers. The lesson was to recognize when my tools had become the constraint."
+        "title": "The enclosure and bike interface",
+        "text": "I designed the battery housing, mounting system, and electrical connections as one assembly. A PETG enclosure held the batteries and controller, with flexible TPU seals and spring-loaded clips for removal from the bicycle. The prototype used two four-cell battery packs in series.\n\nThe enclosure work was about more than fitting the parts into a box: the battery needed to be removable, the throttle and motor needed accessible connections, and heat from the electronics needed somewhere to go. Weather sealing was a design goal, not a tested waterproof rating."
       },
       {
-        "title": "What the prototype demonstrated",
-        "text": "Bench tests demonstrated motor control with a small brushless motor, back-EMF sensing, throttle input, and Bluetooth data exchange with an iPhone. I also built and tested an iron-filled PLA motor with a Halbach magnet arrangement. The printed motor turned, but heat softened the plastic under load. The supplied build videos include bench demonstrations and an outdoor bicycle test; those prototype tests do not establish a finished, road-ready kit."
+        "title": "When making everything myself stopped helping",
+        "text": "At first I milled and soldered the boards at home. I also tried building the transistor-driving circuitry from individual components. Troubleshooting fast switching signals with only a multimeter was frustrating, and the closely spaced copper on boards without solder mask made assembly difficult.\n\nAfter more than 50 board attempts, I changed the process. I bought a used digital oscilloscope, switched to integrated gate-driver chips, and outsourced the board fabrication. Those changes let me spend more time developing the controller and less time fighting the limitations of my tools.",
+        "links": [
+          [
+            "The mill I built to make these boards",
+            "projects/desktop-cnc.html"
+          ]
+        ]
       },
       {
-        "title": "Where I would take it next",
-        "text": "The next step was to replace the printed stator with a conventional laminated metal core while keeping the custom electronics and enclosure. My 2024 component tally was $82.74 excluding the motor; that was a historical prototype estimate, not a retail price or a complete production bill of materials."
+        "title": "Testing a printed motor",
+        "text": "I also designed an experimental hub motor and wound its coils by hand. After an early plastic stator produced very little voltage when spun, I tried an iron-filled PLA core and a Halbach arrangement of permanent magnets, intended to concentrate the magnetic field toward the windings.\n\nThe motor turned, but heat softened and deformed the printed core under load. That was a material limit, not just a controller problem. Printing the geometry was useful for prototyping, but the core also had to survive the heat of an operating motor. The controller tests and printed-motor experiments were steps toward the kit, not a completed production-ready bicycle conversion."
+      },
+      {
+        "title": "The next design decision",
+        "text": "My proposed next step was a laminated metal stator paired with the controller and removable enclosure I had already developed. The 2024 component estimate was $82.74 excluding the motor. That was a prototype estimate, not an achieved retail price or the cost of a complete commercial product."
       }
     ],
     "featured": true,
-    "brief": false,
     "related": [
       "desktop-cnc",
       "custom-drives"
@@ -46,8 +55,7 @@
         "caption": "The hand-wound experimental motor mounted inside a bicycle wheel.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_0727.JPEG",
-        "live": "assets/projects/budget-ebike/videos/img_0727.mp4"
+        "source": "IMG_0727.JPEG"
       },
       {
         "src": "assets/projects/budget-ebike/1e49a998-0db4-4636-b27c-240b2f6d5ef0.webp",
@@ -79,8 +87,7 @@
         "caption": "Motor-control electronics during a bench test.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_0627.JPEG",
-        "live": "assets/projects/budget-ebike/videos/img_0627.mp4"
+        "source": "IMG_0627.JPEG"
       },
       {
         "src": "assets/projects/budget-ebike/img_0738.webp",
@@ -88,8 +95,7 @@
         "caption": "Printed motor stator with copper windings.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_0738.JPEG",
-        "live": "assets/projects/budget-ebike/videos/img_0738.mp4"
+        "source": "IMG_0738.JPEG"
       },
       {
         "src": "assets/projects/budget-ebike/img_0739.webp",
@@ -97,8 +103,7 @@
         "caption": "A second view of the hand-wound stator.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_0739.JPEG",
-        "live": "assets/projects/budget-ebike/videos/img_0739.mp4"
+        "source": "IMG_0739.JPEG"
       },
       {
         "src": "assets/projects/budget-ebike/img_0744.webp",
@@ -106,8 +111,7 @@
         "caption": "Custom motor controller with its power and phase leads.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_0744.JPEG",
-        "live": "assets/projects/budget-ebike/videos/img_0744.mp4"
+        "source": "IMG_0744.JPEG"
       },
       {
         "src": "assets/projects/budget-ebike/img_0746.webp",
@@ -123,8 +127,7 @@
         "caption": "Battery and control electronics inside the printed enclosure.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_0749.JPEG",
-        "live": "assets/projects/budget-ebike/videos/img_0749.mp4"
+        "source": "IMG_0749.JPEG"
       },
       {
         "src": "assets/projects/budget-ebike/img_0750.webp",
@@ -132,8 +135,7 @@
         "caption": "The enclosure with the control board and motor wiring exposed.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_0750.JPEG",
-        "live": "assets/projects/budget-ebike/videos/img_0750.mp4"
+        "source": "IMG_0750.JPEG"
       },
       {
         "src": "assets/projects/budget-ebike/img_7647.webp",
@@ -298,12 +300,7 @@
         "source": "existing portfolio asset"
       }
     ],
-    "links": [
-      [
-        "Watch the e-bike tests",
-        "https://youtu.be/4PtWCcJrGRE"
-      ]
-    ],
+    "links": [],
     "role": "Independent project",
     "image": "assets/projects/budget-ebike/img_0727.webp",
     "imageAlt": "The hand-wound experimental motor mounted inside a bicycle wheel.",
@@ -316,11 +313,11 @@
       ],
       [
         "50+",
-        "PCB iterations"
+        "Board attempts"
       ],
       [
-        "2023–24",
-        "Development period"
+        "3",
+        "Integrated systems"
       ]
     ],
     "videos": [
@@ -343,13 +340,27 @@
         "source": "IMG_5494.MP4"
       }
     ],
-    "imageThumb": "assets/projects/budget-ebike/img_0727-thumb.webp"
+    "imageThumb": "assets/projects/budget-ebike/img_0727-thumb.webp",
+    "outcome": "Bench-tested controller; printed motor limited by heat",
+    "sources": [
+      "Davidson Scholarship Ebike Description.pdf",
+      "davidson_scholarship_transcript.srt",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "youtube": [
+      {
+        "title": "E-bike bench tests",
+        "url": "https://youtu.be/4PtWCcJrGRE"
+      }
+    ],
+    "periodLabel": "2023-2024"
   },
   {
     "slug": "desktop-cnc",
     "title": "Desktop CNC / PCB mill",
     "category": "Fabrication",
-    "summary": "Building the tool behind the projects: a compact, 3D-printed machine for milling custom circuit boards.",
+    "summary": "A home-built three-axis mill that produced circuit boards for my e-bike, home controller, and other electronics.",
     "year": "2021–2023",
     "tools": [
       "CAD",
@@ -359,24 +370,33 @@
     ],
     "sections": [
       {
-        "title": "A tool I could build myself",
-        "text": "I wanted a low-cost way to make circuit boards for my own projects. Building the mill became a project in its own right: mechanical design, fabrication, and learning what small-scale manufacturing could realistically do."
+        "title": "Building the tool I needed",
+        "text": "I wanted to make custom circuit boards at home without waiting for every revision to be manufactured elsewhere. I designed a small three-axis mill that removes copper around the traces on a circuit board. The machine became both a project in its own right and a tool for nearly everything I built afterward."
       },
       {
-        "title": "The first version taught me about rigidity",
-        "text": "My first design used inexpensive plated rods and resin-printed linear bearings. Friction, poor stability, and limited rigidity made it unsuitable for accurate PCB work. Subsequent versions improved the machine enough to produce boards for my electronics projects."
+        "title": "A low-cost frame and open-source control",
+        "text": "I modeled the machine in Onshape and used 80/20 aluminum extrusion joined by custom printed brackets. Steel linear guides, threaded rods, and stepper motors provided the three axes of motion, with a 24 V DC spindle doing the cutting. The earlier design had approximately 275 by 175 by 35 mm of planned travel.\n\nAn Arduino running GRBL controlled the axes. My workflow started with PCB Gerber files in FlatCAM, then passed the machining commands to the controller over USB. The machine connected the circuit layout on my computer to a board I could mill and assemble at home."
       },
       {
-        "title": "Useful capability, real limits",
-        "text": "The mill produced double-sided copper boards for the e-bike project. It also made the limits of my process clear: I could mill traces, but I could not add solder mask or reproduce all the features of professionally manufactured boards. Dense assemblies eventually justified outsourcing PCB fabrication."
+        "title": "The first version was not rigid enough",
+        "text": "My first approach used inexpensive zinc-plated rods and resin-printed bearings instead of precision linear hardware. The combination introduced too much friction, instability, and positioning error for reliable circuit-board work. I abandoned that arrangement and revised the machine through several versions.\n\nUnlike a 3D printer, this machine had to push a tool through material. That distinction turned stiffness, bearing friction, and assembly alignment into practical design problems rather than just dimensions in a CAD model."
       },
       {
-        "title": "Why this one matters",
-        "text": "Making my own manufacturing equipment changed how I design parts. I had to understand the relationship between accuracy, stiffness, cost, and assembly, then carry those lessons into the projects the machine enabled."
+        "title": "The version after the build videos",
+        "text": "The machine in my YouTube build videos was not the final version. I continued revising it afterward until it could reliably produce the double-sided copper-clad boards I needed. I used those boards in the e-bike controller, smart home controller, go-kart, and other projects.\n\nThe plastic structure remained the main limitation. It worked well for PCB isolation milling and could make some simple aluminum parts, but it was not a sufficiently rigid platform for the broader aluminum and steel machining I had hoped to do. Producing useful circuit boards and producing a general-purpose metal mill turned out to be very different goals.",
+        "links": [
+          [
+            "See the smart home controller",
+            "projects/smart-home-device.html"
+          ]
+        ]
+      },
+      {
+        "title": "Knowing when to use another process",
+        "text": "The mill could form traces, but it could not give me solder mask or the full set of features of a professionally manufactured board. Dense circuits became difficult to assemble without shorts. When that became the main obstacle to the e-bike project, I kept designing the electronics myself but sent the board files out for fabrication.\n\nBuilding the mill taught me to treat manufacturing capability as part of a design decision: a tool can be valuable without being the right tool for every later version."
       }
     ],
     "featured": true,
-    "brief": false,
     "related": [
       "budget-ebike",
       "remote-control-hot-wheels"
@@ -388,8 +408,7 @@
         "caption": "The assembled CNC mill connected to its control laptop.",
         "width": 1800,
         "height": 1350,
-        "source": "IMG_7117.JPEG",
-        "live": "assets/projects/desktop-cnc/videos/img_7117.mp4"
+        "source": "IMG_7117.JPEG"
       },
       {
         "src": "assets/projects/desktop-cnc/69033204239__27ec7664-dd9c-4a3a-ba69-733246d51c6b.webp",
@@ -436,16 +455,7 @@
         "source": "existing portfolio asset"
       }
     ],
-    "links": [
-      [
-        "Watch the detailed build",
-        "https://www.youtube.com/watch?v=7AKRvNOnj7Y"
-      ],
-      [
-        "Watch the short demo",
-        "https://www.youtube.com/shorts/1cG5I5Ygg0Y"
-      ]
-    ],
+    "links": [],
     "role": "Independent project",
     "image": "assets/projects/desktop-cnc/img_7117.webp",
     "imageAlt": "The assembled CNC mill connected to its control laptop.",
@@ -462,14 +472,51 @@
         "source": "IMG_7852.MP4"
       }
     ],
-    "imageThumb": "assets/projects/desktop-cnc/img_7117-thumb.webp"
+    "imageThumb": "assets/projects/desktop-cnc/img_7117-thumb.webp",
+    "metrics": [
+      [
+        "3 axes",
+        "Arduino-controlled motion"
+      ],
+      [
+        "275 x 175 x 35 mm",
+        "Approximate designed travel"
+      ],
+      [
+        "Double-sided",
+        "Circuit boards produced"
+      ]
+    ],
+    "outcome": "Built and used",
+    "sources": [
+      "cnc_transcript(1).srt",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "davidson_scholarship_transcript.srt",
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ],
+    "youtube": [
+      {
+        "title": "CNC build video",
+        "url": "https://www.youtube.com/watch?v=7AKRvNOnj7Y&t=87s"
+      },
+      {
+        "title": "CNC demonstration",
+        "url": "https://www.youtube.com/shorts/kCOuMOWT8oY"
+      },
+      {
+        "title": "Assembly time-lapse",
+        "url": "https://www.youtube.com/shorts/1cG5I5Ygg0Y"
+      }
+    ],
+    "periodLabel": "2021–2023"
   },
   {
     "slug": "cybertruck-go-kart",
     "title": "Mini Cybertruck go-kart",
     "category": "Mechanisms",
-    "summary": "A homemade steel-frame go-kart with electronic steering, remote control, and a custom starter-generator.",
-    "year": "2017–2024",
+    "summary": "A welded steel go-kart with electronic steering, remote control, and a custom starter-generator transmission.",
+    "year": "2017-2024",
     "tools": [
       "Welding",
       "CAD",
@@ -478,24 +525,27 @@
     ],
     "sections": [
       {
-        "title": "From wood to welded steel",
-        "text": "The project began with a wooden go-kart built over several summers. Repeated damage exposed the limits of that material and led to a steel-frame version. I sourced scrap steel, worked from CAD designs, and continued the build under a tent in my backyard during the winter."
+        "title": "A project that grew with me",
+        "text": "The first version was a wooden go-kart I worked on over several summers. Repeated damage eventually pushed me toward a welded steel frame. I bought scrap steel on Facebook Marketplace, laid out the parts from my CAD model, and continued building under a tent in my backyard through the winter. A repurposed gaming chair became the seat.\n\nThe later version combined a 212 cc Predator engine, a continuously variable transmission, and a body inspired by the Cybertruck. Much of the challenge came from choosing electronic steering and controls rather than a conventional mechanical connection between the driver and the wheels."
       },
       {
-        "title": "Making the controls electronic",
-        "text": "I built a steering actuator with a high-torque motor, a printed steering horn, and potentiometer feedback. The steering wheel itself used a spring return, with separate triggers for the throttle and brakes. Electronic control also made remote operation possible."
+        "title": "Building an electronic steering system",
+        "text": "I converted a 12 V motor into a steering actuator by adding output-position feedback through a potentiometer. A printed steering horn moved the steering bar, while the controller compared the measured steering position with the driver's request.\n\nThe steering wheel had its own spring return because it was not mechanically connected to the front wheels. Triggers on its handles controlled throttle and braking through separate servos. I designed the control board and manufactured it on my homemade CNC. The same electronic interface also let me operate the kart remotely, which made it easier to test parts of the system without a driver in the seat."
       },
       {
-        "title": "One motor, two jobs",
-        "text": "The most interesting mechanism was a motor that could start the engine and then act as a generator. A printed belt transmission and one-way bearings changed the mechanical advantage from 9:1 during starting to 1:1 when the engine drove the motor. Withstanding the engine’s compression torque was a major manufacturing challenge."
+        "title": "One motor for starting and charging",
+        "text": "The most interesting mechanism was the starter-generator. An electric motor needed high mechanical advantage to turn the engine through compression during starting, but a different ratio once the running engine drove it as a generator.\n\nI designed a belt transmission with printed components and one-way bearings that changed the ratio from 9:1 during starting to 1:1 when driven by the engine. The difficult part was not only getting the mechanism to switch roles, but making the printed parts withstand the starting torque."
       },
       {
-        "title": "A whole system to integrate",
-        "text": "The build brought together steering, brake and throttle actuation, power distribution, an engine cutoff, lights, and servo-driven dashboard gauges. The 2024 documentation records a continuing integration effort, rather than a finished commercial vehicle."
+        "title": "Integrating the rest of the vehicle",
+        "text": "The wiring brought together steering, throttle and brake actuators, engine cutoff, power distribution, and lighting. I also built servo-driven dashboard gauges, added Bluetooth audio, and experimented with a printed supercharger. The supercharger did not add much power; it was more useful as an impeller and fabrication experiment.\n\nWhat started as a frame and engine became a much larger integration project. The photographs follow that progression through the steering mechanism, starter assembly, body panels, and working lights."
+      },
+      {
+        "title": "The limitation I would address first",
+        "text": "Because braking was electronically commanded, a fault in the control electronics could also remove the brake command. Remote operation was useful for testing, but it did not resolve that dependence. A redesign would need an independent braking provision rather than relying on the same control path as the rest of the vehicle.\n\nThe kart was an experimental build, not a validated road vehicle. This is the clearest design limitation I would address before developing it further."
       }
     ],
     "featured": true,
-    "brief": false,
     "related": [
       "hybrid-rc-car",
       "mechanical-clock"
@@ -515,8 +565,7 @@
         "caption": "CAD model of the go-kart impeller and intake housing.",
         "width": 1800,
         "height": 1350,
-        "source": "IMG_0163.JPEG",
-        "live": "assets/projects/cybertruck-go-kart/videos/img_0163.mp4"
+        "source": "IMG_0163.JPEG"
       },
       {
         "src": "assets/projects/cybertruck-go-kart/img_0295.webp",
@@ -540,8 +589,7 @@
         "caption": "Prototype control board from the go-kart build.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_0356.JPEG",
-        "live": "assets/projects/cybertruck-go-kart/videos/img_0356.mp4"
+        "source": "IMG_0356.JPEG"
       },
       {
         "src": "assets/projects/cybertruck-go-kart/img_0481.webp",
@@ -557,8 +605,7 @@
         "caption": "Engine mounted on the steel-frame go-kart chassis.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_3299.JPEG",
-        "live": "assets/projects/cybertruck-go-kart/videos/img_3299.mp4"
+        "source": "IMG_3299.JPEG"
       },
       {
         "src": "assets/projects/cybertruck-go-kart/img_8829.webp",
@@ -566,8 +613,7 @@
         "caption": "Go-kart frame parts and CAD work during assembly.",
         "width": 1800,
         "height": 1350,
-        "source": "IMG_8829.JPEG",
-        "live": "assets/projects/cybertruck-go-kart/videos/img_8829.mp4"
+        "source": "IMG_8829.JPEG"
       },
       {
         "src": "assets/projects/cybertruck-go-kart/img_9959.webp",
@@ -575,47 +621,112 @@
         "caption": "Motor and printed belt-drive hardware for the starter-generator.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_9959.JPEG",
-        "live": "assets/projects/cybertruck-go-kart/videos/img_9959.mp4"
+        "source": "IMG_9959.JPEG"
       }
     ],
-    "links": [
-      [
-        "Watch the build time-lapse",
-        "https://youtu.be/tNitqDEvChc"
-      ],
-      [
-        "Watch the welding process",
-        "https://youtu.be/C5ELTJhHU74"
-      ]
-    ],
+    "links": [],
     "role": "Independent project",
     "image": "assets/projects/cybertruck-go-kart/img_0435.webp",
     "imageAlt": "The steel-frame go-kart with body panels and lighting installed.",
     "imageType": "Build photograph",
     "position": "50% 48%",
     "videos": [],
-    "imageThumb": "assets/projects/cybertruck-go-kart/img_0435-thumb.webp"
+    "imageThumb": "assets/projects/cybertruck-go-kart/img_0435-thumb.webp",
+    "metrics": [
+      [
+        "9:1",
+        "Starting ratio"
+      ],
+      [
+        "1:1",
+        "Generator ratio"
+      ],
+      [
+        "212 cc",
+        "Engine"
+      ]
+    ],
+    "outcome": "Built; integration documented in 2024",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ],
+    "youtube": [
+      {
+        "title": "Go-kart build time-lapse",
+        "url": "https://youtu.be/tNitqDEvChc"
+      },
+      {
+        "title": "Frame fabrication",
+        "url": "https://youtu.be/C5ELTJhHU74"
+      }
+    ],
+    "periodLabel": "2017-2024"
   },
   {
     "slug": "hurc-mars-rover",
     "title": "HURC Mars rover",
     "category": "Robotics",
-    "summary": "Robotics team work at Harvard, connected to my role as Vice President of HURC.",
-    "year": "Harvard",
+    "summary": "Building Harvard's Mars rover while mentoring its electrical team and helping develop an onboard soil-sampling and testing module.",
+    "year": "2024-present",
     "tools": [
-      "Robotics",
-      "Teamwork"
+      "Mechanical design",
+      "Electronics integration",
+      "PCB mentoring",
+      "Science-module development",
+      "Team leadership"
     ],
     "sections": [
       {
-        "title": "Team project",
-        "text": "The Mars rover is part of my work with the Harvard Undergraduate Robotics Club. This entry connects the project with my role as Vice President; a full account of the rover, my individual contributions, and its testing will follow."
+        "title": "Joining a new team",
+        "text": "I joined the Harvard Undergraduate Robotics Club in the spring of my freshman year, when the team was only a few months old and had roughly half a dozen active members. It needed practical help with electronics as much as it needed a finished rover.\n\nMy early work included laying out the main electronics assembly and helping integrate components while the arm and chassis were still being developed. I became Vice President that summer and began spending more time on recruiting, training, and coordinating the teams as well as building hardware."
+      },
+      {
+        "title": "Developing the onboard science module",
+        "text": "Over winter break, I supervised the science team and worked heavily on the module's mechanical design. The intended sequence was to drill below the surface, collect a soil sample from roughly 10 cm down, transfer it to the testing area, and perform measurements onboard.\n\nThe module combined drilling and sample handling with chemical and optical testing, plus subsurface humidity and temperature measurements. My contribution was to the mechanical design and integration of that hardware as part of the team effort. The bench photographs show the drilling carriage, wiring, and electronics before complete rover integration.",
+        "images": [
+          {
+            "src": "assets/projects/hurc-mars-rover/science-module-drill.webp",
+            "thumb": "assets/projects/hurc-mars-rover/science-module-drill-thumb.webp",
+            "caption": "Rover science-module hardware: drill, linear carriage, wiring, and sample-handling assembly during bench integration.",
+            "width": 1125,
+            "height": 2000,
+            "source": "Project and Website Monologue.docx / word/media/image1.jpg"
+          },
+          {
+            "src": "assets/projects/hurc-mars-rover/science-module-bench.webp",
+            "thumb": "assets/projects/hurc-mars-rover/science-module-bench-thumb.webp",
+            "caption": "The science-module electronics and drilling hardware connected on the bench.",
+            "width": 2000,
+            "height": 1500,
+            "source": "Project and Website Monologue.docx / word/media/image3.jpg"
+          }
+        ]
+      },
+      {
+        "title": "Teaching the team that designed the power board",
+        "text": "I coached two electrical-team members from relatively little circuit experience through designing the rover's main power-distribution board. They designed the board; my role was teaching, design guidance, and helping them turn that work into a subsystem the rest of the rover could use.\n\nThe board brings together fused power distribution and control connections for the rover's motors and science hardware. The assembled photograph shows the connectors, protective fuses, and controller. This is one of the parts of the project I am proudest of, because the outcome was both a piece of hardware and two students who could take ownership of it.",
+        "images": [
+          {
+            "src": "assets/projects/hurc-mars-rover/img_3942.webp",
+            "thumb": "assets/projects/hurc-mars-rover/img_3942-thumb.webp",
+            "caption": "The assembled rover power-distribution board, designed by two electrical-team members I mentored.",
+            "width": 1350,
+            "height": 1800,
+            "source": "IMG_3942.JPEG"
+          }
+        ]
+      },
+      {
+        "title": "Growing the club without centralizing every decision",
+        "text": "As the rover grew from separate mechanisms into a vehicle, we also had to grow the team. Recruiting, fundraising, and onboarding became substantial parts of my role. I taught CAD and practical circuit-board design and helped organize the work so it did not all depend on a few experienced members.\n\nLessons from NROTC about clear responsibility and distributed leadership were useful here. The next challenge is continuing to integrate the subsystems while bringing new students into the work. The rover remains an ongoing team project, with science and autonomous-navigation capabilities still being developed and tested."
       }
     ],
-    "featured": false,
-    "brief": true,
+    "featured": true,
     "related": [
+      "es51-final-project",
       "custom-drives",
       "micro-swarming-drone"
     ],
@@ -627,6 +738,38 @@
         "width": 1800,
         "height": 1350,
         "source": "IMG_2683.JPEG"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/img_3942.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_3942-thumb.webp",
+        "caption": "The assembled rover power-distribution board, designed by two electrical-team members I mentored.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_3942.JPEG"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/science-module-drill.webp",
+        "thumb": "assets/projects/hurc-mars-rover/science-module-drill-thumb.webp",
+        "caption": "Rover science-module hardware: drill, linear carriage, wiring, and sample-handling assembly during bench integration.",
+        "width": 1125,
+        "height": 2000,
+        "source": "Project and Website Monologue.docx / word/media/image1.jpg"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/science-module-bench.webp",
+        "thumb": "assets/projects/hurc-mars-rover/science-module-bench-thumb.webp",
+        "caption": "The science-module electronics and drilling hardware connected on the bench.",
+        "width": 2000,
+        "height": 1500,
+        "source": "Project and Website Monologue.docx / word/media/image3.jpg"
+      },
+      {
+        "src": "assets/projects/hurc-mars-rover/img_4769.webp",
+        "thumb": "assets/projects/hurc-mars-rover/img_4769-thumb.webp",
+        "caption": "CAD model of the rover science module's drilling assembly.",
+        "width": 1350,
+        "height": 1800,
+        "source": "IMG_4769.JPEG"
       },
       {
         "src": "assets/projects/hurc-mars-rover/00c5c5e2-a0ef-48d1-88ed-e7095dcc2999.webp",
@@ -642,25 +785,7 @@
         "caption": "The HURC power-distribution board with components installed.",
         "width": 1350,
         "height": 1800,
-        "source": "78D0E59E-3D7F-4E95-86F0-BAB9BFEE5E6A.jpg",
-        "live": "assets/projects/hurc-mars-rover/videos/78d0e59e-3d7f-4e95-86f0-bab9bfee5e6a.mp4"
-      },
-      {
-        "src": "assets/projects/hurc-mars-rover/img_3942.webp",
-        "thumb": "assets/projects/hurc-mars-rover/img_3942-thumb.webp",
-        "caption": "Assembled HURC power-distribution board with connectors and fuses.",
-        "width": 1350,
-        "height": 1800,
-        "source": "IMG_3942.JPEG"
-      },
-      {
-        "src": "assets/projects/hurc-mars-rover/img_4769.webp",
-        "thumb": "assets/projects/hurc-mars-rover/img_4769-thumb.webp",
-        "caption": "CAD model of the rover drill assembly.",
-        "width": 1350,
-        "height": 1800,
-        "source": "IMG_4769.JPEG",
-        "live": "assets/projects/hurc-mars-rover/videos/img_4769.mp4"
+        "source": "78D0E59E-3D7F-4E95-86F0-BAB9BFEE5E6A.jpg"
       },
       {
         "src": "assets/projects/hurc-mars-rover/img_4804.webp",
@@ -668,8 +793,7 @@
         "caption": "A workshop visit beside the rover.",
         "width": 1800,
         "height": 1350,
-        "source": "IMG_4804.JPEG",
-        "live": "assets/projects/hurc-mars-rover/videos/img_4804.mp4"
+        "source": "IMG_4804.JPEG"
       },
       {
         "src": "assets/projects/hurc-mars-rover/img_4866.webp",
@@ -677,19 +801,46 @@
         "caption": "Rover hardware set up beside soil samples for testing.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_4866.JPEG",
-        "live": "assets/projects/hurc-mars-rover/videos/img_4866.mp4"
+        "source": "IMG_4866.JPEG"
       }
     ],
-    "links": [],
-    "role": "Harvard Undergraduate Robotics Club",
+    "links": [
+      [
+        "University Rover Challenge",
+        "https://urc.marssociety.org/home/about-urc"
+      ]
+    ],
+    "role": "Vice President; science-module mechanical work, electronics integration, and team mentoring",
     "image": "assets/projects/hurc-mars-rover/img_2683.webp",
     "imageAlt": "Rover chassis, suspension, and manipulator on a workshop stand.",
     "imageType": "Build photograph",
     "position": "50% 52%",
     "experience": "hurc",
     "videos": [],
-    "imageThumb": "assets/projects/hurc-mars-rover/img_2683-thumb.webp"
+    "imageThumb": "assets/projects/hurc-mars-rover/img_2683-thumb.webp",
+    "outcome": "Team rover and science-module integration in progress",
+    "sources": [
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Sustainability Grant Mid-Year Check In (1).docx",
+      "2025-26 Sustainability Grant Application.docx",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "2024-present",
+    "status": "ongoing",
+    "context": {
+      "title": "About the University Rover Challenge",
+      "text": "The University Rover Challenge is an international student robotics competition held annually in the desert of southern Utah. Teams design and build Mars-rover prototypes for demanding field tasks. Our rover is being developed for that challenge.",
+      "links": [
+        [
+          "Source: University Rover Challenge",
+          "https://urc.marssociety.org/home/about-urc"
+        ],
+        [
+          "Official competition site",
+          "https://urc.marssociety.org/"
+        ]
+      ]
+    }
   },
   {
     "slug": "ion-thruster-boat",
@@ -704,20 +855,19 @@
     ],
     "sections": [
       {
-        "title": "An unusual way to move",
-        "text": "I explored whether an ionic-wind thruster could propel a small boat. The prototype used two independently driven thrusters, allowing differential steering without a conventional propeller or rudder."
+        "title": "Why I chose a boat",
+        "text": "I wanted to explore ionic-wind propulsion without first having to make a vehicle light enough to fly. A floating platform gave me a way to test the thrusters against relatively low resistance while carrying the power supply and radio-control electronics.\n\nThe boat used two independently controlled thrusters. Changing the thrust on one side relative to the other let it steer without a rudder or conventional propeller."
       },
       {
-        "title": "Geometry became the experiment",
-        "text": "Electrode geometry and spacing strongly influenced the result. My early tests compared different gaps, and adjustable mounts made it possible to iterate. The project notes also record a mismatch between advertised supply ratings and observed behavior, reinforcing the need to test assumptions."
+        "title": "Iterating on the electrodes",
+        "text": "I tried several electrode geometries, compared them with designs I had researched, and revised the mounts to make further adjustment possible. The experiment centered on the relationship between the electrode arrangement and the motion of the boat, not on adding more mechanical complexity.\n\nThe high-voltage modules also made the difference between an advertised rating and a measured result important. I did not treat the number printed in a product listing as a verified operating voltage."
       },
       {
-        "title": "A demonstration, not a practical drivetrain",
-        "text": "The prototype produced a functioning, low-efficiency RC boat. Its value was as an experiment in electrostatic propulsion and hands-on testing, rather than as a competitive replacement for a motor-driven boat."
+        "title": "What the prototype achieved",
+        "text": "The result was a functioning remote-controlled boat with differential steering and no moving propulsion parts. It was not an efficient replacement for a propeller-driven boat, but it gave me a working platform for exploring an unfamiliar propulsion mechanism."
       }
     ],
     "featured": false,
-    "brief": false,
     "related": [
       "budget-ebike",
       "low-cost-rc-plane"
@@ -729,8 +879,7 @@
         "caption": "Electrode rails set up for a workshop test.",
         "width": 1800,
         "height": 1350,
-        "source": "IMG_0054.JPEG",
-        "live": "assets/projects/ion-thruster-boat/videos/img_0054.mp4"
+        "source": "IMG_0054.JPEG"
       },
       {
         "src": "assets/projects/ion-thruster-boat/352ddddb-a39f-4177-adbd-9c7aeb7633ab.webp",
@@ -780,13 +929,20 @@
     "imageType": "Build photograph",
     "position": "50% 50%",
     "videos": [],
-    "imageThumb": "assets/projects/ion-thruster-boat/img_0054-thumb.webp"
+    "imageThumb": "assets/projects/ion-thruster-boat/img_0054-thumb.webp",
+    "outcome": "Low-efficiency propulsion demonstrated",
+    "sources": [
+      "Ion Thruster Boat.pptx",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "2023"
   },
   {
     "slug": "mechanical-clock",
     "title": "3D-printed mechanical clock",
     "category": "Mechanisms",
-    "summary": "A gravity-driven clock and a hands-on lesson in friction, gear geometry, and tolerances.",
+    "summary": "A gravity-driven printed clock whose gear and tolerance revisions reduced the required counterweight by 75%.",
     "year": "2023",
     "tools": [
       "Gear design",
@@ -795,20 +951,33 @@
     ],
     "sections": [
       {
-        "title": "Keeping time mechanically",
-        "text": "I designed and printed a fully mechanical, gravity-driven clock. The project required a gear train and escapement that could run with very little available energy."
+        "title": "A clock powered by gravity",
+        "text": "I designed and printed a fully mechanical clock driven by a hanging weight. A gear train passes the weight's motion to an escapement, the mechanism that releases it in regular steps. The project depended on getting a chain of printed parts to run with very little available energy."
       },
       {
-        "title": "Small friction, large consequences",
-        "text": "The high gear ratio meant that even slight friction near the escapement had a large effect on the drive requirements. I printed and tested many geometry and tolerance variations to improve the mechanism."
+        "title": "An escapement and three time scales",
+        "text": "I began with the escapement, tuning the geometry so it would both release the gear train in regular steps and keep the pendulum moving. The escape wheel had 60 teeth and also served as the seconds display. A 60:1 reduction connected it to the minute hand, with a further 12:1 reduction for the hour hand.\n\nA hanging weight unwound a spool on the minute-hand shaft to drive the mechanism. I split the pendulum into two parts connected by an adjustment screw, so I could change its effective length and tune the clock's timing after assembly.",
+        "images": [
+          {
+            "src": "assets/projects/mechanical-clock/img_3965.webp",
+            "thumb": "assets/projects/mechanical-clock/img_3965-thumb.webp",
+            "caption": "The white printed mechanical clock mounted on a wall.",
+            "width": 858,
+            "height": 1107,
+            "source": "IMG_3965.JPG"
+          }
+        ]
       },
       {
-        "title": "A measurable improvement",
-        "text": "The documented iterations reduced the required counterweight mass by 75%. The discarded prototypes were essential to understanding how printed parts behave as a working mechanism."
+        "title": "Finding friction in the gear train",
+        "text": "The large gear ratio made friction near the escapement particularly costly. A small amount of rubbing at that end of the mechanism could demand a much heavier driving weight.\n\nI printed many variations of the gear geometry and clearances, then checked how the assembled mechanism behaved. The pile of rejected parts was not separate from the design process; it was how I learned which details mattered."
+      },
+      {
+        "title": "Reducing the driving weight",
+        "text": "The geometry and tolerance changes reduced the required counterweight mass by 75%. The clock was recorded as completed in February 2023. That improvement is the clearest result of the project: a mechanism that needed less driving force after its printed parts were made to work together more efficiently."
       }
     ],
     "featured": false,
-    "brief": false,
     "related": [
       "cybertruck-go-kart",
       "desktop-cnc"
@@ -828,8 +997,7 @@
         "caption": "An early purple clock mechanism showing the gear train and pendulum.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_7144.JPEG",
-        "live": "assets/projects/mechanical-clock/videos/img_7144.mp4"
+        "source": "IMG_7144.JPEG"
       },
       {
         "src": "assets/projects/mechanical-clock/img_7146.webp",
@@ -837,8 +1005,7 @@
         "caption": "The prototype clock mounted for a gravity-powered test.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_7146.JPEG",
-        "live": "assets/projects/mechanical-clock/videos/img_7146.mp4"
+        "source": "IMG_7146.JPEG"
       },
       {
         "src": "assets/projects/mechanical-clock/img_8367.webp",
@@ -871,7 +1038,7 @@
     "metrics": [
       [
         "75%",
-        "Reduction in counterweight mass"
+        "Counterweight reduction"
       ]
     ],
     "videos": [
@@ -885,13 +1052,20 @@
         "source": "IMG_7679.MP4"
       }
     ],
-    "imageThumb": "assets/projects/mechanical-clock/img_3965-thumb.webp"
+    "imageThumb": "assets/projects/mechanical-clock/img_3965-thumb.webp",
+    "outcome": "Working mechanism",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "2023"
   },
   {
     "slug": "remote-control-hot-wheels",
     "title": "Remote-controlled Hot Wheels",
     "category": "Robotics",
-    "summary": "A miniature RC car designed from scratch, complete with tank steering and its own charging case.",
+    "summary": "A miniature RC car with diagonally opposed drive motors, reused servo electronics, and a magnetically aligned charging case.",
     "year": "2022",
     "tools": [
       "Miniature mechanisms",
@@ -901,20 +1075,23 @@
     ],
     "sections": [
       {
-        "title": "A small car, a big learning curve",
-        "text": "My teacher proposed making a Hot Wheels-sized remote-controlled car. We took different approaches to steering: I chose differential drive and designed my own miniature body and chassis."
+        "title": "Making the most of a tiny package",
+        "text": "This was one of my favorite early engineering projects. I started by trying to fit motors into an existing Hot Wheels car with a Dremel, then moved toward a custom printed chassis built around a small radio receiver. The project also marked my move from simpler CAD tools toward Onshape.\n\nMy teacher explored using a miniature steering linkage. I wanted two drive motors instead, with steering produced by changing the relative speeds of the two sides. That removed the separate steering actuator, but created a difficult packaging problem."
       },
       {
-        "title": "Working at miniature scale",
-        "text": "I combined resin-printed wheels, TPU tires, and small motors and controller boards recovered from servos. Gear meshing and assembly tolerances were particularly challenging at this size."
+        "title": "Reusing the electronics inside a servo",
+        "text": "I disassembled small 9 g servos to reuse their motors and control boards. The original feedback arrangement was meant to hold an output position; I adapted it for continuous speed control and used a multi-turn trimmer to set the neutral point. The receiver could then command a motor to turn forward or backward.\n\nReusing those components let me concentrate on the drivetrain and packaging rather than designing a miniature speed controller from the ground up."
       },
       {
-        "title": "The finished object",
-        "text": "The final miniature Dodge Hellcat included underbody lighting and a portable AA-powered charging case. This was one of the first complex projects I pushed through to a working result, and its build video became a reminder to keep going on harder projects."
+        "title": "Driving opposite corners",
+        "text": "Both motors were too wide to fit beside one another on the rear axle. I instead drove the rear-left and front-right wheels. That gave the motors separate spaces inside the car while still letting me steer by varying the two wheel speeds.\n\nI printed flexible TPU tires and resin hubs for the driven wheels, with the remaining wheels printed in resin. Small printed gears transferred the motor motion to the wheels. At this scale, small errors in a part or its placement could keep the gears from working together."
+      },
+      {
+        "title": "Finishing the car and its case",
+        "text": "I adapted a downloaded Dodge Hellcat body to fit the chassis, added LEDs, and powered the car with a small lithium-polymer battery. The finished vehicle was approximately 1.25 times the size of a standard Hot Wheels car. The body model was adapted from an existing design; the drivetrain, packaging, and charging arrangement were my work.\n\nThe charging case became part of the project rather than an afterthought. It protected the car and used magnets to line it up with the charging contacts. Taking the project from a miniature drivetrain to a car with its own case was a large part of why I enjoyed it."
       }
     ],
     "featured": false,
-    "brief": false,
     "related": [
       "hybrid-rc-car",
       "desktop-cnc"
@@ -926,8 +1103,7 @@
         "caption": "The miniature RC car beside its matching charging case.",
         "width": 1800,
         "height": 1350,
-        "source": "IMG_0022.JPEG",
-        "live": "assets/projects/remote-control-hot-wheels/videos/img_0022.mp4"
+        "source": "IMG_0022.JPEG"
       },
       {
         "src": "assets/projects/remote-control-hot-wheels/img_4809.webp",
@@ -946,12 +1122,7 @@
         "source": "IMG_4817.JPEG"
       }
     ],
-    "links": [
-      [
-        "Watch the build",
-        "https://www.youtube.com/watch?v=DkX7BQVGwjw"
-      ]
-    ],
+    "links": [],
     "role": "Independent project",
     "image": "assets/projects/remote-control-hot-wheels/img_0022.webp",
     "imageAlt": "The miniature RC car beside its matching charging case.",
@@ -968,13 +1139,40 @@
         "source": "IMG_4025.MP4"
       }
     ],
-    "imageThumb": "assets/projects/remote-control-hot-wheels/img_0022-thumb.webp"
+    "imageThumb": "assets/projects/remote-control-hot-wheels/img_0022-thumb.webp",
+    "outcome": "Working prototype",
+    "sources": [
+      "MIT Maker Portfolio Questions.docx",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "youtube": [
+      {
+        "title": "Remote-controlled Hot Wheels build",
+        "url": "https://youtu.be/DkX7BQVGwjw"
+      },
+      {
+        "title": "Supporting build time-lapse",
+        "url": "https://www.youtube.com/shorts/fQGI0x01GGM"
+      }
+    ],
+    "periodLabel": "2022",
+    "metrics": [
+      [
+        "2",
+        "Independently driven wheels"
+      ],
+      [
+        "~1.25x",
+        "Standard Hot Wheels size"
+      ]
+    ]
   },
   {
     "slug": "hydroponic-farm",
     "title": "Automated hydroponic grow farm",
     "category": "Electronics",
-    "summary": "From lettuce in repurposed containers to shelves of automatically watered microgreens.",
+    "summary": "An automated home growing system, from a small lettuce bed to shelves of microgreens.",
     "year": "2017–2020",
     "tools": [
       "Arduino",
@@ -983,20 +1181,23 @@
     ],
     "sections": [
       {
-        "title": "Starting with a question",
-        "text": "An early interest in hydroponics led me to build growing systems at home. I started with lettuce under LED lights in repurposed containers, then gradually expanded the scale and automation."
+        "title": "A growing system I could build at home",
+        "text": "A Popular Mechanics article about hydroponics made me want to try growing food without soil. I started with lettuce, researched different watering approaches, and chose a simple system I could build from plastic tubs, a pump, lights, and a shelf.\n\nMechanical timers controlled the early watering and lighting cycles. One version used a concrete-mixing tub as the grow bed. The interesting part was connecting a simple control system to something that needed the right conditions even when I was not there to tend it."
       },
       {
         "title": "Scaling to microgreens",
-        "text": "The later system used pine shelving and trays of microgreens. An Arduino controlled watering, the grow lights ran on a 16-hour cycle, and newly planted trays began in a dark incubation box."
+        "text": "In the later version, I moved to microgreens and built pine shelving to hold multiple trays. Newly planted trays spent several days in a dark incubation box before moving to the growing shelves. An Arduino controlled watering and the LED lights followed a 16-hour daylight cycle.\n\nThe shelves could hold batches at different stages of growth. That made the layout and schedule as important as any individual pump or light."
       },
       {
-        "title": "Learning through a living system",
-        "text": "Unlike a mechanism that can be switched off between tests, the plants needed consistent care. The project connected physical construction, basic electronics, and the practical challenge of keeping a system running."
+        "title": "A system that had to keep running",
+        "text": "The work combined carpentry, plumbing, electronics, and a repeatable growing process. It was one of my early experiences with automation outside a classroom demonstration: the plants still needed the right conditions when I was doing something else."
+      },
+      {
+        "title": "Trying different scales",
+        "text": "I experimented with both larger plants and trays of microgreens, and built a smaller home setup for a child in my neighborhood using inexpensive wood and other materials. Making more than one version helped me separate the basic growing process from the particular size or shape of the shelving."
       }
     ],
     "featured": false,
-    "brief": false,
     "related": [
       "industrial-robotic-vacuum",
       "arcade-cabinet"
@@ -1016,8 +1217,7 @@
         "caption": "Lettuce harvested from the hydroponic setup.",
         "width": 1800,
         "height": 1350,
-        "source": "IMG_0301.JPEG",
-        "live": "assets/projects/hydroponic-farm/videos/img_0301.mp4"
+        "source": "IMG_0301.JPEG"
       },
       {
         "src": "assets/projects/hydroponic-farm/img_0516.webp",
@@ -1067,13 +1267,20 @@
     "imageType": "Build photograph",
     "position": "50% 56%",
     "videos": [],
-    "imageThumb": "assets/projects/hydroponic-farm/59184761451__04793e41-5d08-4c60-bb66-c2402385cf58-thumb.webp"
+    "imageThumb": "assets/projects/hydroponic-farm/59184761451__04793e41-5d08-4c60-bb66-c2402385cf58-thumb.webp",
+    "outcome": "Built and used",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "2017–2020"
   },
   {
     "slug": "low-cost-rc-plane",
     "title": "Low-cost RC plane",
     "category": "Mechanisms",
-    "summary": "An original RC aircraft design refined through years of builds, flight attempts, repairs, and redesigns.",
+    "summary": "A low-cost foam aircraft developed through repeated redesigns, repairs, and flight tests.",
     "year": "2017–2023",
     "tools": [
       "Aircraft design",
@@ -1082,20 +1289,19 @@
     ],
     "sections": [
       {
-        "title": "Learning by launching",
-        "text": "I developed successive versions of my own remote-controlled plane over several years. Many early versions crashed, sending me back to the workbench to repair the aircraft and change the design."
+        "title": "Learning through successive airframes",
+        "text": "I began experimenting with low-cost remote-controlled aircraft in 2017, with very little engineering experience. I tried foam board, cardboard, an adapted foam aircraft, a delta-wing layout, and eventually a larger airframe made from insulation foam. Using inexpensive materials meant a crash did not have to end the project.\n\nI used radio control and servo-operated surfaces, with an onboard camera in later versions. I also experimented with assisted takeoff. The individual airframes changed, but the project stayed with me for years."
       },
       {
-        "title": "Iteration was the process",
-        "text": "Each failed flight helped expose a weakness and suggest the next change. By June 2023, the project record included a successful flight with the tenth version."
+        "title": "Build, fly, repair, repeat",
+        "text": "Some airframes were repaired and flown repeatedly before I retired the design. Others led to a different configuration. The photos include damaged aircraft as well as finished ones because the repairs and unsuccessful flights were a substantial part of the work.\n\nMy earlier project log records a successful flight in June 2023. That came after years of attempts, rather than after one clean design-and-build cycle."
       },
       {
-        "title": "The useful part of failure",
-        "text": "This project made persistence tangible. It was not enough to improve a drawing: I had to build the revision, take it back outside, and try again."
+        "title": "What stayed with me",
+        "text": "This was one of the first projects that taught me to keep returning to a difficult problem after a disappointing test. A CAD model could look convincing, but the actual airframe still had to fly. Keeping the builds inexpensive and repairable gave me more chances to learn from what happened outside."
       }
     ],
     "featured": false,
-    "brief": false,
     "related": [
       "ion-thruster-boat",
       "gimbaling-tvc"
@@ -1107,8 +1313,7 @@
         "caption": "A blue-and-white RC aircraft ready for an outdoor flight test.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_1536.JPEG",
-        "live": "assets/projects/low-cost-rc-plane/videos/img_1536.mp4"
+        "source": "IMG_1536.JPEG"
       },
       {
         "src": "assets/projects/low-cost-rc-plane/3f9abf81-ad8c-49de-907a-a4ff67c2c443.webp",
@@ -1212,33 +1417,42 @@
         "caption": "The blue-and-white aircraft after an outdoor test.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_9997.JPEG",
-        "live": "assets/projects/low-cost-rc-plane/videos/img_9997.mp4"
+        "source": "IMG_9997.JPEG"
       }
     ],
-    "links": [
-      [
-        "Watch the plane",
-        "https://www.youtube.com/watch?v=-kn2uNXWBkM"
-      ],
-      [
-        "Watch a flight test",
-        "https://youtu.be/S1qanpntDEY"
-      ]
-    ],
+    "links": [],
     "role": "Independent project",
     "image": "assets/projects/low-cost-rc-plane/img_1536.webp",
     "imageAlt": "A blue-and-white RC aircraft ready for an outdoor flight test.",
     "imageType": "Build photograph",
     "position": "50% 55%",
     "videos": [],
-    "imageThumb": "assets/projects/low-cost-rc-plane/img_1536-thumb.webp"
+    "imageThumb": "assets/projects/low-cost-rc-plane/img_1536-thumb.webp",
+    "outcome": "Flight demonstrated",
+    "metrics": [],
+    "sources": [
+      "Grant Kaufmann CV.docx",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "youtube": [
+      {
+        "title": "RC airplane video",
+        "url": "https://www.youtube.com/watch?v=-kn2uNXWBkM"
+      },
+      {
+        "title": "Flight test",
+        "url": "https://youtu.be/S1qanpntDEY"
+      }
+    ],
+    "periodLabel": "2017–2023"
   },
   {
     "slug": "hybrid-rc-car",
     "title": "Hybrid RC car",
     "category": "Mechanisms",
-    "summary": "A conversion project combining electric and nitro power, with an automatic starter.",
+    "summary": "An electric-drive and automatic-start conversion for a Traxxas nitro RC car.",
     "year": "2023",
     "tools": [
       "Power transmission",
@@ -1247,16 +1461,15 @@
     ],
     "sections": [
       {
-        "title": "Combining two power sources",
-        "text": "I designed a conversion for a Traxxas nitro RC car to add electric power and an automatic starting system. The project is recorded as completed in May 2023."
+        "title": "A small version of a car I loved",
+        "text": "After learning to drive in a Toyota Highlander Hybrid, I wanted to explore combining an electric motor and combustion engine on a much smaller scale. My engineering teacher gave me a nitro RC car, which became the starting point.\n\nI added electric drive so the car could be operated electrically, with its original engine, or with both power sources. Working around an existing chassis made packaging and the connection to the original drivetrain central parts of the project."
       },
       {
-        "title": "A connection to larger projects",
-        "text": "The interest in integrating combustion engines and electric machines also appears in my go-kart’s starter-generator system. Both projects explore the interfaces between motors, engines, and power transmission."
+        "title": "Adding an electric starter",
+        "text": "I also added a DC motor to start the nitro engine remotely. The linked demonstration shows that starter operating. These controls drew on the radio-control work I had already done for other vehicles, but the engine introduced a different starting and mechanical-integration problem.\n\nThe project was a working conversion, not a controlled comparison of fuel consumption or efficiency. Its value was in making the two power sources and starting system work together in a compact vehicle."
       }
     ],
     "featured": false,
-    "brief": false,
     "related": [
       "cybertruck-go-kart",
       "remote-control-hot-wheels"
@@ -1279,47 +1492,55 @@
         "source": "IMG_8448.JPEG"
       }
     ],
-    "links": [
-      [
-        "Watch the starter demonstration",
-        "https://youtube.com/shorts/lzJh_Nykc5Q"
-      ]
-    ],
+    "links": [],
     "role": "Independent project",
     "image": "assets/projects/hybrid-rc-car/70717838356__c9ce5e66-cfc6-4bcf-8ea2-1ca3005b5f52.webp",
     "imageAlt": "The hybrid RC car with its engine, battery, and added electric hardware.",
     "imageType": "Build photograph",
     "position": "50% 50%",
     "videos": [],
-    "imageThumb": "assets/projects/hybrid-rc-car/70717838356__c9ce5e66-cfc6-4bcf-8ea2-1ca3005b5f52-thumb.webp"
+    "imageThumb": "assets/projects/hybrid-rc-car/70717838356__c9ce5e66-cfc6-4bcf-8ea2-1ca3005b5f52-thumb.webp",
+    "outcome": "Starter demonstrated",
+    "sources": [
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ],
+    "youtube": [
+      {
+        "title": "Automatic starter demonstration",
+        "url": "https://www.youtube.com/shorts/lzJh_Nykc5Q"
+      }
+    ],
+    "periodLabel": "2023"
   },
   {
     "slug": "industrial-robotic-vacuum",
     "title": "Industrial robotic vacuum",
     "category": "Robotics",
-    "summary": "A school-scale robotic vacuum with a custom 3D-printed cyclone assembly.",
+    "summary": "A workshop-cleaning robot with a custom cyclone vacuum, a repurposed mobile base, and ultrasonic wall-following.",
     "year": "2022",
     "tools": [
-      "Robotics",
+      "Mechanical design",
       "3D printing",
-      "Mechanical design"
+      "Arduino",
+      "Motor control",
+      "Sensor integration"
     ],
     "sections": [
       {
-        "title": "A useful machine for school",
-        "text": "I designed and built a robotic vacuum for my school. The build combined the physical cleaning mechanism with a mobile platform."
+        "title": "A practical problem in the workshop",
+        "text": "Our school engineering space was often messy, and the robot vacuum at home made me wonder whether I could build a larger version for the room. I started with a rolling trash-can base and added two large DC motors with VersaPlanetary gearboxes. A rear caster balanced the chassis.\n\nAn Arduino controlled the two motor drivers. Reusing the base let me focus on the drive system, vacuum hardware, and behavior instead of fabricating every part of the chassis."
       },
       {
-        "title": "Making the airflow components",
-        "text": "The project included a printed cyclone vacuum assembly. Experimenting with its rotating components later informed the impeller work for my go-kart project."
+        "title": "Building the vacuum, not just the robot",
+        "text": "I designed a custom impeller and a printed cyclone assembly rather than attaching a complete commercial vacuum. The cyclone used rotating airflow to separate debris into the collection chamber. This made airflow and mechanical fabrication substantial parts of the project alongside the mobile platform."
       },
       {
-        "title": "Documented in motion",
-        "text": "The project was recorded as completed in May 2022, with videos of the machine operating. The linked demonstrations show the build in use."
+        "title": "Teaching it to move around the room",
+        "text": "Ultrasonic sensors measured the distance to nearby walls. I programmed behavior based on what I had observed in the vacuum at home: move through the room, turn when encountering a wall, and follow the wall until it ended. This was a simple sensor-driven routine, not a map of the entire room.\n\nThe robot drove and operated its vacuum, but unreliable ultrasonic readings made the navigation inconsistent. A different distance-sensing approach would be one of my first changes in a new version."
       }
     ],
     "featured": false,
-    "brief": false,
     "related": [
       "cybertruck-go-kart",
       "hydroponic-farm"
@@ -1342,29 +1563,37 @@
         "source": "IMG_5380.JPEG"
       }
     ],
-    "links": [
-      [
-        "Watch the vacuum working",
-        "https://youtu.be/sJ7q2aCAnw4"
-      ],
-      [
-        "Another workshop demo",
-        "https://youtube.com/shorts/c073dHF14ZI"
-      ]
-    ],
+    "links": [],
     "role": "Independent project",
     "image": "assets/projects/industrial-robotic-vacuum/img_4956.webp",
     "imageAlt": "The underside of the robotic vacuum with drive hardware and wiring exposed.",
     "imageType": "Build photograph",
     "position": "50% 50%",
     "videos": [],
-    "imageThumb": "assets/projects/industrial-robotic-vacuum/img_4956-thumb.webp"
+    "imageThumb": "assets/projects/industrial-robotic-vacuum/img_4956-thumb.webp",
+    "outcome": "Built and operated; distance-sensor reliability limited navigation",
+    "sources": [
+      "Grant Kaufmann CV.docx",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "youtube": [
+      {
+        "title": "Robotic vacuum demonstration",
+        "url": "https://youtu.be/sJ7q2aCAnw4"
+      },
+      {
+        "title": "Workshop demonstration",
+        "url": "https://www.youtube.com/shorts/c073dHF14ZI"
+      }
+    ],
+    "periodLabel": "2022"
   },
   {
     "slug": "arcade-cabinet",
     "title": "Universal arcade cabinet",
     "category": "Fabrication",
-    "summary": "A Raspberry Pi arcade cabinet built with my brother from inexpensive wood and a repurposed monitor.",
+    "summary": "A Raspberry Pi arcade cabinet built with my brother from inexpensive wood and a reused monitor.",
     "year": "2021–2022",
     "tools": [
       "Carpentry",
@@ -1373,20 +1602,19 @@
     ],
     "sections": [
       {
-        "title": "A build with my brother",
-        "text": "We sourced inexpensive wood and built an arcade cabinet around a Raspberry Pi and a repurposed PC monitor. Unlike my other original projects, this cabinet used a design we found on YouTube."
+        "title": "Building something with my brother",
+        "text": "My brother and I made an arcade cabinet from inexpensive wood and a repurposed computer monitor. This project used a cabinet design we found on YouTube, rather than being an original design of mine. Our work was the fabrication, control-panel assembly, wiring, and setup."
       },
       {
-        "title": "Making the interface",
-        "text": "We drilled the control panel for joysticks and buttons and connected them to an IPAC 4 board. The interface translated the controls into keyboard inputs for the Raspberry Pi."
+        "title": "Turning buttons into game controls",
+        "text": "We drilled the control panel for joysticks and buttons and wired them into an IPAC 4 interface. That board translated button presses into keyboard inputs for the Raspberry Pi inside the cabinet. The photos show the enclosure before the screen and controls were fitted, along with the underside of the completed panel."
       },
       {
-        "title": "From materials to a playable machine",
-        "text": "The project brought together cabinet construction, wiring, and setup in a finished object we could actually use. It was completed by March 2022."
+        "title": "From a pile of materials to a playable cabinet",
+        "text": "The project combined carpentry and electronics in a machine we could actually use together. It was completed by March 2022, and the video shows Asteroids running on the finished cabinet."
       }
     ],
     "featured": false,
-    "brief": false,
     "related": [
       "remote-control-hot-wheels",
       "hydroponic-farm"
@@ -1433,25 +1661,32 @@
         "source": "IMG_4941.JPEG"
       }
     ],
-    "links": [
-      [
-        "Watch Asteroids on the cabinet",
-        "https://youtu.be/x7p5orDRN7U"
-      ]
-    ],
-    "role": "Independent project",
+    "links": [],
+    "role": "Built with my brother; cabinet design adapted from YouTube",
     "image": "assets/projects/arcade-cabinet/img_4929.webp",
     "imageAlt": "The assembled cabinet before the screen and controls were fitted.",
     "imageType": "Build photograph",
     "position": "50% 50%",
     "videos": [],
-    "imageThumb": "assets/projects/arcade-cabinet/img_4929-thumb.webp"
+    "imageThumb": "assets/projects/arcade-cabinet/img_4929-thumb.webp",
+    "outcome": "Completed and playable",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant Kaufmann CV.docx"
+    ],
+    "youtube": [
+      {
+        "title": "Playing Asteroids",
+        "url": "https://youtu.be/x7p5orDRN7U"
+      }
+    ],
+    "periodLabel": "2021–2022"
   },
   {
     "slug": "gimbaling-tvc",
-    "title": "Gimbaling thrust-vector control",
+    "title": "Two-axis thrust-vector gimbal",
     "category": "Mechanisms",
-    "summary": "A prototype exploration of a printed pitch-and-yaw gimbal and ground-test hardware.",
+    "summary": "A printed pitch-and-yaw gimbal and an early lesson in designing for the operating environment.",
     "year": "2022–2023",
     "tools": [
       "CAD",
@@ -1460,16 +1695,15 @@
     ],
     "sections": [
       {
-        "title": "The mechanical question",
-        "text": "I explored a 3D-printed gimbal for pitch-and-yaw control as part of an early rocket project. The project brought together mechanism design and experimental ground testing."
+        "title": "A two-axis mechanism",
+        "text": "For an early rocket project associated with my calculus class, I designed a gimbal with two nested axes. Small actuators changed its pitch and yaw. The CAD model and prototype photos show the moving rings and their mounts.\n\nMy focus was the mechanism: obtaining controlled angular movement in two directions within a compact assembly."
       },
       {
-        "title": "A test that exposed a material limit",
-        "text": "Early ground-test hardware failed to retain its geometry under heat. The result underlined the gap between a part that works in CAD and one that survives its operating environment. The record does not establish a successful guided flight."
+        "title": "What the first test exposed",
+        "text": "I fixed the rocket body to a ground-test mount to try the two axes. The prototype was destroyed during the first firing test when continued burning damaged the printed structure. I did not continue the project after that test.\n\nThe mechanism was a prototype, not a demonstrated guidance system or a successful controlled flight. A working motion model was not enough: the structure also had to tolerate the environment in which it would operate."
       }
     ],
     "featured": false,
-    "brief": false,
     "related": [
       "low-cost-rc-plane",
       "mechanical-clock"
@@ -1531,82 +1765,262 @@
     "imageType": "Build photograph",
     "position": "50% 50%",
     "videos": [],
-    "imageThumb": "assets/projects/gimbaling-tvc/d2398c0b-ee7e-400e-ac0d-d79b9553afd2-thumb.webp"
+    "imageThumb": "assets/projects/gimbaling-tvc/d2398c0b-ee7e-400e-ac0d-d79b9553afd2-thumb.webp",
+    "outcome": "Prototype ended after damage during its first ground test",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "2022–2023"
   },
   {
     "slug": "ai-parts-database",
-    "title": "AI-enabled parts database",
+    "title": "Lab parts and equipment database",
     "category": "Software",
-    "summary": "An AI-enabled approach to finding and organizing electronic parts.",
-    "year": "Project archive",
+    "summary": "A searchable directory for the components and test instruments in the Rowland electronics lab.",
+    "year": "Rowland Institute",
     "tools": [
-      "Software",
-      "Inventory"
+      "Web interface",
+      "Inventory organization",
+      "Database"
     ],
     "sections": [
       {
-        "title": "Project notes",
-        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+        "title": "Finding what the lab already has",
+        "text": "I worked on a parts and equipment database for the Rowland electronics lab. A useful component is only useful if someone can find it: the lab has shelves of boxed parts as well as racks of test instruments, so organizing those two kinds of inventory was the starting point."
+      },
+      {
+        "title": "One entry point for parts and instruments",
+        "text": "The browser-based directory separates component search from the instrument database. It gives the lab a single place to start looking, whether the need is a small electronic part or a piece of test equipment.\n\nThe interface shown here is the actual Rowland E.E. Lab Inventory Directory. The accompanying photos show the component storage and instrument racks it was built around.",
+        "images": [
+          {
+            "src": "assets/projects/ai-parts-database/inventory-directory.webp",
+            "thumb": "assets/projects/ai-parts-database/inventory-directory-thumb.webp",
+            "caption": "The Rowland E.E. Lab Inventory Directory, with separate component search and instrument database entry points.",
+            "width": 2000,
+            "height": 1091,
+            "source": "1e64bf9a-088d-4a47-97e6-dbc5e3502209.png"
+          }
+        ]
+      },
+      {
+        "title": "Software as a laboratory tool",
+        "text": "This was a different kind of instrumentation work: helping people locate the hardware needed to run an experiment. It connected software to the organization of a working lab, where components and equipment have to remain findable as projects change."
       }
     ],
     "featured": false,
-    "brief": true,
-    "related": [],
-    "gallery": [],
+    "related": [
+      "geophone-vibration-tester",
+      "vacuum-tube-power-supply"
+    ],
+    "gallery": [
+      {
+        "src": "assets/projects/ai-parts-database/inventory-directory.webp",
+        "thumb": "assets/projects/ai-parts-database/inventory-directory-thumb.webp",
+        "caption": "The Rowland E.E. Lab Inventory Directory, with separate component search and instrument database entry points.",
+        "width": 2000,
+        "height": 1091,
+        "source": "1e64bf9a-088d-4a47-97e6-dbc5e3502209.png"
+      },
+      {
+        "src": "assets/projects/ai-parts-database/inventory-controls.webp",
+        "thumb": "assets/projects/ai-parts-database/inventory-controls-thumb.webp",
+        "caption": "The directory with component and instrument tools.",
+        "width": 2000,
+        "height": 1084,
+        "source": "lab-slide-02-image-02.png"
+      },
+      {
+        "src": "assets/projects/ai-parts-database/component-storage.webp",
+        "thumb": "assets/projects/ai-parts-database/component-storage-thumb.webp",
+        "caption": "Boxed electronic components in the lab.",
+        "width": 1500,
+        "height": 2000,
+        "source": "lab-slide-02-image-04.png"
+      },
+      {
+        "src": "assets/projects/ai-parts-database/instrument-racks.webp",
+        "thumb": "assets/projects/ai-parts-database/instrument-racks-thumb.webp",
+        "caption": "Test instruments and equipment racks.",
+        "width": 2000,
+        "height": 1500,
+        "source": "lab-slide-02-image-03.png"
+      }
+    ],
     "links": [],
-    "role": "Independent project",
-    "image": "assets/illustrations/ai-parts-database.svg",
-    "imageAlt": "AI-enabled parts database — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "role": "Research assistant, Rowland Institute",
+    "image": "assets/projects/ai-parts-database/inventory-directory.webp",
+    "imageAlt": "The Rowland E.E. Lab Inventory Directory, with separate component search and instrument database entry points.",
+    "imageType": "Application screenshot",
+    "position": "center",
+    "experience": "rowland",
+    "outcome": "Directory interface documented",
+    "sources": [
+      "Website Changes_.pdf, page 2",
+      "E.E. Lab Shenanagans.pptx, slide 2",
+      "Project and Website Monologue.docx"
+    ],
+    "videos": [],
+    "imageThumb": "assets/projects/ai-parts-database/inventory-directory-thumb.webp",
+    "periodLabel": "Rowland Institute"
   },
   {
     "slug": "geophone-vibration-tester",
-    "title": "RIS geophone vibration tester",
+    "title": "Geophone vibration test stand",
     "category": "Research",
-    "summary": "A vibration-testing project associated with the Rowland Institute for Science.",
-    "year": "Project archive",
+    "summary": "An electromagnetic test stand that replaced a noisy eccentric-shaft mechanism with a hand-wound actuator and tuned printed springs.",
+    "year": "Rowland Institute",
     "tools": [
-      "Instrumentation",
-      "Testing"
+      "Mechanical design",
+      "Electromagnetic actuators",
+      "3D printing",
+      "Hand calculations",
+      "FEA",
+      "Bench testing"
     ],
     "sections": [
       {
-        "title": "Project notes",
-        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+        "title": "A test stand for a very sensitive instrument",
+        "text": "Winfield Hill had developed the electronics for vibration recorders used around electron microscopes and other laboratory equipment. My work was to build the mechanical sensor mounts and create a test stand for comparing the recorders.\n\nThe stand needed controllable motion of roughly 0.1 mm and a way to test each of the three sensing directions. That amplitude was awkward: it was much smaller than the motion I could conveniently obtain from conventional mechanisms, yet larger than the very small displacements I associated with other actuator approaches."
+      },
+      {
+        "title": "Why the eccentric-shaft version failed",
+        "text": "I first tried generating vibration with an eccentric shaft in a printed mechanism. The intended motion was present, but vibration from the rest of the mechanism was larger than the signal I wanted to create. Changing the eccentricity would not solve the underlying problem: the test apparatus itself was dominating the measurement.\n\nI needed a simpler way to apply force to the sensor carriage, with fewer sources of unwanted mechanical motion."
+      },
+      {
+        "title": "Designing an electromagnetic alternative",
+        "text": "Drawing on the printed-motor work from my e-bike project, I printed a magnetic core and wound a coil around it by hand. Permanent magnets on the moving mount interacted with that coil, while linear guides allowed the carriage to move relative to the base.\n\nThe fixture let a recorder clip into place in each of the three required orientations. I supported the moving assembly with printed springs and estimated their stiffness using hand calculations and finite-element analysis. The spring stiffness and moving mass had to be chosen together, rather than treating the spring as a generic part.",
+        "images": [
+          {
+            "src": "assets/projects/geophone-vibration-tester/test-stand-cad.webp",
+            "thumb": "assets/projects/geophone-vibration-tester/test-stand-cad-thumb.webp",
+            "caption": "Later geophone test-stand concept from the lab presentation.",
+            "width": 1894,
+            "height": 1182,
+            "source": "lab-slide-06-image-02.png"
+          }
+        ]
+      },
+      {
+        "title": "Checking the structure and operating the stand",
+        "text": "I drove the actuator with amplifiers supplied by the lab. Compared with the eccentric-shaft version, the electromagnetic arrangement had fewer moving parts and was easier to control.\n\nI also analyzed the sensor mount's frequency response. The simulation showed a first significant amplification mode near 3.8 kHz, beyond the useful few-hundred-hertz range discussed for the geophones. That was a structural simulation result, not a measured bandwidth specification for the complete test stand. The useful outcome was the quieter, more controllable test mechanism and a better understanding of how the fixture could affect the measurement."
       }
     ],
-    "featured": false,
-    "brief": true,
-    "related": [],
-    "gallery": [],
+    "featured": true,
+    "related": [
+      "vacuum-tube-power-supply",
+      "precision-angular-positioning"
+    ],
+    "gallery": [
+      {
+        "src": "assets/projects/geophone-vibration-tester/test-stand-cad.webp",
+        "thumb": "assets/projects/geophone-vibration-tester/test-stand-cad-thumb.webp",
+        "caption": "Later geophone test-stand concept from the lab presentation.",
+        "width": 1894,
+        "height": 1182,
+        "source": "lab-slide-06-image-02.png"
+      },
+      {
+        "src": "assets/projects/geophone-vibration-tester/first-platform.webp",
+        "thumb": "assets/projects/geophone-vibration-tester/first-platform-thumb.webp",
+        "caption": "First platform design in CAD.",
+        "width": 2000,
+        "height": 1250,
+        "source": "lab-slide-04-image-02.png"
+      },
+      {
+        "src": "assets/projects/geophone-vibration-tester/revised-platform.webp",
+        "thumb": "assets/projects/geophone-vibration-tester/revised-platform-thumb.webp",
+        "caption": "A revised guided-platform assembly.",
+        "width": 2000,
+        "height": 1250,
+        "source": "lab-slide-06-image-03.png"
+      },
+      {
+        "src": "assets/projects/geophone-vibration-tester/mount-frequency-response.webp",
+        "thumb": "assets/projects/geophone-vibration-tester/mount-frequency-response-thumb.webp",
+        "caption": "Frequency-response analysis of the geophone mount.",
+        "width": 1920,
+        "height": 1080,
+        "source": "lab-slide-07-image-02.png"
+      }
+    ],
     "links": [],
-    "role": "Independent project",
-    "image": "assets/illustrations/geophone-vibration-tester.svg",
-    "imageAlt": "RIS geophone vibration tester — conceptual line illustration",
-    "imageType": "Project illustration",
+    "role": "Mechanical mounts and test-stand design; logger electronics by Winfield Hill",
+    "image": "assets/projects/geophone-vibration-tester/test-stand-cad.webp",
+    "imageAlt": "Later geophone test-stand concept from the lab presentation.",
+    "imageType": "CAD model",
     "position": "center",
-    "experience": "rowland"
+    "experience": "rowland",
+    "metrics": [
+      [
+        "~0.1 mm",
+        "Requested motion amplitude"
+      ],
+      [
+        "3",
+        "Sensor orientations"
+      ],
+      [
+        "Hand-wound",
+        "Electromagnetic actuator"
+      ]
+    ],
+    "outcome": "Electromagnetic test-stand prototype built and operated",
+    "sources": [
+      "E.E. Lab Shenanagans.pptx, slides 4, 6-7",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "videos": [],
+    "imageThumb": "assets/projects/geophone-vibration-tester/test-stand-cad-thumb.webp",
+    "periodLabel": "Rowland Institute"
   },
   {
     "slug": "transducer-phased-array",
-    "title": "Transducer phased array",
-    "category": "Research",
-    "summary": "A phased-array project exploring coordinated transducer operation.",
-    "year": "Project archive",
+    "title": "64-element directional sound array",
+    "category": "Electronics",
+    "summary": "A custom ultrasonic array that demonstrated directional audible output, with tests that exposed limits in the original control architecture.",
+    "year": "2025",
     "tools": [
-      "Transducers",
-      "Electronics"
+      "STM32",
+      "PCB design",
+      "Ultrasonics",
+      "Experimental measurement"
     ],
     "sections": [
       {
-        "title": "Project notes",
-        "text": "The photographs below document the board and its assembly. A detailed account of the circuit design, testing, and results is being prepared."
+        "title": "A compact, directional source of sound",
+        "text": "For Physics 15C, I wanted to turn our work on waves and interference into a directional sound source. A compact array working directly at audible frequencies would not give me the narrow beam I wanted, so I investigated an ultrasonic approach using an 8 by 8 array of 64 transducers around a 40 kHz carrier.\n\nThe project also explored audible tones produced using nearby ultrasonic frequencies and the nonlinear response of the medium. The goal was not simply a louder speaker, but sound that was much more concentrated in one direction."
+      },
+      {
+        "title": "Simplifying 64 independent channels",
+        "text": "The intended controller needed to set the timing of every transducer. I designed around an STM32F103, eight addressable latches, and a counter so I could update groups of outputs instead of assigning a separate processor output to each element.\n\nI also took advantage of the transducers' narrow frequency response. The proposed driver used square-wave switching and a simple MOSFET-and-resistor circuit for each element, rather than a separate sine-wave generator for every channel. The latches were meant to retain each output state between updates.\n\nA receiver using additional transducers, filters, and comparator inputs was a planned extension for time-of-arrival measurements. It was not a completed ranging demonstration."
+      },
+      {
+        "title": "Changing the test when the controller became the obstacle",
+        "text": "A problem in the latch architecture prevented the full per-element control from working as intended. For the documented experiments, I split the array into two banks of 32 transducers and drove them with two function generators.\n\nThis simpler setup let me test the acoustic behavior without waiting for the complete timing system. The experiments used a 30 V bench supply and investigated audible envelopes at 440 Hz and 1 kHz."
+      },
+      {
+        "title": "Measuring the beam",
+        "text": "I measured sound level as the measurement direction moved from 0 to 90 degrees in 5-degree steps, repeating the measurements at different distances. The results showed a strong central beam, along with additional off-axis lobes. Reflections could make an object in the beam appear to be the sound source.\n\nThe project analysis connected the extra lobes to element spacing and the square array geometry. It also identified an experimental limitation: the two frequency tests used different orientations and noise environments, making direct comparisons less clean than intended."
+      },
+      {
+        "title": "What worked, and what remained",
+        "text": "The simplified two-bank setup demonstrated directional audible output. Full independent phase control, the receiver, and complete mechanical integration remained unfinished in those experiments. The controller architecture was an important part of the design, but it was not the configuration that produced the documented beam measurements.\n\nThe project also led to new work in the Rowland lab: adapting the transducer-array idea for a time-of-flight temperature-measurement instrument at Rubin Observatory. That instrument has a different purpose from the audible-sound demonstration.",
+        "links": [
+          [
+            "Rubin Observatory temperature-measurement project",
+            "projects/precision-angular-positioning.html"
+          ]
+        ]
       }
     ],
-    "featured": false,
-    "brief": true,
-    "related": [],
+    "featured": true,
+    "related": [
+      "precision-angular-positioning",
+      "desktop-cnc"
+    ],
     "gallery": [
       {
         "src": "assets/projects/transducer-phased-array/img_3963.webp",
@@ -1631,6 +2045,38 @@
         "width": 1350,
         "height": 1800,
         "source": "IMG_3822.JPEG"
+      },
+      {
+        "src": "assets/projects/transducer-phased-array/array-housing-cad.webp",
+        "thumb": "assets/projects/transducer-phased-array/array-housing-cad-thumb.webp",
+        "caption": "CAD model of the array and its proposed hand-held housing.",
+        "width": 1174,
+        "height": 1242,
+        "source": "15C poster.docx"
+      },
+      {
+        "src": "assets/projects/transducer-phased-array/array-circuit-schematic.webp",
+        "thumb": "assets/projects/transducer-phased-array/array-circuit-schematic-thumb.webp",
+        "caption": "Schematic for the 64-element array and its control electronics.",
+        "width": 1609,
+        "height": 1336,
+        "source": "15C poster.docx"
+      },
+      {
+        "src": "assets/projects/transducer-phased-array/beam-pattern-01.webp",
+        "thumb": "assets/projects/transducer-phased-array/beam-pattern-01-thumb.webp",
+        "caption": "Interpolated polar intensity map included in the project measurements.",
+        "width": 1091,
+        "height": 919,
+        "source": "15C poster.docx"
+      },
+      {
+        "src": "assets/projects/transducer-phased-array/beam-pattern-02.webp",
+        "thumb": "assets/projects/transducer-phased-array/beam-pattern-02-thumb.webp",
+        "caption": "A second interpolated polar intensity map from the project measurements.",
+        "width": 1088,
+        "height": 915,
+        "source": "15C poster.docx"
       }
     ],
     "links": [],
@@ -1640,26 +2086,62 @@
     "imageType": "Build photograph",
     "position": "50% 45%",
     "videos": [],
-    "imageThumb": "assets/projects/transducer-phased-array/img_3963-thumb.webp"
+    "imageThumb": "assets/projects/transducer-phased-array/img_3963-thumb.webp",
+    "metrics": [
+      [
+        "64",
+        "Transducers in an 8 x 8 array"
+      ],
+      [
+        "40 kHz",
+        "Carrier frequency"
+      ],
+      [
+        "5 degrees",
+        "Angular measurement steps"
+      ]
+    ],
+    "outcome": "Directional output demonstrated",
+    "sources": [
+      "15C poster.docx",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "2025"
   },
   {
     "slug": "vacuum-tube-power-supply",
-    "title": "Vacuum-tube power supply",
-    "category": "Electronics",
-    "summary": "A high-voltage power-supply project for vacuum-tube work.",
-    "year": "Project archive",
+    "title": "500 V laboratory power supply",
+    "category": "Research",
+    "summary": "A 300-500 V adjustable laboratory supply combining a custom PCB, hand-wound inductors, and a digital voltage readout.",
+    "year": "Rowland Institute",
     "tools": [
-      "Power electronics"
+      "Circuit design",
+      "PCB layout",
+      "Custom inductors",
+      "Bench testing"
     ],
     "sections": [
       {
-        "title": "Project notes",
-        "text": "The photographs below document the board and its assembly. A detailed account of the circuit design, testing, and results is being prepared."
+        "title": "A power supply for vacuum-tube work",
+        "text": "A researcher at the Rowland Institute needed an adjustable supply for vacuum-tube work, and we did not have a suitable one on hand. I worked on a boost-converter supply covering 300 to 500 V, including its circuit board and custom-wound inductors.\n\nA voltage readout and output adjustment were part of turning the circuit into an instrument someone could use at the bench."
+      },
+      {
+        "title": "Learning by winding the magnetic components",
+        "text": "Winding the inductors myself made their behavior a design problem rather than a fixed catalog specification. I worked on inductance, Q, and the core air gap, while also considering energy storage and insulation between windings.\n\nThe high operating voltage made the physical arrangement particularly important. I had to think about the winding construction and insulation at the same time as the electrical values, then carry those decisions into the assembled board."
+      },
+      {
+        "title": "Board layout and bench testing",
+        "text": "The gallery follows the work from schematic and PCB layout to wound components and assembled prototypes. One load-test photograph shows approximately 499 V at 0.100 A, close to the 500 V, 50 W design point.\n\nThat was an operating point, not the end of development. The same progress record identifies a problem area on the board. I continued treating component placement, high-voltage construction, and the surrounding instrument hardware as part of the design rather than assuming that obtaining the desired voltage meant the project was finished."
+      },
+      {
+        "title": "What the project added to my experience",
+        "text": "This work gave me hands-on experience with magnetics and high-voltage instrumentation beyond the motor controllers I had built independently."
       }
     ],
     "featured": false,
-    "brief": true,
     "related": [
+      "geophone-vibration-tester",
       "budget-ebike"
     ],
     "gallery": [
@@ -1677,92 +2159,243 @@
         "caption": "Prototype high-voltage power-supply board with its transformer and output wiring.",
         "width": 1350,
         "height": 1800,
-        "source": "IMG_2779.JPEG",
-        "live": "assets/projects/vacuum-tube-power-supply/videos/img_2779.mp4"
+        "source": "IMG_2779.JPEG"
+      },
+      {
+        "src": "assets/projects/vacuum-tube-power-supply/schematic.webp",
+        "thumb": "assets/projects/vacuum-tube-power-supply/schematic-thumb.webp",
+        "caption": "Power-supply circuit schematic.",
+        "width": 1927,
+        "height": 1361,
+        "source": "lab-slide-08-image-02.png"
+      },
+      {
+        "src": "assets/projects/vacuum-tube-power-supply/board-layout.webp",
+        "thumb": "assets/projects/vacuum-tube-power-supply/board-layout-thumb.webp",
+        "caption": "Power-supply board layout.",
+        "width": 2000,
+        "height": 1081,
+        "source": "lab-slide-08-image-03.png"
+      },
+      {
+        "src": "assets/projects/vacuum-tube-power-supply/load-test.webp",
+        "thumb": "assets/projects/vacuum-tube-power-supply/load-test-thumb.webp",
+        "caption": "Electronic-load readout during a supply test.",
+        "width": 2000,
+        "height": 1500,
+        "source": "lab-slide-10-image-02.png"
+      },
+      {
+        "src": "assets/projects/vacuum-tube-power-supply/prototype-board.webp",
+        "thumb": "assets/projects/vacuum-tube-power-supply/prototype-board-thumb.webp",
+        "caption": "Assembled prototype on the bench.",
+        "width": 895,
+        "height": 1185,
+        "source": "lab-slide-10-image-03.png"
+      },
+      {
+        "src": "assets/projects/vacuum-tube-power-supply/enclosure-cad.webp",
+        "thumb": "assets/projects/vacuum-tube-power-supply/enclosure-cad-thumb.webp",
+        "caption": "Proposed enclosure and front-panel display.",
+        "width": 1234,
+        "height": 1055,
+        "source": "lab-slide-11-image-02.png"
       }
     ],
     "links": [],
-    "role": "Independent project",
+    "role": "Research assistant, Rowland Institute",
     "image": "assets/projects/vacuum-tube-power-supply/img_3713.webp",
     "imageAlt": "A later power-supply board with adjustment hardware and revised circuitry.",
     "imageType": "Build photograph",
     "position": "50% 50%",
     "videos": [],
-    "imageThumb": "assets/projects/vacuum-tube-power-supply/img_3713-thumb.webp"
+    "imageThumb": "assets/projects/vacuum-tube-power-supply/img_3713-thumb.webp",
+    "experience": "rowland",
+    "metrics": [
+      [
+        "300-500 V",
+        "Adjustable output range"
+      ],
+      [
+        "50 W",
+        "Design power"
+      ]
+    ],
+    "outcome": "Prototype bench-tested",
+    "sources": [
+      "E.E. Lab Shenanagans.pptx, slides 8-11",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "Rowland Institute"
   },
   {
     "slug": "custom-drives",
-    "title": "Low-cost custom drives",
+    "title": "Custom drives: project moved",
     "category": "Electronics",
-    "summary": "A project exploring custom drives with an emphasis on cost.",
-    "year": "Project archive",
+    "summary": "The custom-drive work is now part of the Rubin Observatory temperature-measurement project.",
+    "year": "",
     "tools": [
       "Motor drives",
       "Electronics"
     ],
     "sections": [
       {
-        "title": "Project notes",
-        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+        "title": "Part of the Rubin Observatory project",
+        "text": "This work is now described with the complete temperature-measurement project."
       }
     ],
     "featured": false,
-    "brief": true,
     "related": [
       "budget-ebike"
     ],
     "gallery": [],
     "links": [],
     "role": "Independent project",
-    "image": "assets/illustrations/custom-drives.svg",
-    "imageAlt": "Low-cost custom drives — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "",
+    "imageAlt": "",
+    "imageType": "",
+    "position": "center",
+    "imageThumb": "",
+    "outcome": "Early exploration",
+    "sources": [
+      "Original Project Info folder: Low-cost custom drives",
+      "Project and Website Monologue.docx"
+    ],
+    "videos": [],
+    "periodLabel": "",
+    "listed": false,
+    "redirectTo": "precision-angular-positioning"
   },
   {
     "slug": "micro-swarming-drone",
     "title": "Micro swarming drone",
     "category": "Robotics",
-    "summary": "A small-scale drone project in the portfolio.",
-    "year": "Project archive",
+    "summary": "An ongoing low-cost drone design with custom electronics and a camera, aimed at autonomous landing, charging, and cooperative tasks.",
+    "year": "2026",
     "tools": [
-      "Robotics"
+      "PCB design",
+      "STM32",
+      "ESP32",
+      "OV2640 camera",
+      "Mechanical design",
+      "Embedded electronics"
     ],
     "sections": [
       {
-        "title": "Project notes",
-        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+        "title": "Making each drone inexpensive enough to work in a group",
+        "text": "I am developing a small drone around a simple goal: make an individual vehicle inexpensive enough that several can work together. My current high-volume cost estimate is about $22 per drone, and I am still trying to reduce it. That is an estimate for the design, not the purchase price of a completed product.\n\nThe longer-term idea is for drones to swap tasks while others land or recharge, instead of depending on a single vehicle to stay airborne indefinitely."
+      },
+      {
+        "title": "Integrating the electronics and camera",
+        "text": "The design combines STM32 and ESP32 processing with an OV2640 camera. The custom flight-control electronics and drivers need to fit into a compact central board, surrounded by a lightweight frame and propeller guards.\n\nThe earlier design targeted a mass of approximately 52 g and a board under 5 cm across. The CAD and board images show the packaging work; they are not evidence of a finished autonomous fleet."
+      },
+      {
+        "title": "What remains to be demonstrated",
+        "text": "This is still an early-stage project. Automatic takeoff, landing, charging, coordinated tasks, and a flight time of about 20 minutes are goals. They have not yet been demonstrated as an integrated system.\n\nThe current work is on the aircraft and its custom electronics. Reliable autonomous operation is the next layer, not a capability I am claiming for the prototype today."
       }
     ],
     "featured": false,
-    "brief": true,
-    "related": [],
-    "gallery": [],
+    "related": [
+      "hurc-mars-rover",
+      "custom-drives"
+    ],
+    "gallery": [
+      {
+        "src": "assets/projects/micro-swarming-drone/drone-frame.webp",
+        "thumb": "assets/projects/micro-swarming-drone/drone-frame-thumb.webp",
+        "caption": "Drone frame concept with central electronics and propeller guards.",
+        "width": 1482,
+        "height": 1043,
+        "source": "lab-slide-12-image-03.png"
+      },
+      {
+        "src": "assets/projects/micro-swarming-drone/flight-controller.webp",
+        "thumb": "assets/projects/micro-swarming-drone/flight-controller-thumb.webp",
+        "caption": "Custom flight-controller board model.",
+        "width": 1198,
+        "height": 1043,
+        "source": "lab-slide-13-image-02.png"
+      }
+    ],
     "links": [],
     "role": "Independent project",
-    "image": "assets/illustrations/micro-swarming-drone.svg",
-    "imageAlt": "Micro swarming drone — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "image": "assets/projects/micro-swarming-drone/drone-frame.webp",
+    "imageAlt": "Drone frame concept with central electronics and propeller guards.",
+    "imageType": "CAD model",
+    "position": "center",
+    "outcome": "Early design: autonomous operation remains a goal",
+    "sources": [
+      "E.E. Lab Shenanagans.pptx, slides 12-13",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "videos": [],
+    "imageThumb": "assets/projects/micro-swarming-drone/drone-frame-thumb.webp",
+    "periodLabel": "2026",
+    "status": "ongoing",
+    "metrics": [
+      [
+        "~$22",
+        "Current high-volume cost estimate"
+      ],
+      [
+        "20 min",
+        "Flight-time goal"
+      ],
+      [
+        "52 g",
+        "Earlier design mass target"
+      ]
+    ]
   },
   {
     "slug": "es51-final-project",
-    "title": "ES51 final project",
+    "title": "ES51 Turf Wars robot",
     "category": "Coursework",
-    "summary": "A final course project in engineering design.",
-    "year": "Project archive",
+    "summary": "A six-wheel course robot with a compliant two-speed shifter and an extended-reach arm, built for Turf Wars.",
+    "year": "ES51",
     "tools": [
-      "Coursework"
+      "CAD",
+      "3D printing",
+      "Transmission design",
+      "Linkage design",
+      "Laser cutting",
+      "Servo control"
     ],
     "sections": [
       {
-        "title": "The robot build",
-        "text": "The ES51 Turf Wars robot brought together a multi-linkage object-picking arm and a custom shifting gearbox. The photographs below show the transmission CAD, component-level prototypes, chassis assembly, and the robot on the course."
+        "title": "Starting with the game, not an existing robot",
+        "text": "For ES51, Computer-Aided Machine Design, our team built a robot for Turf Wars. Our version of the game involved placing objects onto a tic-tac-toe grid. I started by studying the course and asking which design choices would make a practical difference: climbing, turning on turf, and reaching the center of the board.\n\nI wanted to try a different drivetrain and a longer-reaching arm, rather than simply repeating the mechanism we had built in earlier labs."
+      },
+      {
+        "title": "A two-speed gearbox with a compliant shifter",
+        "text": "I designed a custom gearbox with printed components and metal shafts, paying particular attention to how the parts were located relative to one another. It had a lower ratio for climbing and a higher-speed setting for level ground.\n\nA servo operated the shifting mechanism. Because the two sides of the robot would not necessarily engage their gears at exactly the same moment, the shifter needed compliance: one side could finish engaging while the other was still aligning. In practice, the high-speed setting was too fast to control comfortably, so we used the lower-speed setting throughout the competition.",
+        "images": [
+          {
+            "src": "assets/projects/es51-final-project/img_5826.webp",
+            "thumb": "assets/projects/es51-final-project/img_5826-thumb.webp",
+            "caption": "CAD view of the robot transmission and shifting mechanism.",
+            "width": 1350,
+            "height": 1800,
+            "source": "IMG_5826.JPEG"
+          }
+        ]
+      },
+      {
+        "title": "Making tank steering easier on turf",
+        "text": "I used three wheels on each side, connected by belts. The center wheel sat roughly half an inch lower than the two outer wheels. On the turf, that concentrated more of the load near the middle of the robot and made it easier to turn.\n\nThe resulting drivetrain was quick and maneuverable in the low-speed setting. It was the part of the design that held up well during the competition."
+      },
+      {
+        "title": "Reaching the center of the grid",
+        "text": "I wanted the pickup arm to reach farther than a conventional four-bar linkage, so I designed an extending eight-bar mechanism. Its extra reach was intended to let us place a game piece in the center square.\n\nThe acrylic linkage introduced more friction than I had allowed for, and I did not leave enough time to test the assembled arm. Although the drivetrain performed well, the arm did not operate consistently and we lost in the first round.\n\nThe lesson was not that an ambitious mechanism is always wrong. It was that I needed to budget time for the difficult part of the design to be built, tested, and simplified if necessary."
       }
     ],
     "featured": false,
-    "brief": true,
-    "related": [],
+    "related": [
+      "hurc-mars-rover",
+      "125-final-project"
+    ],
     "gallery": [
       {
         "src": "assets/projects/es51-final-project/img_5951.webp",
@@ -1797,63 +2430,214 @@
         "source": "IMG_5826.JPEG"
       }
     ],
-    "links": [],
-    "role": "Independent project",
+    "links": [
+      [
+        "Turf Wars overview - Harvard SEAS",
+        "https://www.youtube.com/watch?v=Xmteq75CAKE"
+      ]
+    ],
+    "role": "Team project; my focus was drivetrain, shifting mechanism, and arm design",
     "image": "assets/projects/es51-final-project/img_5951.webp",
     "imageAlt": "The purple ES51 robot on the Turf Wars course.",
     "imageType": "Build photograph",
     "position": "50% 50%",
     "videos": [],
-    "imageThumb": "assets/projects/es51-final-project/img_5951-thumb.webp"
+    "imageThumb": "assets/projects/es51-final-project/img_5951-thumb.webp",
+    "outcome": "Competed; drivetrain worked, but arm friction ended our run in the first round",
+    "sources": [
+      "Project folder and supplied build photographs",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "ES51",
+    "metrics": [
+      [
+        "2",
+        "Selectable gear ratios"
+      ],
+      [
+        "6",
+        "Belt-linked wheels"
+      ],
+      [
+        "8-bar",
+        "Extended-reach linkage"
+      ]
+    ],
+    "context": {
+      "title": "About Turf Wars",
+      "text": "Turf Wars is the robot competition associated with Harvard's ES51 course. Teams design, build, and test remote-controlled machines for a game whose challenge changes between offerings. Harvard SEAS introduces the competition in the video linked below.",
+      "links": [
+        [
+          "Harvard SEAS competition overview (video)",
+          "https://www.youtube.com/watch?v=Xmteq75CAKE"
+        ],
+        [
+          "About ES51 and Turf Wars",
+          "https://seas.harvard.edu/news/ingenuity-driving-force-behind-es-51"
+        ]
+      ]
+    }
   },
   {
     "slug": "125-final-project",
-    "title": "125 final project",
+    "title": "ES125 egg-drop mechanism",
     "category": "Coursework",
-    "summary": "An engineering course project in the portfolio.",
-    "year": "Project archive",
+    "summary": "A shaped-slot damping mechanism for an egg-drop challenge. Our team placed second, while testing exposed a critical carriage-constraint problem.",
+    "year": "ES125",
     "tools": [
-      "Coursework"
+      "Dynamics",
+      "Analytical modeling",
+      "Python",
+      "CAD",
+      "Laser cutting",
+      "Prototype testing"
     ],
     "sections": [
       {
-        "title": "Project notes",
-        "text": "A detailed write-up, build photographs, and results for this project are being prepared."
+        "title": "Moving beyond a search for spring and damper values",
+        "text": "For ES125, Anna Burgess, Justice Hickman-Maynard, and I designed an egg-drop mechanism called M.O.D.E. The challenge was to slow a loaded carriage without breaking the egg, subject to limits on the overall mechanism.\n\nWe first tried computational searches over combinations of masses, springs, and dampers. After mixed results, I changed the approach: start from the deceleration history we wanted, then work backward to the geometry that could produce it."
+      },
+      {
+        "title": "Shaping the motion to shape the force",
+        "text": "Using the specified drop height, carriage mass, and available travel, I considered a constant-deceleration trajectory. I wrote equations for a pin-and-slot mechanism that changed how quickly the dampers compressed as the carriage moved down the frame.\n\nThe slot angle changes the relationship between carriage movement and damper movement. I used that relationship to solve for a guide profile intended to keep the retarding force approximately constant. We modeled the profile in Python, brought it into CAD, and laser-cut the resulting geometry.",
+        "images": [
+          {
+            "src": "assets/projects/125-final-project/egg-drop-cad.webp",
+            "thumb": "assets/projects/125-final-project/egg-drop-cad-thumb.webp",
+            "caption": "CAD model of the carriage, guides, and dampers.",
+            "width": 877,
+            "height": 815,
+            "source": "egg-page-6-image-1.jpeg"
+          }
+        ]
+      },
+      {
+        "title": "From the ideal curve to a real assembly",
+        "text": "The design used eight dampers in parallel, a 1.05 kg carriage, and a frame with four tall guides. The final modeled configuration in our presentation did not include springs.\n\nThe CAD walkthrough shows the carriage, frame, and damper arrangement; the photographs show the physical laser-cut structure. The video is a model walkthrough, not footage of a drop test."
+      },
+      {
+        "title": "A second-place result and an incomplete constraint",
+        "text": "Our team finished second out of about 50 groups. The important mechanical problem was that the upper carriage could rotate away from its intended alignment. That increased friction between the pins and slots and could make the carriage jam.\n\nMy model had assumed that friction there would be small. The physical assembly showed why that assumption was not enough: the top platform also needed to be constrained against the unwanted rotation. That would be my first mechanical change in a revised design."
       }
     ],
     "featured": false,
-    "brief": true,
-    "related": [],
-    "gallery": [],
-    "links": [],
-    "role": "Independent project",
-    "image": "assets/illustrations/125-final-project.svg",
-    "imageAlt": "125 final project — conceptual line illustration",
-    "imageType": "Project illustration",
-    "position": "center"
+    "related": [
+      "geophone-vibration-tester",
+      "es51-final-project"
+    ],
+    "gallery": [
+      {
+        "src": "assets/projects/125-final-project/egg-drop-frame.webp",
+        "thumb": "assets/projects/125-final-project/egg-drop-frame-thumb.webp",
+        "caption": "Laser-cut guide frame for the ES125 egg-drop mechanism.",
+        "width": 1500,
+        "height": 2000,
+        "source": "review/IMG_3922.JPEG"
+      },
+      {
+        "src": "assets/projects/125-final-project/egg-drop-assembly.webp",
+        "thumb": "assets/projects/125-final-project/egg-drop-assembly-thumb.webp",
+        "caption": "Assembled guide frame and internal mechanism.",
+        "width": 1500,
+        "height": 2000,
+        "source": "review/IMG_3923.JPEG"
+      },
+      {
+        "src": "assets/projects/125-final-project/egg-drop-cad.webp",
+        "thumb": "assets/projects/125-final-project/egg-drop-cad-thumb.webp",
+        "caption": "CAD model of the carriage, guides, and dampers.",
+        "width": 877,
+        "height": 815,
+        "source": "egg-page-6-image-1.jpeg"
+      },
+      {
+        "src": "assets/projects/125-final-project/parallel-dampers.webp",
+        "thumb": "assets/projects/125-final-project/parallel-dampers-thumb.webp",
+        "caption": "The eight-damper equivalent system from the presentation.",
+        "width": 494,
+        "height": 251,
+        "source": "egg-page-5-image-1.png"
+      }
+    ],
+    "links": [
+      [
+        "Design presentation (PDF)",
+        "assets/downloads/Egg-Drop-Presentation.pdf"
+      ]
+    ],
+    "role": "Team project with Anna Burgess and Justice Hickman-Maynard; my focus was the guide profile and mechanism",
+    "image": "assets/projects/125-final-project/egg-drop-frame.webp",
+    "imageAlt": "Egg-drop frame during assembly.",
+    "imageType": "Build photograph",
+    "position": "center 52%",
+    "metrics": [
+      [
+        "2nd",
+        "Team result; about 50 groups"
+      ],
+      [
+        "8",
+        "Parallel dampers"
+      ],
+      [
+        "1.05 kg",
+        "Carriage mass"
+      ]
+    ],
+    "outcome": "Second place out of about 50 teams; carriage rotation caused friction and jamming",
+    "sources": [
+      "Egg_Drop_Presentation.pdf",
+      "IMG_3922.JPEG and IMG_3923.JPEG, matched to slide 6 CAD",
+      "Project and Website Monologue.docx"
+    ],
+    "videos": [
+      {
+        "src": "assets/projects/125-final-project/egg-drop-cad-walkthrough.mp4",
+        "poster": "assets/projects/125-final-project/egg-drop-cad-walkthrough-poster.webp",
+        "caption": "ES125 mechanism: CAD model walkthrough",
+        "width": 1920,
+        "height": 1080,
+        "duration": 11.338,
+        "source": "IMG_3925.MOV"
+      }
+    ],
+    "imageThumb": "assets/projects/125-final-project/egg-drop-frame-thumb.webp",
+    "periodLabel": "ES125"
   },
   {
     "slug": "smart-home-device",
     "title": "Smart home controller",
     "category": "Electronics",
-    "summary": "An Arduino-based home controller, from exposed prototype wiring to a wall-mounted display and enclosure.",
-    "year": "2021-2023",
+    "summary": "A wall-mounted touchscreen controller that opened my shades, ramped up the lights, and made the morning alarm harder to ignore.",
+    "year": "2020-2023",
     "tools": [
       "Arduino",
-      "Electronics",
-      "Enclosure design",
-      "3D printing"
+      "PCB design",
+      "3D printing",
+      "User interface"
     ],
     "sections": [
       {
-        "title": "From prototype to wall-mounted hardware",
-        "text": "The build photographs trace a home-controller prototype from an Arduino and small motor to an integrated wall-mounted unit with a display and custom enclosure. A full account of the control functions and development process will follow."
+        "title": "A morning routine designed around light",
+        "text": "I wanted an easier way to wake up for school during dark Boston winters. A normal alarm did not address the room itself, so I set out to control the shades and lights as part of the wake-up routine.\n\nThe touchscreen went across the room, in a housing designed around the existing light-switch location. Its position was deliberate: turning off the final alarm would require getting out of bed."
+      },
+      {
+        "title": "Using the CNC to iterate on the electronics",
+        "text": "I had recently finished my homemade PCB mill, which let me make and revise the controller boards quickly. The later controller brought together an Arduino, a real-time clock, a touchscreen, lighting control, and motorized shades.\n\nI designed the enclosure and the small shade mechanisms, routed the low-voltage wiring, and wrote the touchscreen interface myself. The UI let me switch individual devices, change settings, and set alarms. The work tied together a custom circuit board, mechanical actuators, and software in something I could use every day."
+      },
+      {
+        "title": "Making it difficult to stay in bed",
+        "text": "The routine began about 20 minutes before the alarm, opening the shades and gradually bringing up the lights to simulate a sunrise. If I was still in bed five minutes after the intended wake-up time, the LED lighting began flashing and the audible alarm made the room much harder to ignore.\n\nTo stop it, I had to walk across the room and hold a finger on the touchscreen for ten seconds. That interaction was as important as the hardware: the system was designed around getting me out of bed, not just sending another notification."
+      },
+      {
+        "title": "A personal installation",
+        "text": "The controller was built and installed in my room. It included switching for the existing room lights as well as low-voltage devices; it was a personal prototype, not a certified or packaged home-automation product. The photographs show the progression from exposed prototype wiring to the mounted display and enclosure."
       }
     ],
     "featured": false,
-    "brief": true,
     "related": [
-      "budget-ebike"
+      "desktop-cnc",
+      "remote-control-hot-wheels"
     ],
     "gallery": [
       {
@@ -1878,8 +2662,7 @@
         "caption": "An Arduino-based smart-home prototype with a small motor and controller.",
         "width": 1350,
         "height": 1800,
-        "source": "63321396521__1E7BC2E4-9B7A-42E0-906D-A67B0AE54C6E.JPEG",
-        "live": "assets/projects/smart-home-device/videos/63321396521__1e7bc2e4-9b7a-42e0-906d-a67b0ae54c6e.mp4"
+        "source": "63321396521__1E7BC2E4-9B7A-42E0-906D-A67B0AE54C6E.JPEG"
       },
       {
         "src": "assets/projects/smart-home-device/img_0026.webp",
@@ -1905,6 +2688,109 @@
     "imageType": "Build photograph",
     "position": "50% 55%",
     "videos": [],
-    "imageThumb": "assets/projects/smart-home-device/img_7498-thumb.webp"
+    "imageThumb": "assets/projects/smart-home-device/img_7498-thumb.webp",
+    "outcome": "Built and installed",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "2020-2023"
+  },
+  {
+    "slug": "precision-angular-positioning",
+    "title": "Rubin Observatory temperature measurements",
+    "category": "Research",
+    "summary": "Ongoing development of ultrasonic measurement hardware and a printed strain-wave positioning drive for an air-temperature instrument.",
+    "year": "Rowland Institute",
+    "role": "Array-board and mechanical positioning design, Rowland Institute",
+    "experience": "rowland",
+    "featured": false,
+    "image": "",
+    "imageAlt": "",
+    "imageType": "",
+    "position": "center",
+    "gallery": [],
+    "videos": [],
+    "links": [
+      [
+        "About Rubin Observatory",
+        "https://rubinobservatory.org/about"
+      ],
+      [
+        "Observatory photos",
+        "https://rubinobservatory.org/gallery"
+      ],
+      [
+        "Original directional sound array",
+        "projects/transducer-phased-array.html"
+      ]
+    ],
+    "tools": [
+      "Mechanical design",
+      "Strain-wave gearing",
+      "3D printing",
+      "PCB design",
+      "Stepper control"
+    ],
+    "related": [
+      "transducer-phased-array",
+      "geophone-vibration-tester",
+      "vacuum-tube-power-supply"
+    ],
+    "outcome": "Ongoing: array electronics and low-backlash positioning prototypes",
+    "sections": [
+      {
+        "title": "A new application for the transducer array",
+        "text": "At the Rowland Institute, I am helping develop hardware for time-of-flight air-temperature measurements at Vera C. Rubin Observatory in Chile. The proposed instrument sends ultrasonic pulses across the telescope and uses their travel time as part of the temperature measurement.\n\nWinfield Hill asked me to design a board based on the transducer-array work I had done for Physics 15C, together with a mechanism that could aim the array remotely. My work is on that measurement hardware, not on pointing the telescope itself."
+      },
+      {
+        "title": "A low-cost mechanism for precise aiming",
+        "text": "The positioning requirement is about a tenth of a degree. To keep the mechanism inexpensive, I chose a stepper-driven, custom printed strain-wave gearbox. Earlier experiments with printed cycloidal drives and integrated bearing tracks gave me a starting point.\n\nThe printed-drive approach lets me make geometries that would be difficult to machine, with plastic components and separate bearing balls. It also makes it relatively quick to change a tooth profile, a clearance, or a part of the housing and test another version."
+      },
+      {
+        "title": "Trading backlash against friction",
+        "text": "The central tradeoff has been between backlash and friction. Tightening the fit reduces lost motion when the drive reverses, but also makes it harder to turn. My current prototypes show very little apparent backlash, with more friction than I would like.\n\nI am still working on that compromise, including trying resin printing in place of FDM. The tenth-of-a-degree figure is the aiming requirement; I have not yet established a calibrated accuracy result for the finished system. The electronics, drive, and complete temperature instrument are still in development."
+      },
+      {
+        "title": "From class project to research instrument",
+        "text": "The directional-sound array and this instrument share an idea, but have different requirements. The classroom project explored a beam of audible sound. Here, the aim is repeatable positioning and useful pulse timing in a larger measurement system.\n\nThat transition is what interests me: taking something I learned by building independently and adapting it to a researcher's measurement problem."
+      }
+    ],
+    "sources": [
+      "Website Changes_.pdf, page 1",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "Rowland Institute",
+    "status": "ongoing",
+    "metrics": [
+      [
+        "0.1 degree",
+        "Aiming requirement, not validated accuracy"
+      ],
+      [
+        "3D printed",
+        "Strain-wave drive"
+      ],
+      [
+        "Ongoing",
+        "Prototype development"
+      ]
+    ],
+    "context": {
+      "title": "About the observatory",
+      "text": "Vera C. Rubin Observatory is on Cerro Pachon in Chile. Its 8.4-meter Simonyi Survey Telescope repeatedly images the southern sky for the ten-year Legacy Survey of Space and Time.",
+      "links": [
+        [
+          "Source: Rubin Observatory",
+          "https://rubinobservatory.org/about"
+        ],
+        [
+          "Observatory photographs",
+          "https://rubinobservatory.org/gallery"
+        ]
+      ]
+    }
   }
 ]

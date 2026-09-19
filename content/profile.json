@@ -1,12 +1,71 @@
 {
   "name": "Grant Kaufmann",
-  "email": "kaufmann.grant@gmail.com",
+  "email": "grantkaufmann@college.harvard.edu",
   "phone": "+1 (617) 851-7057",
   "phoneHref": "+16178517057",
   "location": "Cambridge, Massachusetts",
   "linkedin": "https://www.linkedin.com/in/grant-kaufmann-harvard/",
   "youtube": "https://www.youtube.com/@grantkprojects",
-  "intro": "I’m a third-year Mechanical Engineering student at Harvard College, Class of 2028. I build across mechanics, electronics, and software—from the first CAD sketch to the workbench.",
-  "bio": "My experience spans independent projects, research at Harvard’s Rowland Institute, a SpaceX internship, and leadership in the Harvard Undergraduate Robotics Club. I’m also a Midshipman in NROTC.",
-  "resume": "assets/downloads/Grant-Kaufmann-Resume.pdf"
+  "intro": "I'm a third-year mechanical engineering student at Harvard College, Class of 2028. I design and build machines, electronics, and the tools that bring them together.",
+  "bio": "My work spans independent projects, research at Harvard's Rowland Institute, a summer 2026 internship with Starlink Aviation at SpaceX, and leadership in the Harvard Undergraduate Robotics Club.",
+  "resume": "assets/downloads/Grant-Kaufmann-Resume.pdf",
+  "makerVideo": "https://www.youtube.com/watch?v=FgyDZiVcFAA",
+  "aboutSections": [
+    [
+      "From independent projects to research",
+      "I'm a third-year mechanical engineering student at Harvard College, Class of 2028. I design and build machines, electronics, and the tools that bring them together.\n\nMy work spans independent projects, research at Harvard's Rowland Institute, a summer 2026 internship with Starlink Aviation at SpaceX, and leadership in the Harvard Undergraduate Robotics Club.\n\nI started by building at home and in the engineering program at Cambridge Rindge and Latin School. A CNC mill made it possible to prototype my own circuit boards; those boards became motor controllers, room automation, and vehicle controls. I still enjoy projects where making one thing gives me a better way to make the next."
+    ],
+    [
+      "Building with other people",
+      "Teaching has become a major part of how I work. I was a teaching assistant in my high-school engineering program, mentored students through FIRST Robotics, and now teach practical circuits and PCB design through HURC.\n\nI enjoy helping someone move from following instructions to taking ownership of a design. My time in NROTC, which ended in spring 2026, continues to influence how I organize a team and prepare for a difficult task."
+    ],
+    [
+      "Outside the workshop",
+      "I am an avid hiker, outdoorsman, and traveler. I have hiked more than 200 miles near the northern end of the Appalachian Trail, and I especially enjoy hiking with my brother. Time in the wilderness is one of the things I return to most consistently.\n\nI have visited 34 states and Puerto Rico and hope to see all 50 states. I also love traveling with friends. I am fluent in Spanish, having attended a Spanish-English dual-immersion school from kindergarten through eighth grade, and I look for opportunities to use it when I travel."
+    ],
+    [
+      "Keeping a balance",
+      "I like being spontaneous, seeing unfamiliar places, and making time for people outside the workshop. I also keep a regular fitness routine. Exercise and time outdoors are not separate from the work I enjoy; they are part of keeping enough energy and perspective to do it well."
+    ]
+  ],
+  "aboutFacts": [
+    [
+      "200+ miles",
+      "Appalachian Trail hiking"
+    ],
+    [
+      "34 states",
+      "And still exploring"
+    ],
+    [
+      "Spanish",
+      "Fluent"
+    ]
+  ],
+  "aboutSkills": [
+    [
+      "Design & fabrication",
+      "Onshape, SolidWorks, Fusion 360, FDM and SLA printing, CNC machining, laser cutting, welding, and carpentry."
+    ],
+    [
+      "Electronics & software",
+      "PCB design, KiCad, Altium, SPICE, embedded C/C++, Python, motor control, soldering, and bench testing."
+    ],
+    [
+      "Teaching & teamwork",
+      "Project-based instruction, robotics leadership, practical mentoring, and subsystem integration."
+    ]
+  ],
+  "aboutLinks": [
+    [
+      "A summer in Seattle",
+      "experience/spacex.html"
+    ]
+  ],
+  "sources": [
+    "Project and Website Monologue.docx",
+    "Grant-Kaufmann-Resume(1).pdf"
+  ],
+  "resumeSha256": "f96ffb340683cef6745ab539b6660917b6362f008c76b1b3e2c3b81a7312d0ba",
+  "resumeSource": "Grant-Kaufmann-Resume(1).pdf"
 }

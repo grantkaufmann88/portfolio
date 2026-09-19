@@ -1,0 +1,316 @@
+{
+  "budget-ebike": {
+    "title": "Budget e-bike conversion kit",
+    "sources": [
+      "Davidson Scholarship Ebike Description.pdf",
+      "davidson_scholarship_transcript.srt",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "desktop-cnc": {
+    "title": "Desktop CNC / PCB mill",
+    "sources": [
+      "cnc_transcript(1).srt",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "davidson_scholarship_transcript.srt",
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "cybertruck-go-kart": {
+    "title": "Mini Cybertruck go-kart",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "hurc-mars-rover": {
+    "title": "HURC Mars rover",
+    "sources": [
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Sustainability Grant Mid-Year Check In (1).docx",
+      "2025-26 Sustainability Grant Application.docx",
+      "Project and Website Monologue.docx",
+      "Grant-Kaufmann-Resume(1).pdf"
+    ],
+    "external_context_sources": [
+      {
+        "label": "Source: University Rover Challenge",
+        "url": "https://urc.marssociety.org/home/about-urc",
+        "checked": "2026-09-19"
+      },
+      {
+        "label": "Official competition site",
+        "url": "https://urc.marssociety.org/",
+        "checked": "2026-09-19"
+      }
+    ]
+  },
+  "ion-thruster-boat": {
+    "title": "Ion-thruster RC boat",
+    "sources": [
+      "Ion Thruster Boat.pptx",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "mechanical-clock": {
+    "title": "3D-printed mechanical clock",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "remote-control-hot-wheels": {
+    "title": "Remote-controlled Hot Wheels",
+    "sources": [
+      "MIT Maker Portfolio Questions.docx",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "hydroponic-farm": {
+    "title": "Automated hydroponic grow farm",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "low-cost-rc-plane": {
+    "title": "Low-cost RC plane",
+    "sources": [
+      "Grant Kaufmann CV.docx",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "hybrid-rc-car": {
+    "title": "Hybrid RC car",
+    "sources": [
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "industrial-robotic-vacuum": {
+    "title": "Industrial robotic vacuum",
+    "sources": [
+      "Grant Kaufmann CV.docx",
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "arcade-cabinet": {
+    "title": "Universal arcade cabinet",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant Kaufmann CV.docx"
+    ]
+  },
+  "gimbaling-tvc": {
+    "title": "Two-axis thrust-vector gimbal",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "ai-parts-database": {
+    "title": "Lab parts and equipment database",
+    "sources": [
+      "Website Changes_.pdf, page 2",
+      "E.E. Lab Shenanagans.pptx, slide 2",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "geophone-vibration-tester": {
+    "title": "Geophone vibration test stand",
+    "sources": [
+      "E.E. Lab Shenanagans.pptx, slides 4, 6-7",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx",
+      "Grant-Kaufmann-Resume(1).pdf"
+    ]
+  },
+  "transducer-phased-array": {
+    "title": "64-element directional sound array",
+    "sources": [
+      "15C poster.docx",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "vacuum-tube-power-supply": {
+    "title": "500 V laboratory power supply",
+    "sources": [
+      "E.E. Lab Shenanagans.pptx, slides 8-11",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "custom-drives": {
+    "title": "Custom drives: project moved",
+    "sources": [
+      "Original Project Info folder: Low-cost custom drives",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "micro-swarming-drone": {
+    "title": "Micro swarming drone",
+    "sources": [
+      "E.E. Lab Shenanagans.pptx, slides 12-13",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx",
+      "Grant-Kaufmann-Resume(1).pdf"
+    ]
+  },
+  "es51-final-project": {
+    "title": "ES51 Turf Wars robot",
+    "sources": [
+      "Project folder and supplied build photographs",
+      "Project and Website Monologue.docx"
+    ],
+    "external_context_sources": [
+      {
+        "label": "Harvard SEAS competition overview (video)",
+        "url": "https://www.youtube.com/watch?v=Xmteq75CAKE",
+        "checked": "2026-09-19"
+      },
+      {
+        "label": "About ES51 and Turf Wars",
+        "url": "https://seas.harvard.edu/news/ingenuity-driving-force-behind-es-51",
+        "checked": "2026-09-19"
+      }
+    ]
+  },
+  "125-final-project": {
+    "title": "ES125 egg-drop mechanism",
+    "sources": [
+      "Egg_Drop_Presentation.pdf",
+      "IMG_3922.JPEG and IMG_3923.JPEG, matched to slide 6 CAD",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "smart-home-device": {
+    "title": "Smart home controller",
+    "sources": [
+      "MIT Maker Portfolio Picture Descriptions_.pdf",
+      "Grant Kaufmann CV.docx",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "precision-angular-positioning": {
+    "title": "Rubin Observatory temperature measurements",
+    "sources": [
+      "Website Changes_.pdf, page 1",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx",
+      "Grant-Kaufmann-Resume(1).pdf"
+    ],
+    "external_context_sources": [
+      {
+        "label": "Source: Rubin Observatory",
+        "url": "https://rubinobservatory.org/about",
+        "checked": "2026-09-19"
+      },
+      {
+        "label": "Observatory photographs",
+        "url": "https://rubinobservatory.org/gallery",
+        "checked": "2026-09-19"
+      }
+    ]
+  },
+  "rowland": {
+    "title": "Research Assistant",
+    "sources": [
+      "Website Changes_.pdf",
+      "E.E. Lab Shenanagans.pptx",
+      "Grant_Kaufmann_Resume_SpaceX.pdf"
+    ]
+  },
+  "spacex": {
+    "title": "Electrical Integration Intern",
+    "sources": [
+      "Website Changes_.pdf",
+      "Grant_Kaufmann_Resume_SpaceX.pdf"
+    ]
+  },
+  "hurc": {
+    "title": "Vice President",
+    "sources": [
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Website Changes_.pdf"
+    ]
+  },
+  "nrotc": {
+    "title": "Former Midshipman",
+    "sources": [
+      "Website Changes_.pdf",
+      "Grant_Kaufmann_Resume_SpaceX.pdf"
+    ]
+  },
+  "crls-robotics": {
+    "title": "Captain of Mechanical Design",
+    "sources": [
+      "Grant-Kaufmann-Resume.pdf",
+      "Grant Kaufmann Brag Sheet - Dr. T.docx",
+      "SpaceX Internship Cover Letter.docx"
+    ]
+  },
+  "experience/rowland": {
+    "title": "Harvard Rowland Institute",
+    "sources": [
+      "Website Changes_.pdf",
+      "E.E. Lab Shenanagans.pptx",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx",
+      "Grant-Kaufmann-Resume(1).pdf"
+    ]
+  },
+  "experience/spacex": {
+    "title": "SpaceX",
+    "sources": [
+      "Grant-Kaufmann-Resume(1).pdf",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "experience/hurc": {
+    "title": "Harvard Undergraduate Robotics Club",
+    "sources": [
+      "Grant-Kaufmann-Resume(1).pdf",
+      "Project and Website Monologue.docx"
+    ]
+  },
+  "experience/nrotc": {
+    "title": "BU–MIT NROTC Consortium",
+    "sources": [
+      "Project and Website Monologue.docx",
+      "Website Changes_.pdf",
+      "Grant-Kaufmann-Resume(1).pdf"
+    ]
+  },
+  "experience/crls-robotics": {
+    "title": "CRLS FIRST Robotics",
+    "sources": [
+      "Grant-Kaufmann-Resume.pdf",
+      "Grant Kaufmann Brag Sheet - Dr. T.docx",
+      "SpaceX Internship Cover Letter.docx"
+    ]
+  },
+  "about": {
+    "title": "About Grant Kaufmann",
+    "sources": [
+      "Project and Website Monologue.docx",
+      "Grant-Kaufmann-Resume(1).pdf"
+    ]
+  },
+  "resume": {
+    "source": "Grant-Kaufmann-Resume(1).pdf",
+    "sha256": "f96ffb340683cef6745ab539b6660917b6362f008c76b1b3e2c3b81a7312d0ba",
+    "modified": false
+  }
+}

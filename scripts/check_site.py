@@ -7,6 +7,8 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import json
+import hashlib
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -97,16 +99,18 @@ def main():
                 errors.append('Unknown related project: ' + slug)
         if not (ROOT / 'projects' / (project['slug'] + '.html')).exists():
             errors.append('Missing project page: ' + project['slug'])
-        image = ROOT / project['image']
-        if not image.exists():
+        image = ROOT / project['image'] if project.get('image') else None
+        if image is not None and not image.is_file():
             errors.append('Missing project cover: ' + project['image'])
-        elif project['imageType'] == 'Project illustration' and 'CONCEPTUAL ILLUSTRATION' not in image.read_text():
+        elif image is not None and project['imageType'] == 'Project illustration' and 'CONCEPTUAL ILLUSTRATION' not in image.read_text():
             errors.append('Unlabeled illustration: ' + project['image'])
     for item in projects + experiences:
         for media in item.get('gallery', []):
             if isinstance(media, list):
                 media = {'src': f'assets/images/{media[0]}.webp'}
-            for key in ('src', 'thumb', 'live'):
+            if 'live' in media:
+                errors.append('Live Photo control data remains in a gallery')
+            for key in ('src', 'thumb'):
                 if key in media and not (ROOT / media[key]).is_file():
                     errors.append(f'Missing {key} media: {media[key]}')
         for video in item.get('videos', []):
@@ -114,7 +118,12 @@ def main():
                 if not (ROOT / video[key]).is_file():
                     errors.append(f'Missing video {key}: {video[key]}')
 
-    manifest = json.loads((ROOT / 'content/media-manifest.json').read_text(encoding='utf-8'))
+    media_record = json.loads((ROOT / 'content/media-manifest.json').read_text(encoding='utf-8'))
+    manifest = media_record['original_photo_inventory']
+    for record in media_record['new_images']:
+        for key in ('src', 'thumb'):
+            if not (ROOT / record[key]).is_file():
+                errors.append('Missing added image: ' + record[key])
     if len(manifest) != 174 or len({record['file'] for record in manifest}) != 174:
         errors.append('Source inventory must account for all 174 original files')
     for record in manifest:
@@ -132,6 +141,30 @@ def main():
     resume = ROOT / 'assets/downloads/Grant-Kaufmann-Resume.pdf'
     if not resume.read_bytes().startswith(b'%PDF-'):
         errors.append('Invalid resume PDF')
+    expected_resume_sha256 = json.loads((ROOT / 'content/profile.json').read_text(encoding='utf-8'))['resumeSha256']
+    if hashlib.sha256(resume.read_bytes()).hexdigest() != expected_resume_sha256:
+        errors.append('Resume differs from the user-supplied PDF for this edition')
+    video_sources = {video['src'] for project in projects for video in project.get('videos', [])}
+    actual_videos = {path.relative_to(ROOT).as_posix() for path in ROOT.rglob('*.mp4')}
+    if actual_videos != video_sources or len(video_sources) != 6:
+        errors.append('Expected six referenced standalone project videos, with no orphan files')
+    for project in projects:
+        if project.get('status') == 'ongoing':
+            html = (ROOT / 'projects' / (project['slug'] + '.html')).read_text(encoding='utf-8')
+            if 'class="status-badge">Ongoing</span>' not in html:
+                errors.append('Missing current-project badge: ' + project['slug'])
+        if project.get('redirectTo') and project['redirectTo'] not in slugs:
+            errors.append('Unknown redirect destination: ' + project['slug'])
+        gallery_urls = [m['src'] for m in project.get('gallery', []) if isinstance(m, dict)]
+        if len(gallery_urls) != len(set(gallery_urls)):
+            errors.append('Duplicate gallery photo in ' + project['slug'])
+    for path in pages:
+        text = path.read_text(encoding='utf-8')
+        if re.search(r'Play Live Photo|View moving picture|A note from the workbench|CONCEPTUAL ILLUSTRATION|Brief entry', text, re.I):
+            errors.append('Obsolete UI content in ' + str(path.relative_to(ROOT)))
+    for path in ROOT.rglob('*'):
+        if path.suffix.lower() in {'.woff', '.woff2', '.otf', '.ttf'}:
+            errors.append('Unexpected bundled font: ' + str(path.relative_to(ROOT)))
     if not (ROOT / '.nojekyll').exists():
         errors.append('Missing .nojekyll file')
     if errors:

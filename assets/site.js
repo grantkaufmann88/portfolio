@@ -1,150 +1,216 @@
-/* Progressive enhancement. The content and every page link work without JavaScript. */
 (() => {
-  'use strict';
-  document.documentElement.classList.add('js');
-  const menu = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('#site-nav');
-  function closeMenu() {
-    if (!menu || !nav) return;
-    menu.setAttribute('aria-expanded', 'false');
-    nav.classList.remove('is-open');
-    menu.textContent = 'Menu +';
+/* Progressive enhancement only: links, articles, photos, and video fallbacks
+   still work without JavaScript. No frameworks, cookies, or analytics. */
+'use strict';
+document.documentElement.classList.add('js');
+
+// Mobile navigation: explicit state, Escape handling, and predictable focus.
+const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.getElementById('site-nav');
+function closeMenu(returnFocus = false) {
+  if (!menuButton || !navigation) return;
+  const wasOpen = menuButton.getAttribute('aria-expanded') === 'true';
+  menuButton.setAttribute('aria-expanded', 'false');
+  navigation.classList.remove('is-open');
+  menuButton.innerHTML = 'Menu <span aria-hidden="true">+</span>';
+  if (returnFocus && wasOpen) menuButton.focus();
+}
+menuButton?.addEventListener('click', () => {
+  const open = menuButton.getAttribute('aria-expanded') !== 'true';
+  menuButton.setAttribute('aria-expanded', String(open));
+  navigation.classList.toggle('is-open', open);
+  menuButton.innerHTML = open ? 'Close <span aria-hidden="true">&times;</span>' : 'Menu <span aria-hidden="true">+</span>';
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeMenu(true);
+});
+document.addEventListener('click', (event) => {
+  if (menuButton && !event.target.closest('.site-header')) closeMenu();
+});
+window.matchMedia('(min-width: 701px)').addEventListener('change', () => closeMenu());
+
+// Project search and categories work together. Query parameters make a filter
+// shareable and preserve it when navigating back from a project.
+const controls = document.querySelector('.catalog-controls');
+if (controls) {
+  controls.hidden = false;
+  const cards = [...document.querySelectorAll('[data-project]')];
+  const filters = [...document.querySelectorAll('[data-filter]')];
+  const search = document.getElementById('project-search');
+  const clear = document.querySelector('[data-clear-search]');
+  const status = document.querySelector('[data-project-count]');
+  const empty = document.querySelector('.empty-state');
+  const validCategories = new Set(filters.map((button) => button.dataset.filter));
+  let category = 'all';
+  const normalize = (value) => value.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+  function applyFilters(writeUrl = true) {
+    const query = normalize(search.value.trim());
+    const words = query.split(/\s+/).filter(Boolean);
+    let count = 0;
+    cards.forEach((card) => {
+      const matchesCategory = category === 'all' || card.dataset.category === category;
+      const haystack = normalize(card.dataset.search);
+      const matchesText = words.every((word) => haystack.includes(word));
+      card.hidden = !(matchesCategory && matchesText);
+      if (!card.hidden) count += 1;
+    });
+    filters.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
+    status.textContent = `${count} ${count === 1 ? 'project' : 'projects'}`;
+    empty.hidden = count !== 0;
+    clear.hidden = search.value.length === 0;
+    if (writeUrl) {
+      const url = new URL(location.href);
+      if (category !== 'all') url.searchParams.set('category', category);
+      else url.searchParams.delete('category');
+      if (search.value.trim()) url.searchParams.set('q', search.value.trim());
+      else url.searchParams.delete('q');
+      try { history.replaceState(null, '', url); } catch { /* file preview fallback */ }
+    }
   }
-  menu?.addEventListener('click', () => {
-    const open = menu.getAttribute('aria-expanded') !== 'true';
-    menu.setAttribute('aria-expanded', String(open));
-    nav.classList.toggle('is-open', open);
-    menu.textContent = open ? 'Close −' : 'Menu +';
-  });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true') {
-      closeMenu(); menu.focus();
-    }
-  });
-  document.addEventListener('click', event => {
-    if (menu && !event.target.closest('.site-header')) closeMenu();
-  });
-  window.matchMedia('(min-width: 621px)').addEventListener('change', closeMenu);
-
-  const catalog = document.querySelector('[data-catalog]');
-  if (catalog) {
-    const cards = [...catalog.querySelectorAll('[data-project]')];
-    const filters = [...document.querySelectorAll('[data-filter]')];
-    const search = document.querySelector('#project-search');
-    const count = document.querySelector('#result-count');
-    const empty = document.querySelector('#empty-state');
-    let active = 'All';
-    const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-    function filterProjects(updateURL = true) {
-      const query = normalize(search.value.trim());
-      let visible = 0;
-      cards.forEach(card => {
-        const categoryMatches = active === 'All' || (active === 'Featured' ? card.dataset.featured === 'true' : card.dataset.category === active);
-        const matches = categoryMatches && normalize(card.dataset.search).includes(query);
-        card.hidden = !matches;
-        if (matches) visible++;
-      });
-      count.textContent = `${visible} of ${cards.length} projects`;
-      empty.hidden = visible !== 0;
-      filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === active)));
-      if (updateURL && location.protocol !== 'file:') {
-        const url = new URL(location.href);
-        active === 'All' ? url.searchParams.delete('category') : url.searchParams.set('category', active);
-        search.value.trim() ? url.searchParams.set('q', search.value.trim()) : url.searchParams.delete('q');
-        history.replaceState(null, '', url);
-      }
-    }
-    function restoreFilters() {
-      const params = new URLSearchParams(location.search);
-      const category = params.get('category');
-      active = filters.some(button => button.dataset.filter === category) ? category : 'All';
-      search.value = params.get('q') || '';
-      filterProjects(false);
-    }
-    filters.forEach(button => button.addEventListener('click', () => { active = button.dataset.filter; filterProjects(); }));
-    search.addEventListener('input', () => filterProjects());
-    document.querySelector('#reset-filters').addEventListener('click', () => {
-      active = 'All'; search.value = ''; filterProjects(); search.focus();
-    });
-    window.addEventListener('popstate', restoreFilters);
-    restoreFilters();
+  function readUrl() {
+    const params = new URLSearchParams(location.search);
+    category = validCategories.has(params.get('category')) ? params.get('category') : 'all';
+    search.value = params.get('q') || '';
+    applyFilters(false);
   }
+  filters.forEach((button) => button.addEventListener('click', () => {
+    category = button.dataset.filter;
+    applyFilters();
+  }));
+  search.addEventListener('input', () => applyFilters());
+  clear.addEventListener('click', () => { search.value = ''; applyFilters(); search.focus(); });
+  document.querySelector('[data-reset-filters]').addEventListener('click', () => {
+    category = 'all'; search.value = ''; applyFilters(); search.focus();
+  });
+  window.addEventListener('popstate', readUrl);
+  window.addEventListener('pageshow', readUrl);
+  readUrl();
+}
 
-  const galleryButtons = [...document.querySelectorAll('[data-gallery-src]')];
-  const dialog = document.querySelector('#lightbox');
-  if (dialog && galleryButtons.length && typeof dialog.showModal === 'function') {
-    const image = dialog.querySelector('.lightbox-image');
-    const caption = dialog.querySelector('.lightbox-caption');
-    const counter = dialog.querySelector('[data-image-count]');
-    const original = dialog.querySelector('[data-original]');
-    let current = 0;
-    let lastTrigger = null;
-    function show(index) {
-      current = (index + galleryButtons.length) % galleryButtons.length;
-      const link = galleryButtons[current];
-      image.src = link.dataset.gallerySrc;
-      image.alt = link.dataset.caption;
-      caption.textContent = link.dataset.caption;
-      original.href = link.dataset.gallerySrc;
-      counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(galleryButtons.length).padStart(2, '0')}`;
-      // Only the next image is prefetched; the rest of the gallery stays lazy.
-      if (galleryButtons.length > 1) {
-        const next = new Image();
-        next.src = galleryButtons[(current + 1) % galleryButtons.length].dataset.gallerySrc;
-      }
-    }
-    galleryButtons.forEach((link, index) => link.addEventListener('click', event => {
-      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
-      lastTrigger = link;
-      show(index);
-      dialog.showModal();
-      document.body.classList.add('modal-open');
-    }));
-    dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
-    dialog.querySelector('[data-prev]').addEventListener('click', () => show(current - 1));
-    dialog.querySelector('[data-next]').addEventListener('click', () => show(current + 1));
-    dialog.addEventListener('keydown', event => {
-      if (event.key === 'ArrowRight') { event.preventDefault(); show(current + 1); }
-      if (event.key === 'ArrowLeft') { event.preventDefault(); show(current - 1); }
-    });
-    dialog.addEventListener('click', event => {
-      const rect = dialog.getBoundingClientRect();
-      if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
-    });
-    dialog.addEventListener('close', () => {
-      document.body.classList.remove('modal-open');
-      image.removeAttribute('src');
-      lastTrigger?.focus({ preventScroll: true });
-    });
+// Still-image viewer. Native <dialog> supplies modal focus containment. The
+// original link remains usable in browsers without a dialog implementation.
+const dialog = document.getElementById('lightbox');
+if (dialog && typeof dialog.showModal === 'function') {
+  const openers = [...document.querySelectorAll('[data-gallery-src]')];
+  // A photo may appear in the article and again in the gallery. Show it once
+  // in the modal, but restore focus to whichever link the visitor selected.
+  const gallery = [...new Map(openers.map((item) => [item.dataset.gallerySrc, item])).values()];
+  const picture = dialog.querySelector('.lightbox-image');
+  const caption = dialog.querySelector('.lightbox-caption');
+  const counter = dialog.querySelector('[data-image-count]');
+  const original = dialog.querySelector('[data-original]');
+  let index = 0;
+  let opener = null;
+  function showImage(next) {
+    index = (next + gallery.length) % gallery.length;
+    const item = gallery[index];
+    picture.src = item.dataset.gallerySrc;
+    picture.alt = item.dataset.caption || '';
+    caption.textContent = item.dataset.caption || '';
+    counter.textContent = `${index + 1} / ${gallery.length}`;
+    original.href = item.dataset.gallerySrc;
+    dialog.querySelector('[data-prev]').disabled = gallery.length < 2;
+    dialog.querySelector('[data-next]').disabled = gallery.length < 2;
   }
+  openers.forEach((item) => item.addEventListener('click', (event) => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault(); opener = item;
+    showImage(gallery.findIndex((photo) => photo.dataset.gallerySrc === item.dataset.gallerySrc));
+    dialog.showModal(); document.body.classList.add('dialog-open');
+  }));
+  dialog.querySelector('[data-prev]').addEventListener('click', () => showImage(index - 1));
+  dialog.querySelector('[data-next]').addEventListener('click', () => showImage(index + 1));
+  dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault(); showImage(index + (event.key === 'ArrowRight' ? 1 : -1));
+    }
+  });
+  dialog.addEventListener('click', (event) => {
+    if (event.target !== dialog) return;
+    const bounds = dialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('dialog-open');
+    picture.removeAttribute('src');
+    opener?.focus({ preventScroll: true });
+  });
+}
 
-  // Live Photo clips play only on request and stop when their panel is closed.
-  document.querySelectorAll('.live-photo').forEach(details => {
-    details.addEventListener('toggle', () => {
-      if (!details.open) details.querySelector('video')?.pause();
+// Only one video plays at a time. YouTube is not contacted until a visitor
+// explicitly selects a video. A direct YouTube link is always visible below it.
+function pauseOtherVideos(except = null) {
+  document.querySelectorAll('video').forEach((video) => { if (video !== except) video.pause(); });
+  document.querySelectorAll('.youtube-player.is-playing').forEach((player) => {
+    if (player !== except) {
+      player.querySelector('iframe')?.remove();
+      const poster = player.querySelector('.youtube-play');
+      if (poster) poster.hidden = false;
+      player.classList.remove('is-playing');
+    }
+  });
+}
+document.querySelectorAll('.youtube-player').forEach((player) => {
+  const poster = player.querySelector('.youtube-play');
+  poster.addEventListener('click', (event) => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault(); pauseOtherVideos(player);
+    const id = player.dataset.youtube;
+    if (!/^[A-Za-z0-9_-]{11}$/.test(id)) { window.open(poster.href, '_blank', 'noopener'); return; }
+    const src = new URL(`https://www.youtube-nocookie.com/embed/${id}`);
+    src.searchParams.set('autoplay', '1');
+    src.searchParams.set('playsinline', '1');
+    src.searchParams.set('rel', '0');
+    const start = parseInt(player.dataset.start, 10);
+    if (start > 0) src.searchParams.set('start', String(start));
+    const iframe = document.createElement('iframe');
+    iframe.src = src.href;
+    iframe.title = player.dataset.title || 'Project video';
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    poster.hidden = true; player.classList.add('is-playing'); player.append(iframe); iframe.focus();
+  });
+});
+document.querySelectorAll('video').forEach((video) => {
+  const player = video.closest('.video-player');
+  if (!player) return;
+  const button = player.querySelector('.local-video-play');
+  button?.addEventListener('click', () => {
+    pauseOtherVideos(video);
+    const promise = video.play();
+    if (promise) promise.catch(() => {
+      // Expose native controls if a browser blocks programmatic playback.
+      player.classList.add('is-playing'); video.focus();
     });
   });
-  // Opening another build video never leaves the previous one playing off screen.
-  document.addEventListener('play', event => {
-    if (!(event.target instanceof HTMLVideoElement)) return;
-    document.querySelectorAll('video').forEach(video => {
-      if (video !== event.target && !video.paused) video.pause();
-    });
-  }, true);
+  video.addEventListener('play', () => { pauseOtherVideos(video); player.classList.add('is-playing'); });
+  video.addEventListener('pause', () => player.classList.remove('is-playing'));
+  video.addEventListener('ended', () => player.classList.remove('is-playing'));
+});
+window.addEventListener('pagehide', () => pauseOtherVideos());
 
-  document.querySelectorAll('[data-copy]').forEach(button => {
-    button.addEventListener('click', async () => {
-      const status = document.querySelector('#copy-status');
-      try {
-        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
-        await navigator.clipboard.writeText(button.dataset.copy);
-        status.textContent = 'Email address copied.';
-        button.textContent = 'Copied ✓';
-        setTimeout(() => { button.textContent = 'Copy'; }, 2500);
-      } catch {
-        status.textContent = `Copy this email address: ${button.dataset.copy}`;
+// Email copy includes a local-preview fallback and a human-readable error.
+document.querySelectorAll('[data-copy]').forEach((button) => {
+  button.hidden = false;
+  button.addEventListener('click', async () => {
+    const text = button.dataset.copy;
+    const status = document.getElementById('copy-status');
+    let copied = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text); copied = true;
+      } else {
+        const field = document.createElement('textarea');
+        field.value = text; field.style.position = 'fixed'; field.style.opacity = '0';
+        document.body.append(field); field.select(); copied = document.execCommand('copy'); field.remove();
       }
-    });
+    } catch { copied = false; }
+    button.textContent = copied ? 'Copied' : 'Copy';
+    if (status) status.textContent = copied ? 'Email address copied.' : `Copy this address: ${text}`;
+    window.setTimeout(() => { button.textContent = 'Copy'; }, 2500);
   });
+});
+
 })();

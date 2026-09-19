@@ -1,31 +1,110 @@
-# Verification of the photo-integrated edition
+# Content review notes - monologue edition
 
-## Completed checks
+## Source priority and scope
 
-The standard-library build succeeds and produces 33 HTML pages: 22 projects, five experience pages, the home/project-index/experience-index/about/contact pages, and a 404 page.
+This edition starts from the complete Revised website, then incorporates
+`Project and Website Monologue.docx`, its embedded rover photographs, the latest
+resume (`Grant-Kaufmann-Resume(1).pdf`), and the newly supplied photos and video.
+The earlier transcripts, project documents, presentations and image assignments
+remain the basis for details not repeated in the new monologue.
 
-`python scripts/check_site.py` passes with 1,591 local references checked. The checker covers normal links, fragments, cover images, responsive image paths, full-size gallery images, MP4 sources, video posters, project relationships, duplicate page titles, WebP file headers, and the existing resume download. All 174 input media files are accounted for in the manifest.
+The prose is written for the public project pages, not copied verbatim from the
+speech transcription. Individual contributions, team work, requirements,
+estimates, observations and demonstrated results are distinguished.
+`content/source-map.json` records the source names; the original private working
+monologue is not bundled into the public website.
 
-All 256 WebP files (119 new images and their thumbnails, five video posters, and 13 retained image assets) pass Pillow's image verification. All 174 original files in the separate sorted-photo archive pass SHA-256 comparison against the source files.
+## Changes that resolve earlier review notes
 
-All 32 non-error pages were rendered in Chromium at desktop and 390-pixel mobile widths. Selected pages were also checked at 320 pixels. An existing About-page decorative SVG was found to exceed the mobile viewport; its maximum width was fixed and rechecked at 320, 390, 620, 960, and 1,440 pixels. No remaining horizontal-overflow or image-decoding failures were found in these checks.
+- The newly supplied resume has the corrected May-August 2026 SpaceX dates. It
+  replaces the previous PDF byte-for-byte. The old resume mismatch is resolved.
+- NROTC is explicitly past participation, ending in spring 2026. Its influence
+  on leadership, preparation and fitness remains part of the background.
+- The expanded Rubin description now explains the printed strain-wave drive,
+  array-board work and backlash/friction tradeoff. The 0.1-degree figure is an
+  aiming requirement, not measured accuracy. The project is ongoing.
+- The old custom-drives URL redirects to the Rubin project, preserving the
+  existing precision-angular-positioning URL rather than leaving two incomplete
+  or conflicting descriptions of the same work.
+- The drone uses the new roughly $22 high-volume cost estimate. Twenty minutes
+  is a flight-time goal; autonomous landing, charging and coordinated tasks are
+  development goals, not completed demonstrations. The 52 g figure is labeled
+  as an earlier design target where retained.
+- The ES125 second-place result comes from the latest monologue. The new video is
+  a CAD walkthrough, not a physical drop test. Rotation and jamming of the
+  carriage remain an explicit limitation.
+- The HURC power-distribution board is credited to the two students Grant
+  mentored. His teaching, design guidance and subsystem work are not presented
+  as sole authorship of that board.
 
-The gallery was exercised with mouse controls, arrow keys, Escape, focus restoration, expanded photo sections, and a mobile-size dialog. Project filtering, text search, empty-state reset, and the mobile menu passed their interaction checks.
+## Technical details that still need confirmation before adding specifications
 
-All 37 published MP4 files successfully exposed video dimensions and duration to Chromium. One Live Photo was additionally played and its pause-on-collapse behavior was verified. Videos remain paused on initial page load.
+1. The sound-array monologue mentions about 125 ns per update and about 20 frames
+   per 40 kHz cycle. These figures do not describe the same update interval, so
+   neither is published as a performance specification. The earlier poster's
+   tested two-bank configuration is kept separate from the intended independent
+   control of all 64 elements. A later working per-element controller would need
+   a separate update describing what changed and what was tested.
+2. The aircraft iteration count differs between accounts (seven recalled models,
+   nine designs/iterations on the resume, and another count in an older account).
+   The site describes successive iterations without inventing a reconciliation.
+3. The boat's very high ignition-module voltage is not treated as a measured
+   output. There is no verified voltage specification in the new description.
+4. Geophone motion amplitude is a requested target. Mount FEA and the recorded
+   few-hundred-hertz sensor range are not a calibrated complete-stand bandwidth.
+5. The egg-drop presentation's acceleration requirement and optimization value
+   differ. The narrative explains the model and its friction limitation without
+   claiming either value was measured or that the ideal profile was validated.
+6. The spoken collaborator name and inductor-core identifier are unclear in the
+   transcription. No guessed spelling or component part number is published.
+7. Supply voltage/current photographs support an approximate bench operating
+   point, not measured noise, efficiency, or qualification claims.
 
-## Test-environment limitation
+## SpaceX and personal content
 
-The environment's browser administrator policy blocks navigation to both localhost and `file://` addresses. Browser rendering and interaction tests therefore used the generated HTML with local styles, scripts, and media inlined into an otherwise unchanged page. The same MP4 bytes were supplied as local data URLs for browser playback checks. Thumbnail variants were used in visual renders; full-size images were used in the dedicated gallery tests.
+The public SpaceX page uses a short, high-level description of the Starlink
+Aviation internship. Detailed part designs, test procedures, evaluation scores,
+fleet counts and integration quantities are not repeated in its prose. The road
+trip, hiking, roommates, intercom modification and double-decker couch are clearly
+personal activities outside company work.
 
-Separately, a local HTTP server successfully served all 32 non-error HTML pages, and the offline checker validated the actual relative file paths and responsive-image references. Browser URL-history persistence, live GitHub Pages hosting, and actual network selection of `srcset` variants were not verified in this environment. No website was uploaded or deployed.
+This is not an independent confidentiality clearance. The requested resume PDF is
+included unchanged and still contains the details Grant supplied in that file.
+Review the PDF itself before public distribution if any of those items should be
+removed. Future Seattle or outdoor photographs can be added without publishing
+placeholders or inventing images of those activities.
 
-## Content decisions to review
+## Public context and media
 
-Thirteen images remain in labeled `needs-review` folders in the separate sorted-photo package. They include the blue gripper robot, December 2025 laser-cut frame, portable computer, and other unidentified prototypes or context shots. These files were not published under a guessed project. `PHOTO-REVIEW.html` in that package provides a contact sheet with filenames and assignment notes.
+Official Rubin Observatory, Harvard SEAS, and University Rover Challenge pages
+are linked from short background notes. They explain the observatory or
+competition, not Grant's individual results. The Rubin gallery is linked rather
+than bundling an unavailable third-party photograph.
 
-Five original project pages still use conceptual covers because no supplied photo could be confidently assigned to them: AI-enabled parts database, geophone vibration tester, low-cost custom drives, micro swarming drone, and 125 final project.
+Two new rover science-module photos are extracted from the DOCX. The uploaded
+board and frame photos and the embedded drill-CAD photo duplicate higher-quality
+images already in the website; those existing versions are reused. The Rowland
+screenshot has been refreshed, with only browser and desktop chrome cropped.
 
-The supplied profile, contact details, experience narratives, and resume PDF were preserved. The Smart home controller page is a new brief entry based on the clearly identifiable controller photos. The ES51 brief describes the robot's documented arm and transmission, without inventing performance results. The e-bike text was minimally adjusted to acknowledge the supplied outdoor ride video without implying a finished or road-ready kit.
+The prior original-photo archive remains unchanged. The other 11 previously
+uncertain photos remain unpublished. `content/media-manifest.json` accounts for
+all 174 files in that original collection and records the new media assignments.
 
-`ORIGINAL-CONTENT-NOTES.md` preserves the older edition's content notes. Its claims about missing photographs predate this integration and should not be treated as the current media inventory.
+## Video limitations
+
+There are six standalone MP4 players in this edition. All six were decoded and
+played with the website's controls during local browser testing. No Live Photo
+controls or clips were reintroduced. YouTube tiles remain click-to-load, with
+always-visible direct links. Embed creation and the supplied CNC start time were
+checked, but live YouTube streaming and embedding permissions were not verified
+in this environment.
+
+## Resume integrity
+
+All resume links point to `assets/downloads/Grant-Kaufmann-Resume.pdf`.
+The expected SHA-256 is stored in `content/profile.json` as `resumeSha256`:
+
+`f96ffb340683cef6745ab539b6660917b6362f008c76b1b3e2c3b81a7312d0ba`
+
+When intentionally replacing the resume in a future edition, update that field
+before running `python scripts/check_site.py`.

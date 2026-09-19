@@ -1,113 +1,143 @@
-# Grant Kaufmann portfolio - photo-integrated edition
+# Grant Kaufmann - engineering portfolio
 
-This is the complete, ready-to-preview and ready-to-commit website. It uses the full multi-page portfolio as its base and preserves its visual design. The older eight-project one-page starter was not used.
+A complete static website with project pages, experience pages, organized images,
+click-to-play videos, and the supplied resume. No npm, framework, paid service,
+or third-party Python package is needed.
 
-The folder includes 22 project pages (the existing 21 plus a short Smart home controller entry), five experience pages, all generated HTML, all source JSON, the Python build and preview scripts, styles, JavaScript, the existing resume, and the optimized media. No npm packages or Python packages are needed to build or preview it.
+## Preview locally
 
-## Open it locally on Windows
-
-Extract the entire ZIP, then open PowerShell inside **Grant-Kaufmann-Portfolio-Updated**, the folder containing `index.html`, `build.py`, `serve.py`, `assets`, and `content`.
+Extract the **entire ZIP**. Open PowerShell or a terminal in the folder containing
+`build.py`, `serve.py`, `content`, and `assets`, then run:
 
 ```powershell
-python build.py
 python serve.py
 ```
 
-The preview opens in your browser at `http://localhost:8000`. Keep PowerShell open while using it. Press Ctrl+C to stop. `START-WINDOWS.bat` is a double-click alternative. On macOS/Linux, use `python3` where necessary.
+Open `http://localhost:8000`. Keep the terminal open while viewing the site.
+Press Ctrl+C to stop the server. `START-WINDOWS.bat` and `START-MAC.command` are
+also included.
 
-The build has already been run, so `python serve.py` alone is enough to preview the supplied version. Opening `index.html` directly also works; the local server is preferable for playback and clipboard support.
-
-A different port is available with `python serve.py --port 8001`.
-
-**Important:** do not copy just `build.py`. It reads `content/projects.json`, `content/experience.json`, and `content/profile.json`. All three are included here. Extract or copy the whole folder so the content files stay beside the code in the expected structure.
-
-## Update your existing GitHub repository
-
-Copy the **contents inside** this folder into the existing local portfolio repository, replacing its old files. Keep the existing `.git` directory. Put `index.html` at the repository root rather than nesting this entire folder one level below it. Include the `assets`, `content`, `projects`, `experience`, and `scripts` folders and the `.nojekyll` file.
-
-From PowerShell in that repository:
+The HTML is already built. To rebuild after changing text or media:
 
 ```powershell
 python build.py
 python scripts/check_site.py
+python serve.py
+```
+
+If port 8000 is in use, run `python serve.py --port 8001`.
+Opening `index.html` directly works for reading most of the site, but use the
+local server for normal testing and embedded videos. YouTube requires internet
+access and can block embedding independently of this website.
+
+## Update the existing GitHub repository
+
+Copy the **contents** of this folder into your repository's website root,
+replacing existing files. Keep the repository's `.git` directory. Do not put the
+entire extracted folder inside another website folder by mistake. The directory
+served by GitHub Pages should contain `index.html` and `assets` at the same level.
+
+Then use your normal commit/push workflow, for example:
+
+```powershell
 git add .
-git commit -m "Organize project photos and update galleries"
+git commit -m "Integrate project monologues and new media"
 git push
 ```
 
-The included HTML files are static; GitHub does not need to run Python. Existing GitHub Pages branch/root settings can remain unchanged. No files have been pushed to your account as part of preparing this package.
+The generated pages are included, so no server-side build is required. Internal
+paths are relative and support a project URL such as `/portfolio/` as well as a
+site root. `.nojekyll` is included. Nothing has been deployed automatically.
 
-All site links and media paths are relative, so repository-subfolder hosting is supported. Do not upload the separate sorted-originals archive: the website already includes every media file it uses.
+Replacing files does not delete old, unreferenced media already in your
+repository. They will not appear in the new interface. This ZIP omits the Live
+Photo clips, but preserves the six standalone project videos.
 
-## Where the pictures live
+## Edit the content
 
-```text
-assets/
-  projects/
-    budget-ebike/
-      img_0727.webp
-      img_0727-thumb.webp
-      videos/
-        img_0752.mp4
-    desktop-cnc/
-    cybertruck-go-kart/
-    hurc-mars-rover/
-    ...
-  experience/
-    crls-robotics/
-    nrotc/
-    rowland/
-  images/                    # Existing PDF-extracted photographs and diagrams
-  illustrations/             # Retained where no confident photo match exists
-content/
-  projects.json              # Project covers, captions, galleries, and videos
-  experience.json            # Experience pages and galleries
-  profile.json               # Existing profile and contact details
-  media-manifest.json        # Original filenames, assignments, and publication status
-```
+- `content/profile.json`: introduction, About sections, contact links, resume path, maker video.
+- `content/projects.json`: project descriptions, photos, video URLs, and metadata.
+- `content/experience.json`: research, internship, and leadership descriptions.
+- `assets/styles.css`: responsive layout and visual design.
+- `assets/site.js`: filters, mobile navigation, photo viewer, and video controls.
+- `build.py`: generates all 34 HTML pages from the JSON files.
 
-There are **119 newly integrated photos**, **five standalone build videos**, and **32 Live Photo clips**. One byte-identical team photo appears only once in the site. The 13 uncertain photos and their four companion clips are preserved in the separate sorted-originals package, not assigned to a guessed project page.
+After editing the JSON or templates, run `python build.py` again. Editing only the
+CSS or JavaScript does not require rebuilding, except that the 404 page embeds
+its own CSS and will pick up style changes on the next build.
 
-The sorted-originals ZIP also contains all confidently matched originals, unchanged. Open its `PHOTO-REVIEW.html` to browse every original and see the photos that need confirmation. `PHOTO-INTEGRATION.md` in this website folder summarizes the assignments.
+### Add a photo
 
-## What changed
-
-Project covers and catalog cards now use matching build photos. Photos open in a full-size viewer with Previous/Next controls, arrow-key navigation, Escape to close, and a full-size image link. Long galleries show eight photos initially and keep the rest under an expandable control. All photos remain accessible through the viewer.
-
-The five standalone videos have inline players. A **Play Live Photo** control reveals each paired clip; opening the page never starts playback automatically. HURC, CRLS robotics, NROTC, and Rowland experience pages also have appropriate galleries. The HURC experience page references the same rover assets rather than duplicating them.
-
-Images have correctly applied orientation and stripped metadata in the web copies, with small thumbnails and larger images selected responsively. Videos use browser-ready H.264 MP4. Original source files are untouched in the separate archive.
-
-The existing zero-byte `controller-cad.webp` was removed from the gallery. Other existing images, diagrams, project links, and the resume PDF were retained. The optional resume-regeneration script and font binaries are not part of this edition; the actual resume download remains unchanged.
-
-## Edit a photo, caption, or project
-
-Edit the corresponding entry in `content/projects.json`, then run `python build.py`. Each new gallery item uses explicit paths:
+Put the image in `assets/projects/<project-slug>/` and add a gallery object:
 
 ```json
 {
-  "src": "assets/projects/hurc-mars-rover/img_2683.webp",
-  "thumb": "assets/projects/hurc-mars-rover/img_2683-thumb.webp",
-  "caption": "Rover chassis, suspension, and manipulator on a workshop stand.",
-  "width": 1350,
-  "height": 1800,
-  "source": "IMG_2683.JPEG"
+  "src": "assets/projects/desktop-cnc/example.webp",
+  "caption": "An accurate description of this stage of the build.",
+  "width": 1600,
+  "height": 1200
 }
 ```
 
-Use the actual width and height of the larger image. `thumb` is optional; when used by the supplied responsive-image code, create it with a longest edge of 640 pixels. Set `live` to a relative MP4 path to attach a Live Photo clip. `source` is an optional provenance note.
+An optional `thumb` field points to a smaller copy with a maximum dimension of
+640 pixels. Provide the actual full-image dimensions so responsive image sizing
+is correct. Keep images of circuits and CAD readable; the viewer opens the larger
+image without cropping it.
 
-To change the card and cover, update the project's `image`, `imageThumb`, `imageAlt`, `imageType`, and `position` fields. Keep `image` equal to the selected gallery item's `src` for its responsive thumbnail to be reused on the card. Use `position` to tune the crop on cards; the full project cover and gallery viewer preserve the photograph's full aspect ratio.
+### Add a YouTube video
 
-Standalone build videos are objects in the project's `videos` array with `src`, `poster`, `caption`, `width`, and `height` fields. Experience galleries use the same image format in `content/experience.json`.
+Use a `youtube` list on the project:
 
-The builder also accepts the original `["image-name", "Caption"]` gallery format, pointing to `assets/images/image-name.webp`.
-
-## Check before committing
-
-```powershell
-python build.py
-python scripts/check_site.py
+```json
+"youtube": [
+  {"title": "Build demonstration", "url": "https://www.youtube.com/watch?v=VIDEO_ID"}
+]
 ```
 
-The offline checker validates page links, responsive images, gallery paths, video paths and posters, titles, project relationships, source-file accounting, and the resume file. See `REVIEW-NOTES.md` for the browser checks performed for this edition. `ORIGINAL-CONTENT-NOTES.md` preserves the prior edition's content-review notes as historical context; its media-gap descriptions no longer reflect this update.
+The generator accepts watch, youtu.be, and Shorts links. It preserves supported
+start-time parameters. Videos load into the page only after a click; a direct
+YouTube link remains below each player. A project image is used as the preview,
+not a downloaded YouTube thumbnail. An optional local `poster` image can override
+that preview.
+
+For a standalone MP4, use the existing `videos` entries as a template. Include a
+poster image, caption, and the video's actual width and height. No Live Photo
+controls are generated.
+
+### Keep draft entries off the index
+
+`"listed": false` keeps an entry out of the project grid. The old custom-drives
+entry now also uses `"redirectTo": "precision-angular-positioning"`, preserving
+its URL while directing visitors to the complete Rubin Observatory project.
+Use `"status": "ongoing"` for a visible current-work badge on a card and page.
+
+### Put a photo beside the relevant explanation
+
+A project section may include an `images` list using the same objects as its
+`gallery`. A section may also include `links` as `[label, URL]` pairs. Keep the
+image in the main gallery too: the viewer deduplicates it automatically.
+
+Experience pages can use a `sectionMedia` object whose keys are zero-based
+section numbers, as shown on the HURC experience page. The About page is driven
+by `aboutSections`, `aboutFacts`, and `aboutSkills` in `profile.json`.
+
+## Files and checks
+
+`content/source-map.json` records the source documents used for each write-up.
+`content/media-manifest.json` tracks 25 additional images/drawings, the latest
+media assignments, and all 174 files in the earlier original-photo archive.
+The original photo bytes remain in the separate originals archive; this website
+contains web-ready copies. Do not upload the originals ZIP as part of the site.
+
+`PROJECT-COPY.md` is an easy-to-read export of the project/experience/About text.
+Edit the JSON rather than that export to change the actual website.
+`REVIEW-NOTES.md` lists remaining source ambiguities and the SpaceX scope.
+`QA-REPORT.md` records the testing and external-playback limitation.
+
+The included resume is the exact new `Grant-Kaufmann-Resume(1).pdf`. It replaces
+the old PDF and contains the correct May-August 2026 SpaceX timeline. Its SHA-256
+is stored in `content/profile.json`; update `resumeSha256` when deliberately
+replacing the PDF, then run the checker again.
+
+This folder is a complete replacement website, not a patch. All generated HTML,
+content JSON, media, build scripts, and preview scripts are included.
