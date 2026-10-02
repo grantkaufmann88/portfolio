@@ -177,12 +177,12 @@ def main():
         errors.append('Resume differs from the user-supplied PDF for this edition')
     video_sources = {video['src'] for project in projects for video in project.get('videos', [])}
     actual_videos = {path.relative_to(ROOT).as_posix() for path in ROOT.rglob('*.mp4')}
-    if actual_videos != video_sources or len(video_sources) != 6:
-        errors.append('Expected six referenced standalone project videos, with no orphan files')
+    if actual_videos != video_sources or len(video_sources) != 7:
+        errors.append('Expected seven referenced standalone project videos, with no orphan files')
     for project in projects:
         if project.get('status') == 'ongoing':
             html = (ROOT / 'projects' / (project['slug'] + '.html')).read_text(encoding='utf-8')
-            if 'class="status-badge">Ongoing</span>' not in html:
+            if f'class="status-badge">{project.get("statusLabel", "Ongoing")}</span>' not in html:
                 errors.append('Missing current-project badge: ' + project['slug'])
         if project.get('redirectTo') and project['redirectTo'] not in slugs:
             errors.append('Unknown redirect destination: ' + project['slug'])

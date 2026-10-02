@@ -132,7 +132,7 @@ def card(p: dict, prefix: str = '', heading: int = 3) -> str:
 
 
 def status_badge(p: dict) -> str:
-    return '<span class="status-badge">Ongoing</span>' if p.get('status') == 'ongoing' else ''
+    return f'<span class="status-badge">{e(p.get("statusLabel", "Ongoing"))}</span>' if p.get('status') == 'ongoing' else ''
 
 
 def article_media(items: list, prefix: str = '../') -> str:
@@ -292,7 +292,7 @@ def project_pages() -> None:
         skills = '<div class="sidebar-group"><h2>Tools &amp; skills</h2><p>' + e(', '.join(p.get('tools', []))) + '</p></div>' if p.get('tools') else ''
         resources = '<div class="sidebar-group"><h2>Resources</h2>' + ''.join(link(url, label, prefix) for label, url in p.get('links', [])) + '</div>' if p.get('links') else ''
         sidebar = f'<aside class="article-sidebar"><nav class="page-contents" aria-label="On this page"><h2>In this project</h2>{toc}</nav>{skills}{resources}</aside>'
-        body = f'''<div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../projects.html">All projects</a><span aria-hidden="true">/</span><span aria-current="page">{e(p['title'])}</span></nav><section class="project-hero{' text-only' if not media else ''}"><div class="project-hero-copy">{title_info}{status_badge(p)}<h1>{e(p['title'])}</h1><p class="intro-text">{e(p['summary'])}</p>{meta}{experience_link}<div class="jump-links">{''.join(jump)}</div></div>{cover}</section>{metrics}{videos_markup(p)}<div class="article-layout" id="overview">{sidebar}<article class="prose" aria-label="Project description">{article_sections}</article></div>{gallery_markup(p.get('gallery', []))}</div>{related(p.get('related', []))}{lightbox() if p.get('gallery') else ''}'''
+        body = f'''<div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../projects.html">All projects</a><span aria-hidden="true">/</span><span aria-current="page">{e(p['title'])}</span></nav><section class="project-hero{' text-only' if not media else ''}"><div class="project-hero-copy">{title_info}{status_badge(p)}<h1>{e(p['title'])}</h1><p class="intro-text">{e(p['summary'])}</p>{meta}{experience_link}<div class="jump-links">{''.join(jump)}</div></div>{cover}</section>{metrics}{videos_markup(p)}<div class="article-layout" id="overview">{sidebar}<article class="prose" aria-label="Project description">{article_sections}</article></div>{gallery_markup(p.get('gallery', []))}</div>{related(p.get('related', []))}{lightbox() if p.get('gallery') or any(section.get('images') for section in p.get('sections', [])) else ''}'''
         write(f'projects/{p["slug"]}.html', shell(p['title'], p['summary'], body, 'projects', prefix))
 
 

@@ -1,5 +1,5 @@
 {
-  "edition": "Personal photos update, September 2026",
+  "edition": "vera-rubin-actuator-update-2026-10-02",
   "new_images": [
     {
       "project": "geophone-vibration-tester",
@@ -225,6 +225,78 @@
       "width": 2000,
       "height": 1500,
       "source": "Project and Website Monologue.docx / word/media/image3.jpg"
+    },
+    {
+      "project": "precision-angular-positioning",
+      "src": "assets/projects/precision-angular-positioning/system-cad.webp",
+      "thumb": "assets/projects/precision-angular-positioning/system-cad-thumb.webp",
+      "caption": "Complete two-axis actuator and transducer-array assembly in CAD.",
+      "width": 974,
+      "height": 964,
+      "source": "Screenshot 2026-10-01 222655.png"
+    },
+    {
+      "project": "precision-angular-positioning",
+      "src": "assets/projects/precision-angular-positioning/system-cad-alt.webp",
+      "thumb": "assets/projects/precision-angular-positioning/system-cad-alt-thumb.webp",
+      "caption": "Alternate CAD view showing the transducer array, upper stepper axis, and control board.",
+      "width": 974,
+      "height": 1106,
+      "source": "Screenshot 2026-10-01 223434.png"
+    },
+    {
+      "project": "precision-angular-positioning",
+      "src": "assets/projects/precision-angular-positioning/strain-wave-top.webp",
+      "thumb": "assets/projects/precision-angular-positioning/strain-wave-top-thumb.webp",
+      "caption": "Top view of the custom printed strain-wave gearbox with integrated bearing tracks.",
+      "width": 1086,
+      "height": 1072,
+      "source": "Screenshot 2026-10-01 224037.png"
+    },
+    {
+      "project": "precision-angular-positioning",
+      "src": "assets/projects/precision-angular-positioning/strain-wave-perspective.webp",
+      "thumb": "assets/projects/precision-angular-positioning/strain-wave-perspective-thumb.webp",
+      "caption": "Perspective CAD view of the compact strain-wave gearbox and its internal gearing.",
+      "width": 1172,
+      "height": 722,
+      "source": "Screenshot 2026-10-01 224100.png"
+    },
+    {
+      "project": "precision-angular-positioning",
+      "src": "assets/projects/precision-angular-positioning/controller-schematic.webp",
+      "thumb": "assets/projects/precision-angular-positioning/controller-schematic-thumb.webp",
+      "caption": "Control-board schematic: joystick and capacitive-touch interface, ATtiny1604, USB interface, and 12 V signal driver.",
+      "width": 1788,
+      "height": 1228,
+      "source": "Screenshot 2026-10-01 224627.png"
+    },
+    {
+      "project": "precision-angular-positioning",
+      "src": "assets/projects/precision-angular-positioning/actuator-schematic.webp",
+      "thumb": "assets/projects/precision-angular-positioning/actuator-schematic-thumb.webp",
+      "caption": "Actuator-board schematic with ATtiny1604 control and two DRV8434A stepper drivers.",
+      "width": 1316,
+      "height": 914,
+      "source": "Screenshot 2026-10-01 225522.png"
+    },
+    {
+      "project": "precision-angular-positioning",
+      "src": "assets/projects/precision-angular-positioning/control-pcb-layout.webp",
+      "thumb": "assets/projects/precision-angular-positioning/control-pcb-layout-thumb.webp",
+      "caption": "PCB layout for the two-axis robot control board.",
+      "width": 1538,
+      "height": 1138,
+      "source": "Screenshot 2026-10-01 225556.png"
+    },
+    {
+      "project": "precision-angular-positioning",
+      "src": "assets/projects/precision-angular-positioning/control-pcb-render.webp",
+      "thumb": "assets/projects/precision-angular-positioning/control-pcb-render-thumb.webp",
+      "caption": "3D render of the two-axis robot control board with joystick and external connections.",
+      "width": 1524,
+      "height": 864,
+      "source": "Screenshot 2026-10-01 225624.png"
     }
   ],
   "reassigned_originals": {
@@ -265,7 +337,7 @@
     "63321396521__1e7bc2e4-9b7a-42e0-906d-a67b0ae54c6e.mp4",
     "img_2779.mp4"
   ],
-  "note": "The original 174-file inventory and previous monologue media remain intact. Ten further personal photographs are recorded under personal_photos; each is stored once as a web-ready image with a smaller thumbnail. Uploaded originals are not modified. No EXIF or location metadata is copied into these new website images.",
+  "note": "Adds the October 2026 Vera Rubin actuator narration, CAD/electronics images, and prototype video; Rubin and drone are marked as current work.",
   "original_photo_inventory": [
     {
       "number": 1,

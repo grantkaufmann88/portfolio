@@ -1,6 +1,88 @@
-# Website copy - monologue edition
+# Website copy - current edition
 
-Readable export of the website text. Edit content/*.json and rebuild to change the site.
+Readable export of `content/projects.json`. Edit the JSON and rebuild to change the site.
+
+## Vera Rubin Observatory transducer positioning system
+
+An ongoing two-axis robotic actuator, custom strain-wave drive, and control system for precisely aiming an ultrasonic time-of-flight temperature-measurement array.
+
+**Role:** Mechanical, electronics, and control-system design, Rowland Institute
+
+**Status:** Currently Working On
+
+### Why this measurement matters
+
+Vera C. Rubin Observatory sits on Cerro Pachon in Chile and uses the 8.4-meter Simonyi Survey Telescope and 3.2-gigapixel LSST Camera to repeatedly image the southern sky. The observatory began its ten-year Legacy Survey of Space and Time in 2026. Harvard professor Christopher Stubbs, Rubin's inaugural project scientist, leads a group working with the observatory.
+
+The instrument I am helping develop is aimed at a different but related problem: characterizing the air above the telescope optics. Temperature changes alter air density and therefore the optical path through the atmosphere. The proposed measurement sends directional ultrasonic pulses across the telescope and uses time of flight to infer the temperature along the path. My work is on the ultrasonic array, its positioning actuator, and the control electronics - not the telescope pointing system itself.
+
+### Turning a measurement requirement into a robotics problem
+
+The basic measurement only requires the transducer array to be aimed over a small angular range, and a geared servo linkage could have met that need. I chose to use the project as an opportunity to build a more general two-degree-of-freedom actuator that can be positioned remotely through a full rotation.
+
+The target pointing accuracy is 0.1 degree. That is a design requirement agreed on with the researchers, not a measured accuracy result yet. Multiple retroreflectors around the telescope are a possible extension for sampling several paths through the air, but that is a nice-to-have rather than a requirement.
+
+### Designing a printable 50:1 strain-wave drive
+
+Each axis uses a NEMA 17 stepper motor and a custom 50:1 strain-wave gearbox. With a 200-step-per-revolution motor, one full motor step corresponds to a theoretical output increment of about 0.036 degree before accounting for backlash, compliance, print error, and microstepping behavior.
+
+I chose a printed strain-wave drive because commercial metal units are expensive and difficult to manufacture from scratch, and because the geometry was a useful design challenge. The flex spline has 98 teeth against a 100-tooth fixed spline. Instead of coupling the output directly through a long cup-shaped flex spline, I separated the output and used a second 98-tooth interface. The goal is to keep deformation localized and reduce the layer-line stresses that concern me in a printed cup.
+
+### Integrating the bearings instead of packaging catalog parts
+
+The gearbox uses printed bearing races with loose steel bearing balls rather than conventional packaged bearings in several locations. Ball arrays around the elliptical wave generator let the flex spline move smoothly while keeping the assembly compact.
+
+I also used thrust-bearing arrangements to react axial loading and the overturning moment from the transducer assembly. One external bearing helps hold the assembly together in tension while internal bearings resist compression. I may move toward tapered or deep-groove bearings in a later version as I learn more from the load path and prototype behavior.
+
+### FDM first, then resin - and a new DFM problem
+
+I deliberately made the first gearbox in FDM because it was fast and inexpensive. It proved the basic geometry, but friction and tolerance variation were high, especially around the small tooth profiles. I then adjusted the clearances and moved the design to tough resin.
+
+The resin version improved feature definition but introduced a different problem: parts warped because the geometry had originally been designed around FDM. I am now redesigning those parts for resin manufacturing rather than treating the new process as a drop-in replacement. The video above shows the resin-printed gearbox prototype.
+
+### Two boards, two axes, and one cable carrying power and commands
+
+The actuator uses two NEMA 17 motors and custom electronics. The actuator board schematic uses an ATtiny1604 microcontroller and two DRV8434A stepper drivers. A separate hand-control board uses another ATtiny1604, a CAP1298 capacitive-touch controller, a joystick, an LCD connection, USB through a CH340C, and a UCC27211 half-bridge gate driver with IRLR7843 MOSFETs to switch the 12 V line.
+
+A packaging constraint from the lab was to use a long DC twisted pair for both power and commands. My approach is to encode a one-wire UART signal by switching the 12 V supply. At the actuator, a diode and reservoir capacitance maintain DC power while a high-pass path and comparator recover the data transitions. I selected a relatively high signaling rate so the energy-storage capacitor can remain practical. The exact data rate is still being finalized in firmware; the narration included conflicting 100 kHz / 100 bit-per-second wording, so I am not publishing an unverified baud-rate number.
+
+### Open-loop positioning, with a laser for setup and validation
+
+I chose not to add absolute encoders at this stage. The load is light, the stepper reduction gives substantial holding torque, and the array can be manually referenced at setup. From that known position, the controller can track relative motion as long as the motors do not miss steps. A laser mounted with the array provides a practical aiming reference.
+
+To validate the 0.1-degree requirement, I plan to rigidly mount the actuator and use a long-baseline laser test. I will command individual steps, measure the laser-spot displacement on a distant target, convert that displacement to angle, and repeat the test in both directions. Direction reversals will let me quantify backlash and hysteresis rather than treating theoretical step size as achieved accuracy.
+
+### Where the project is now
+
+The mechanical concept has progressed through FDM and resin gearbox prototypes, and the complete two-axis assembly, control board, and actuator board have been designed. As of this update, I am waiting for the two PCBs to be fabricated, revising the resin parts for manufacturability, and beginning firmware for the control system.
+
+The hand controller is designed around a joystick, capacitive-touch inputs, and an LCD that will show commanded angular position and system status. The finished accuracy, reliability, and temperature-measurement performance remain to be demonstrated; those are the next tests, not claims about the current prototype.
+
+## Micro swarming drone
+
+An ongoing low-cost drone design with custom electronics and a camera, aimed at autonomous landing, charging, and cooperative tasks.
+
+**Role:** Independent project
+
+**Status:** Currently Working On
+
+### Making each drone inexpensive enough to work in a group
+
+I am developing a small drone around a simple goal: make an individual vehicle inexpensive enough that several can work together. My current high-volume cost estimate is about $22 per drone, and I am still trying to reduce it. That is an estimate for the design, not the purchase price of a completed product.
+
+The longer-term idea is for drones to swap tasks while others land or recharge, instead of depending on a single vehicle to stay airborne indefinitely.
+
+### Integrating the electronics and camera
+
+The design combines STM32 and ESP32 processing with an OV2640 camera. The custom flight-control electronics and drivers need to fit into a compact central board, surrounded by a lightweight frame and propeller guards.
+
+The earlier design targeted a mass of approximately 52 g and a board under 5 cm across. The CAD and board images show the packaging work; they are not evidence of a finished autonomous fleet.
+
+### What remains to be demonstrated
+
+This is still an early-stage project. Automatic takeoff, landing, charging, coordinated tasks, and a flight time of about 20 minutes are goals. They have not yet been demonstrated as an integrated system.
+
+The current work is on the aircraft and its custom electronics. Reliable autonomous operation is the next layer, not a capability I am claiming for the prototype today.
 
 ## Budget e-bike conversion kit
 
@@ -127,6 +209,10 @@ Building Harvard's Mars rover while mentoring its electrical team and helping de
 **Role:** Vice President; science-module mechanical work, electronics integration, and team mentoring
 
 **Status:** Team rover and science-module integration in progress
+
+### About the University Rover Challenge
+
+The University Rover Challenge is an international student robotics competition held annually in the desert of southern Utah. Teams design and build Mars-rover prototypes for demanding field tasks. Our rover is being developed for that challenge.
 
 ### Joining a new team
 
@@ -496,32 +582,6 @@ That was an operating point, not the end of development. The same progress recor
 
 This work gave me hands-on experience with magnetics and high-voltage instrumentation beyond the motor controllers I had built independently.
 
-## Micro swarming drone
-
-An ongoing low-cost drone design with custom electronics and a camera, aimed at autonomous landing, charging, and cooperative tasks.
-
-**Role:** Independent project
-
-**Status:** Early design: autonomous operation remains a goal
-
-### Making each drone inexpensive enough to work in a group
-
-I am developing a small drone around a simple goal: make an individual vehicle inexpensive enough that several can work together. My current high-volume cost estimate is about $22 per drone, and I am still trying to reduce it. That is an estimate for the design, not the purchase price of a completed product.
-
-The longer-term idea is for drones to swap tasks while others land or recharge, instead of depending on a single vehicle to stay airborne indefinitely.
-
-### Integrating the electronics and camera
-
-The design combines STM32 and ESP32 processing with an OV2640 camera. The custom flight-control electronics and drivers need to fit into a compact central board, surrounded by a lightweight frame and propeller guards.
-
-The earlier design targeted a mass of approximately 52 g and a board under 5 cm across. The CAD and board images show the packaging work; they are not evidence of a finished autonomous fleet.
-
-### What remains to be demonstrated
-
-This is still an early-stage project. Automatic takeoff, landing, charging, coordinated tasks, and a flight time of about 20 minutes are goals. They have not yet been demonstrated as an integrated system.
-
-The current work is on the aircraft and its custom electronics. Reliable autonomous operation is the next layer, not a capability I am claiming for the prototype today.
-
 ## ES51 Turf Wars robot
 
 A six-wheel course robot with a compliant two-speed shifter and an extended-reach arm, built for Turf Wars.
@@ -529,6 +589,10 @@ A six-wheel course robot with a compliant two-speed shifter and an extended-reac
 **Role:** Team project; my focus was drivetrain, shifting mechanism, and arm design
 
 **Status:** Competed; drivetrain worked, but arm friction ended our run in the first round
+
+### About Turf Wars
+
+Turf Wars is the robot competition associated with Harvard's ES51 course. Teams design, build, and test remote-controlled machines for a game whose challenge changes between offerings. Harvard SEAS introduces the competition in the video linked below.
 
 ### Starting with the game, not an existing robot
 
@@ -617,174 +681,3 @@ To stop it, I had to walk across the room and hold a finger on the touchscreen f
 ### A personal installation
 
 The controller was built and installed in my room. It included switching for the existing room lights as well as low-voltage devices; it was a personal prototype, not a certified or packaged home-automation product. The photographs show the progression from exposed prototype wiring to the mounted display and enclosure.
-
-## Rubin Observatory temperature measurements
-
-Ongoing development of ultrasonic measurement hardware and a printed strain-wave positioning drive for an air-temperature instrument.
-
-**Role:** Array-board and mechanical positioning design, Rowland Institute
-
-**Status:** Ongoing: array electronics and low-backlash positioning prototypes
-
-### A new application for the transducer array
-
-At the Rowland Institute, I am helping develop hardware for time-of-flight air-temperature measurements at Vera C. Rubin Observatory in Chile. The proposed instrument sends ultrasonic pulses across the telescope and uses their travel time as part of the temperature measurement.
-
-Winfield Hill asked me to design a board based on the transducer-array work I had done for Physics 15C, together with a mechanism that could aim the array remotely. My work is on that measurement hardware, not on pointing the telescope itself.
-
-### A low-cost mechanism for precise aiming
-
-The positioning requirement is about a tenth of a degree. To keep the mechanism inexpensive, I chose a stepper-driven, custom printed strain-wave gearbox. Earlier experiments with printed cycloidal drives and integrated bearing tracks gave me a starting point.
-
-The printed-drive approach lets me make geometries that would be difficult to machine, with plastic components and separate bearing balls. It also makes it relatively quick to change a tooth profile, a clearance, or a part of the housing and test another version.
-
-### Trading backlash against friction
-
-The central tradeoff has been between backlash and friction. Tightening the fit reduces lost motion when the drive reverses, but also makes it harder to turn. My current prototypes show very little apparent backlash, with more friction than I would like.
-
-I am still working on that compromise, including trying resin printing in place of FDM. The tenth-of-a-degree figure is the aiming requirement; I have not yet established a calibrated accuracy result for the finished system. The electronics, drive, and complete temperature instrument are still in development.
-
-### From class project to research instrument
-
-The directional-sound array and this instrument share an idea, but have different requirements. The classroom project explored a beam of audible sound. Here, the aim is repeatable positioning and useful pulse timing in a larger measurement system.
-
-That transition is what interests me: taking something I learned by building independently and adapting it to a researcher's measurement problem.
-
-## Experience: Harvard Rowland Institute
-
-Undergraduate Research Fellow | 2024-present
-
-### Building instruments for other researchers
-
-I work in the electrical engineering laboratory of Winfield Hill and Professor Paul Horowitz at Harvard's Rowland Institute. I began in May 2024, near the end of high school, and have continued alongside my undergraduate studies. The work combines electronic and mechanical design for researchers who need a particular instrument rather than an off-the-shelf product.
-
-### Four different laboratory needs
-
-My projects include a geophone vibration test stand, an adjustable high-voltage supply for vacuum-tube work, the lab's parts and equipment directory, and ongoing transducer-array and positioning hardware for temperature measurements at Rubin Observatory.
-
-The requirements are different, but the process is similar: understand the measurement need, build a model or prototype, and work through the details that the first design did not capture.
-
-### Analysis, fabrication, and feedback
-
-For the geophone stand, I replaced a mechanically noisy actuator with a hand-wound electromagnetic drive and tuned printed springs. For the power supply, I worked on the PCB and magnetic components together. The Rubin project now brings my independent work on transducer arrays and printed gearboxes into the lab.
-
-I enjoy that connection between making something with my own hands and helping another person carry out an experiment.
-
-## Experience: SpaceX
-
-Electrical Integration Intern | May-August 2026
-
-### Starlink Aviation
-
-Most of my technical work is not something I can share in detail here. During summer 2026, I worked with the Starlink Aviation electrical integration team in the Seattle area, supporting component qualification and aircraft installation work.
-
-The internship gave me responsibility for hardware beyond my own prototypes and a closer view of how design, testing, and installation fit together. My resume provides a high-level summary of the work.
-
-### Driving across the country
-
-Before the internship, I drove across the country to Seattle. The trip turned the move into an opportunity to explore, spend time outdoors, and see places I had not been before.
-
-### A house full of roommates and side projects
-
-I lived with seven roommates, and my habit of building things followed me home. I designed a double-decker couch so more of us could fit upstairs to watch TV.
-
-### Giving the house intercom Bluetooth
-
-I adapted the house intercom to accept Bluetooth audio so we could play music throughout the house.
-
-The couch and intercom were personal projects outside SpaceX, not company work. They capture another part of the summer: living with friends, finding things to improve, and building for the people around me.
-
-### Weekends outdoors
-
-Hiking and time with friends remained a large part of the summer outside work.
-
-### What I took away
-
-I valued the responsibility and the chance to learn from the team. Outside the office, the road trip, hiking, and shared house made the summer just as memorable. Both sides of it reinforced how much I enjoy making things and sharing new experiences with other people.
-
-## Experience: Harvard Undergraduate Robotics Club
-
-Vice President | Ongoing
-
-### Joining early, then helping the team grow
-
-I joined HURC during the spring of my freshman year, when the club was still very new. I initially helped with practical electronics and integration, then became Vice President that summer. Recruiting, fundraising, and teaching became as much a part of the job as hardware.
-
-I have helped the club grow to more than 60 members while trying to keep responsibility spread across the team rather than concentrated in the leadership group.
-
-### Mentoring through a real engineering deliverable
-
-I coached two students on the electrical team through designing the main rover power-distribution board. The board is their design, developed with my guidance. Moving from introductory circuit work to ownership of a subsystem gave them a concrete reason to learn the tools and make decisions.
-
-I also teach CAD and practical PCB design to new members. That project-based approach is similar to the teaching I did in my high-school engineering classes.
-
-### Working with the science team
-
-Over winter break, I supervised the science team and contributed to the mechanical design of the rover's drilling and sample-handling module. That work connected the arm, electronics, and onboard testing goals to hardware that had to be assembled and integrated. The rover project page describes those mechanisms in more detail.
-
-### Leadership I brought from NROTC
-
-NROTC taught me the value of preparation, clear roles, and a chain of responsibility. I have applied those habits to HURC while continuing to learn from the students I teach. Recruiting and onboarding the next group of members is part of making the club last beyond the current rover or leadership team.
-
-## Experience: BU–MIT NROTC Consortium
-
-Former Midshipman | 2024-spring 2026
-
-### An important part of my education
-
-I participated in the BU-MIT NROTC Consortium while studying at Harvard, including training in Great Lakes during summer 2024 and San Diego during summer 2025. I left the program in spring 2026 and am no longer a midshipman.
-
-The experience was demanding mentally and physically, and it became an important source of balance alongside my academic work.
-
-### What stayed with me
-
-NROTC changed how I think about preparation, responsibility, and working with a team. I have carried those lessons into the Harvard Undergraduate Robotics Club, where clear roles and trust in other people matter as much as an individual technical contribution.
-
-It also helped me build habits around exercise and consistency that I have kept after leaving the program.
-
-### A continuing personal connection
-
-I remain close to people I trained with, and the Navy is part of my family as well. Leaving NROTC did not remove its influence on me. It remains an important part of my background and of how I approach both work and the rest of my life.
-
-## Experience: CRLS FIRST Robotics
-
-Captain of Mechanical Design | 2023–2024
-
-### Mechanical design and teaching
-
-As captain of mechanical design for the CRLS FIRST Robotics team in 2023-2024, I helped teach and mentor a group of 25 students working toward the competition robot. The role combined design work with helping new students become comfortable in the workshop.
-
-### Supporting the engineering program
-
-I also served as an engineering teaching assistant, including direct project-based instruction for six students. I helped develop curriculum, participated in faculty interviews, and introduced younger students to the technical programs.
-
-### Staying involved
-
-I later returned to volunteer and mentor with the team. Teaching has remained a meaningful part of engineering for me: explaining a mechanism or helping someone debug their first circuit often makes my own understanding clearer.
-
-## About
-
-### From independent projects to research
-
-I'm a third-year mechanical engineering student at Harvard College, Class of 2028. I design and build machines, electronics, and the tools that bring them together.
-
-My work spans independent projects, research at Harvard's Rowland Institute, a summer 2026 internship with Starlink Aviation at SpaceX, and leadership in the Harvard Undergraduate Robotics Club.
-
-I started by building at home and in the engineering program at Cambridge Rindge and Latin School. A CNC mill made it possible to prototype my own circuit boards; those boards became motor controllers, room automation, and vehicle controls. I still enjoy projects where making one thing gives me a better way to make the next.
-
-### Building with other people
-
-Teaching has become a major part of how I work. I was a teaching assistant in my high-school engineering program, mentored students through FIRST Robotics, and now teach practical circuits and PCB design through HURC.
-
-I enjoy helping someone move from following instructions to taking ownership of a design. My time in NROTC, which ended in spring 2026, continues to influence how I organize a team and prepare for a difficult task.
-
-### Outside the workshop
-
-I am an avid hiker, outdoorsman, and traveler. I have hiked more than 200 miles near the northern end of the Appalachian Trail, and I especially enjoy hiking with my brother. Time in the wilderness is one of the things I return to most consistently.
-
-I have visited 34 states and Puerto Rico and hope to see all 50 states. I also love traveling with friends. I am fluent in Spanish, having attended a Spanish-English dual-immersion school from kindergarten through eighth grade, and I look for opportunities to use it when I travel.
-
-### Keeping a balance
-
-I like being spontaneous, seeing unfamiliar places, and making time for people outside the workshop. I also keep a regular fitness routine. Exercise and time outdoors are not separate from the work I enjoy; they are part of keeping enough energy and perspective to do it well.
-

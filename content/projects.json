@@ -1,5 +1,278 @@
 [
   {
+    "slug": "precision-angular-positioning",
+    "title": "Vera Rubin Observatory transducer positioning system",
+    "category": "Research",
+    "summary": "An ongoing two-axis robotic actuator, custom strain-wave drive, and control system for precisely aiming an ultrasonic time-of-flight temperature-measurement array.",
+    "year": "2026",
+    "role": "Mechanical, electronics, and control-system design, Rowland Institute",
+    "experience": "rowland",
+    "featured": true,
+    "image": "assets/projects/precision-angular-positioning/system-cad.webp",
+    "imageAlt": "CAD model of the two-axis actuator carrying the ultrasonic transducer array.",
+    "imageType": "CAD model",
+    "position": "center",
+    "gallery": [],
+    "videos": [
+      {
+        "src": "assets/projects/precision-angular-positioning/videos/strain-wave-resin-prototype.mp4",
+        "poster": "assets/projects/precision-angular-positioning/videos/strain-wave-resin-prototype-poster.webp",
+        "caption": "Resin-printed strain-wave gearbox prototype in hand testing.",
+        "duration": 17.47,
+        "width": 1280,
+        "height": 720,
+        "source": "IMG_8173.MOV"
+      }
+    ],
+    "links": [
+      [
+        "Rubin Observatory",
+        "https://rubinobservatory.org/about"
+      ],
+      [
+        "Christopher Stubbs at Harvard",
+        "https://www.physics.harvard.edu/people/facpages/stubbs"
+      ],
+      [
+        "Original directional sound array",
+        "projects/transducer-phased-array.html"
+      ]
+    ],
+    "tools": [
+      "SolidWorks",
+      "KiCad",
+      "Strain-wave gearing",
+      "FDM & resin printing",
+      "NEMA 17 steppers",
+      "ATtiny1604",
+      "DRV8434A",
+      "Power/data multiplexing",
+      "Experimental validation"
+    ],
+    "related": [
+      "transducer-phased-array",
+      "geophone-vibration-tester",
+      "vacuum-tube-power-supply"
+    ],
+    "outcome": "Current development: mechanical prototypes complete; control electronics in fabrication",
+    "sections": [
+      {
+        "title": "Turning a measurement requirement into a robotics problem",
+        "text": "The basic measurement only requires the transducer array to be aimed over a small angular range, and a geared servo linkage could have met that need. I chose to use the project as an opportunity to build a more general two-degree-of-freedom actuator that can be positioned remotely through a full rotation.\n\nThe target pointing accuracy is 0.1 degree. That is a design requirement agreed on with the researchers, not a measured accuracy result yet. Multiple retroreflectors around the telescope are a possible extension for sampling several paths through the air, but that is a nice-to-have rather than a requirement.",
+        "images": [
+          {
+            "src": "assets/projects/precision-angular-positioning/system-cad-alt.webp",
+            "thumb": "assets/projects/precision-angular-positioning/system-cad-alt-thumb.webp",
+            "caption": "Alternate CAD view showing the transducer array, upper stepper axis, and control board.",
+            "width": 974,
+            "height": 1106,
+            "source": "Screenshot 2026-10-01 223434.png"
+          }
+        ]
+      },
+      {
+        "title": "Designing a printable 50:1 strain-wave drive",
+        "text": "Each axis uses a NEMA 17 stepper motor and a custom 50:1 strain-wave gearbox. With a 200-step-per-revolution motor, one full motor step corresponds to a theoretical output increment of about 0.036 degree before accounting for backlash, compliance, print error, and microstepping behavior.\n\nI chose a printed strain-wave drive because commercial metal units are expensive and difficult to manufacture from scratch, and because the geometry was a useful design challenge. The flex spline has 98 teeth against a 100-tooth fixed spline. Instead of coupling the output directly through a long cup-shaped flex spline, I separated the output and used a second 98-tooth interface. The goal is to keep deformation localized and reduce the layer-line stresses that concern me in a printed cup.",
+        "images": [
+          {
+            "src": "assets/projects/precision-angular-positioning/strain-wave-top.webp",
+            "thumb": "assets/projects/precision-angular-positioning/strain-wave-top-thumb.webp",
+            "caption": "Top view of the custom printed strain-wave gearbox with integrated bearing tracks.",
+            "width": 1086,
+            "height": 1072,
+            "source": "Screenshot 2026-10-01 224037.png"
+          },
+          {
+            "src": "assets/projects/precision-angular-positioning/strain-wave-perspective.webp",
+            "thumb": "assets/projects/precision-angular-positioning/strain-wave-perspective-thumb.webp",
+            "caption": "Perspective CAD view of the compact strain-wave gearbox and its internal gearing.",
+            "width": 1172,
+            "height": 722,
+            "source": "Screenshot 2026-10-01 224100.png"
+          }
+        ]
+      },
+      {
+        "title": "Integrating the bearings instead of packaging catalog parts",
+        "text": "The gearbox uses printed bearing races with loose steel bearing balls rather than conventional packaged bearings in several locations. Ball arrays around the elliptical wave generator let the flex spline move smoothly while keeping the assembly compact.\n\nI also used thrust-bearing arrangements to react axial loading and the overturning moment from the transducer assembly. One external bearing helps hold the assembly together in tension while internal bearings resist compression. I may move toward tapered or deep-groove bearings in a later version as I learn more from the load path and prototype behavior."
+      },
+      {
+        "title": "FDM first, then resin - and a new DFM problem",
+        "text": "I deliberately made the first gearbox in FDM because it was fast and inexpensive. It proved the basic geometry, but friction and tolerance variation were high, especially around the small tooth profiles. I then adjusted the clearances and moved the design to tough resin.\n\nThe resin version improved feature definition but introduced a different problem: parts warped because the geometry had originally been designed around FDM. I am now redesigning those parts for resin manufacturing rather than treating the new process as a drop-in replacement. The video above shows the resin-printed gearbox prototype."
+      },
+      {
+        "title": "Two boards, two axes, and one cable carrying power and commands",
+        "text": "The actuator uses two NEMA 17 motors and custom electronics. The actuator board schematic uses an ATtiny1604 microcontroller and two DRV8434A stepper drivers. A separate hand-control board uses another ATtiny1604, a CAP1298 capacitive-touch controller, a joystick, an LCD connection, USB through a CH340C, and a UCC27211 half-bridge gate driver with IRLR7843 MOSFETs to switch the 12 V line.\n\nA packaging constraint from the lab was to use a long DC twisted pair for both power and commands. My approach is to encode a one-wire UART signal by switching the 12 V supply. At the actuator, a diode and reservoir capacitance maintain DC power while a high-pass path and comparator recover the data transitions. I selected a relatively high signaling rate so the energy-storage capacitor can remain practical. The exact data rate is still being finalized in firmware; the narration included conflicting 100 kHz / 100 bit-per-second wording, so I am not publishing an unverified baud-rate number.",
+        "images": [
+          {
+            "src": "assets/projects/precision-angular-positioning/controller-schematic.webp",
+            "thumb": "assets/projects/precision-angular-positioning/controller-schematic-thumb.webp",
+            "caption": "Control-board schematic: joystick and capacitive-touch interface, ATtiny1604, USB interface, and 12 V signal driver.",
+            "width": 1788,
+            "height": 1228,
+            "source": "Screenshot 2026-10-01 224627.png"
+          },
+          {
+            "src": "assets/projects/precision-angular-positioning/actuator-schematic.webp",
+            "thumb": "assets/projects/precision-angular-positioning/actuator-schematic-thumb.webp",
+            "caption": "Actuator-board schematic with ATtiny1604 control and two DRV8434A stepper drivers.",
+            "width": 1316,
+            "height": 914,
+            "source": "Screenshot 2026-10-01 225522.png"
+          }
+        ]
+      },
+      {
+        "title": "Open-loop positioning, with a laser for setup and validation",
+        "text": "I chose not to add absolute encoders at this stage. The load is light, the stepper reduction gives substantial holding torque, and the array can be manually referenced at setup. From that known position, the controller can track relative motion as long as the motors do not miss steps. A laser mounted with the array provides a practical aiming reference.\n\nTo validate the 0.1-degree requirement, I plan to rigidly mount the actuator and use a long-baseline laser test. I will command individual steps, measure the laser-spot displacement on a distant target, convert that displacement to angle, and repeat the test in both directions. Direction reversals will let me quantify backlash and hysteresis rather than treating theoretical step size as achieved accuracy."
+      },
+      {
+        "title": "Where the project is now",
+        "text": "The mechanical concept has progressed through FDM and resin gearbox prototypes, and the complete two-axis assembly, control board, and actuator board have been designed. As of this update, I am waiting for the two PCBs to be fabricated, revising the resin parts for manufacturability, and beginning firmware for the control system.\n\nThe hand controller is designed around a joystick, capacitive-touch inputs, and an LCD that will show commanded angular position and system status. The finished accuracy, reliability, and temperature-measurement performance remain to be demonstrated; those are the next tests, not claims about the current prototype.",
+        "images": [
+          {
+            "src": "assets/projects/precision-angular-positioning/control-pcb-layout.webp",
+            "thumb": "assets/projects/precision-angular-positioning/control-pcb-layout-thumb.webp",
+            "caption": "PCB layout for the two-axis robot control board.",
+            "width": 1538,
+            "height": 1138,
+            "source": "Screenshot 2026-10-01 225556.png"
+          },
+          {
+            "src": "assets/projects/precision-angular-positioning/control-pcb-render.webp",
+            "thumb": "assets/projects/precision-angular-positioning/control-pcb-render-thumb.webp",
+            "caption": "3D render of the two-axis robot control board with joystick and external connections.",
+            "width": 1524,
+            "height": 864,
+            "source": "Screenshot 2026-10-01 225624.png"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      "vera_rubin_actuator_raw_conversation.txt",
+      "Vera rubin telescope pictures.zip",
+      "Website Changes_.pdf",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "periodLabel": "2026 - present",
+    "status": "ongoing",
+    "metrics": [
+      [
+        "0.1 degree",
+        "Pointing-accuracy requirement"
+      ],
+      [
+        "0.036 degree",
+        "Theoretical full-step output increment"
+      ],
+      [
+        "50:1",
+        "Custom strain-wave reduction"
+      ]
+    ],
+    "context": {
+      "title": "Why this measurement matters",
+      "text": "Vera C. Rubin Observatory sits on Cerro Pachon in Chile and uses the 8.4-meter Simonyi Survey Telescope and 3.2-gigapixel LSST Camera to repeatedly image the southern sky. The observatory began its ten-year Legacy Survey of Space and Time in 2026. Harvard professor Christopher Stubbs, Rubin's inaugural project scientist, leads a group working with the observatory.\n\nThe instrument I am helping develop is aimed at a different but related problem: characterizing the air above the telescope optics. Temperature changes alter air density and therefore the optical path through the atmosphere. The proposed measurement sends directional ultrasonic pulses across the telescope and uses time of flight to infer the temperature along the path. My work is on the ultrasonic array, its positioning actuator, and the control electronics - not the telescope pointing system itself.",
+      "links": [
+        [
+          "Rubin Observatory overview",
+          "https://rubinobservatory.org/about"
+        ],
+        [
+          "Harvard: Christopher Stubbs",
+          "https://www.physics.harvard.edu/people/facpages/stubbs"
+        ]
+      ]
+    },
+    "imageThumb": "assets/projects/precision-angular-positioning/system-cad-thumb.webp",
+    "statusLabel": "Currently Working On"
+  },
+  {
+    "slug": "micro-swarming-drone",
+    "title": "Micro swarming drone",
+    "category": "Robotics",
+    "summary": "An ongoing low-cost drone design with custom electronics and a camera, aimed at autonomous landing, charging, and cooperative tasks.",
+    "year": "2026",
+    "tools": [
+      "PCB design",
+      "STM32",
+      "ESP32",
+      "OV2640 camera",
+      "Mechanical design",
+      "Embedded electronics"
+    ],
+    "sections": [
+      {
+        "title": "Making each drone inexpensive enough to work in a group",
+        "text": "I am developing a small drone around a simple goal: make an individual vehicle inexpensive enough that several can work together. My current high-volume cost estimate is about $22 per drone, and I am still trying to reduce it. That is an estimate for the design, not the purchase price of a completed product.\n\nThe longer-term idea is for drones to swap tasks while others land or recharge, instead of depending on a single vehicle to stay airborne indefinitely."
+      },
+      {
+        "title": "Integrating the electronics and camera",
+        "text": "The design combines STM32 and ESP32 processing with an OV2640 camera. The custom flight-control electronics and drivers need to fit into a compact central board, surrounded by a lightweight frame and propeller guards.\n\nThe earlier design targeted a mass of approximately 52 g and a board under 5 cm across. The CAD and board images show the packaging work; they are not evidence of a finished autonomous fleet."
+      },
+      {
+        "title": "What remains to be demonstrated",
+        "text": "This is still an early-stage project. Automatic takeoff, landing, charging, coordinated tasks, and a flight time of about 20 minutes are goals. They have not yet been demonstrated as an integrated system.\n\nThe current work is on the aircraft and its custom electronics. Reliable autonomous operation is the next layer, not a capability I am claiming for the prototype today."
+      }
+    ],
+    "featured": true,
+    "related": [
+      "hurc-mars-rover",
+      "custom-drives"
+    ],
+    "gallery": [
+      {
+        "src": "assets/projects/micro-swarming-drone/drone-frame.webp",
+        "thumb": "assets/projects/micro-swarming-drone/drone-frame-thumb.webp",
+        "caption": "Drone frame concept with central electronics and propeller guards.",
+        "width": 1482,
+        "height": 1043,
+        "source": "lab-slide-12-image-03.png"
+      },
+      {
+        "src": "assets/projects/micro-swarming-drone/flight-controller.webp",
+        "thumb": "assets/projects/micro-swarming-drone/flight-controller-thumb.webp",
+        "caption": "Custom flight-controller board model.",
+        "width": 1198,
+        "height": 1043,
+        "source": "lab-slide-13-image-02.png"
+      }
+    ],
+    "links": [],
+    "role": "Independent project",
+    "image": "assets/projects/micro-swarming-drone/drone-frame.webp",
+    "imageAlt": "Drone frame concept with central electronics and propeller guards.",
+    "imageType": "CAD model",
+    "position": "center",
+    "outcome": "Early design: autonomous operation remains a goal",
+    "sources": [
+      "E.E. Lab Shenanagans.pptx, slides 12-13",
+      "Grant_Kaufmann_Resume_SpaceX.pdf",
+      "Project and Website Monologue.docx"
+    ],
+    "videos": [],
+    "imageThumb": "assets/projects/micro-swarming-drone/drone-frame-thumb.webp",
+    "periodLabel": "2026",
+    "status": "ongoing",
+    "metrics": [
+      [
+        "~$22",
+        "Current high-volume cost estimate"
+      ],
+      [
+        "20 min",
+        "Flight-time goal"
+      ],
+      [
+        "52 g",
+        "Earlier design mass target"
+      ]
+    ],
+    "statusLabel": "Currently Working On"
+  },
+  {
     "slug": "budget-ebike",
     "title": "Budget e-bike conversion kit",
     "category": "Electronics",
@@ -2293,88 +2566,6 @@
     "redirectTo": "precision-angular-positioning"
   },
   {
-    "slug": "micro-swarming-drone",
-    "title": "Micro swarming drone",
-    "category": "Robotics",
-    "summary": "An ongoing low-cost drone design with custom electronics and a camera, aimed at autonomous landing, charging, and cooperative tasks.",
-    "year": "2026",
-    "tools": [
-      "PCB design",
-      "STM32",
-      "ESP32",
-      "OV2640 camera",
-      "Mechanical design",
-      "Embedded electronics"
-    ],
-    "sections": [
-      {
-        "title": "Making each drone inexpensive enough to work in a group",
-        "text": "I am developing a small drone around a simple goal: make an individual vehicle inexpensive enough that several can work together. My current high-volume cost estimate is about $22 per drone, and I am still trying to reduce it. That is an estimate for the design, not the purchase price of a completed product.\n\nThe longer-term idea is for drones to swap tasks while others land or recharge, instead of depending on a single vehicle to stay airborne indefinitely."
-      },
-      {
-        "title": "Integrating the electronics and camera",
-        "text": "The design combines STM32 and ESP32 processing with an OV2640 camera. The custom flight-control electronics and drivers need to fit into a compact central board, surrounded by a lightweight frame and propeller guards.\n\nThe earlier design targeted a mass of approximately 52 g and a board under 5 cm across. The CAD and board images show the packaging work; they are not evidence of a finished autonomous fleet."
-      },
-      {
-        "title": "What remains to be demonstrated",
-        "text": "This is still an early-stage project. Automatic takeoff, landing, charging, coordinated tasks, and a flight time of about 20 minutes are goals. They have not yet been demonstrated as an integrated system.\n\nThe current work is on the aircraft and its custom electronics. Reliable autonomous operation is the next layer, not a capability I am claiming for the prototype today."
-      }
-    ],
-    "featured": false,
-    "related": [
-      "hurc-mars-rover",
-      "custom-drives"
-    ],
-    "gallery": [
-      {
-        "src": "assets/projects/micro-swarming-drone/drone-frame.webp",
-        "thumb": "assets/projects/micro-swarming-drone/drone-frame-thumb.webp",
-        "caption": "Drone frame concept with central electronics and propeller guards.",
-        "width": 1482,
-        "height": 1043,
-        "source": "lab-slide-12-image-03.png"
-      },
-      {
-        "src": "assets/projects/micro-swarming-drone/flight-controller.webp",
-        "thumb": "assets/projects/micro-swarming-drone/flight-controller-thumb.webp",
-        "caption": "Custom flight-controller board model.",
-        "width": 1198,
-        "height": 1043,
-        "source": "lab-slide-13-image-02.png"
-      }
-    ],
-    "links": [],
-    "role": "Independent project",
-    "image": "assets/projects/micro-swarming-drone/drone-frame.webp",
-    "imageAlt": "Drone frame concept with central electronics and propeller guards.",
-    "imageType": "CAD model",
-    "position": "center",
-    "outcome": "Early design: autonomous operation remains a goal",
-    "sources": [
-      "E.E. Lab Shenanagans.pptx, slides 12-13",
-      "Grant_Kaufmann_Resume_SpaceX.pdf",
-      "Project and Website Monologue.docx"
-    ],
-    "videos": [],
-    "imageThumb": "assets/projects/micro-swarming-drone/drone-frame-thumb.webp",
-    "periodLabel": "2026",
-    "status": "ongoing",
-    "metrics": [
-      [
-        "~$22",
-        "Current high-volume cost estimate"
-      ],
-      [
-        "20 min",
-        "Flight-time goal"
-      ],
-      [
-        "52 g",
-        "Earlier design mass target"
-      ]
-    ]
-  },
-  {
     "slug": "es51-final-project",
     "title": "ES51 Turf Wars robot",
     "category": "Coursework",
@@ -2721,101 +2912,5 @@
       "Project and Website Monologue.docx"
     ],
     "periodLabel": "2020-2023"
-  },
-  {
-    "slug": "precision-angular-positioning",
-    "title": "Rubin Observatory temperature measurements",
-    "category": "Research",
-    "summary": "Ongoing development of ultrasonic measurement hardware and a printed strain-wave positioning drive for an air-temperature instrument.",
-    "year": "Rowland Institute",
-    "role": "Array-board and mechanical positioning design, Rowland Institute",
-    "experience": "rowland",
-    "featured": false,
-    "image": "",
-    "imageAlt": "",
-    "imageType": "",
-    "position": "center",
-    "gallery": [],
-    "videos": [],
-    "links": [
-      [
-        "About Rubin Observatory",
-        "https://rubinobservatory.org/about"
-      ],
-      [
-        "Observatory photos",
-        "https://rubinobservatory.org/gallery"
-      ],
-      [
-        "Original directional sound array",
-        "projects/transducer-phased-array.html"
-      ]
-    ],
-    "tools": [
-      "Mechanical design",
-      "Strain-wave gearing",
-      "3D printing",
-      "PCB design",
-      "Stepper control"
-    ],
-    "related": [
-      "transducer-phased-array",
-      "geophone-vibration-tester",
-      "vacuum-tube-power-supply"
-    ],
-    "outcome": "Ongoing: array electronics and low-backlash positioning prototypes",
-    "sections": [
-      {
-        "title": "A new application for the transducer array",
-        "text": "At the Rowland Institute, I am helping develop hardware for time-of-flight air-temperature measurements at Vera C. Rubin Observatory in Chile. The proposed instrument sends ultrasonic pulses across the telescope and uses their travel time as part of the temperature measurement.\n\nWinfield Hill asked me to design a board based on the transducer-array work I had done for Physics 15C, together with a mechanism that could aim the array remotely. My work is on that measurement hardware, not on pointing the telescope itself."
-      },
-      {
-        "title": "A low-cost mechanism for precise aiming",
-        "text": "The positioning requirement is about a tenth of a degree. To keep the mechanism inexpensive, I chose a stepper-driven, custom printed strain-wave gearbox. Earlier experiments with printed cycloidal drives and integrated bearing tracks gave me a starting point.\n\nThe printed-drive approach lets me make geometries that would be difficult to machine, with plastic components and separate bearing balls. It also makes it relatively quick to change a tooth profile, a clearance, or a part of the housing and test another version."
-      },
-      {
-        "title": "Trading backlash against friction",
-        "text": "The central tradeoff has been between backlash and friction. Tightening the fit reduces lost motion when the drive reverses, but also makes it harder to turn. My current prototypes show very little apparent backlash, with more friction than I would like.\n\nI am still working on that compromise, including trying resin printing in place of FDM. The tenth-of-a-degree figure is the aiming requirement; I have not yet established a calibrated accuracy result for the finished system. The electronics, drive, and complete temperature instrument are still in development."
-      },
-      {
-        "title": "From class project to research instrument",
-        "text": "The directional-sound array and this instrument share an idea, but have different requirements. The classroom project explored a beam of audible sound. Here, the aim is repeatable positioning and useful pulse timing in a larger measurement system.\n\nThat transition is what interests me: taking something I learned by building independently and adapting it to a researcher's measurement problem."
-      }
-    ],
-    "sources": [
-      "Website Changes_.pdf, page 1",
-      "Grant_Kaufmann_Resume_SpaceX.pdf",
-      "Project and Website Monologue.docx"
-    ],
-    "periodLabel": "Rowland Institute",
-    "status": "ongoing",
-    "metrics": [
-      [
-        "0.1 degree",
-        "Aiming requirement, not validated accuracy"
-      ],
-      [
-        "3D printed",
-        "Strain-wave drive"
-      ],
-      [
-        "Ongoing",
-        "Prototype development"
-      ]
-    ],
-    "context": {
-      "title": "About the observatory",
-      "text": "Vera C. Rubin Observatory is on Cerro Pachon in Chile. Its 8.4-meter Simonyi Survey Telescope repeatedly images the southern sky for the ten-year Legacy Survey of Space and Time.",
-      "links": [
-        [
-          "Source: Rubin Observatory",
-          "https://rubinobservatory.org/about"
-        ],
-        [
-          "Observatory photographs",
-          "https://rubinobservatory.org/gallery"
-        ]
-      ]
-    }
   }
 ]
